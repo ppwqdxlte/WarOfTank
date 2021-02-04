@@ -10,7 +10,7 @@ import java.awt.event.WindowEvent;
  * new 一个Frame窗口
  */
 public class Test01 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         /*Frame frame = new Frame();
         frame.setBackground(Color.lightGray);
         frame.setResizable(false);
@@ -25,5 +25,9 @@ public class Test01 {
         });*/
 
         TankFrame tankFrame = new TankFrame();
+        while (true){
+            Thread.sleep(300);
+            tankFrame.repaint();
+        }
     }
 }
