@@ -38,17 +38,51 @@ public class TankFrame extends Frame {
         y+=30;
     }
     class MyKeyAdapter extends KeyAdapter {
+        private boolean bL = false;
+        private boolean bR = false;
+        private boolean bU = false;
+        private boolean bD = false;
 
         @Override
         public void keyPressed(KeyEvent e) {
-//            repaint();
-            System.out.println("Key pressed..........");
+            int keyCode = e.getKeyCode();
+            switch (keyCode){
+                case KeyEvent.VK_LEFT:
+                    bL = true;
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    bR = true;
+                    break;
+                case KeyEvent.VK_UP:
+                    bU = true;
+                    break;
+                case KeyEvent.VK_DOWN:
+                    bD = true;
+                    break;
+                default:
+                    break;
+            }
         }
 
         @Override
         public void keyReleased(KeyEvent e) {
-//            repaint();
-            System.out.println("Key released..........");
+            int keyCode = e.getKeyCode();
+            switch (keyCode){
+                case KeyEvent.VK_LEFT:
+                    bL = false;
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    bR = false;
+                    break;
+                case KeyEvent.VK_UP:
+                    bU = false;
+                    break;
+                case KeyEvent.VK_DOWN:
+                    bD = false;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

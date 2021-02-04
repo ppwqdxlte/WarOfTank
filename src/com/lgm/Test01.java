@@ -11,23 +11,11 @@ import java.awt.event.WindowEvent;
  */
 public class Test01 {
     public static void main(String[] args) throws InterruptedException {
-        /*Frame frame = new Frame();
-        frame.setBackground(Color.lightGray);
-        frame.setResizable(false);
-        frame.setTitle("坦克大战");
-        frame.setSize(800,600);
-        frame.setVisible(true);
-        frame.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
-            }
-        });*/
-
         TankFrame tankFrame = new TankFrame();
+        /*//不需要自动移动，接下来尝试方向键控制方块的运动
         while (true){
             Thread.sleep(300);
             tankFrame.repaint();
-        }
+        }*/
     }
 }
