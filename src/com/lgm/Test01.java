@@ -7,10 +7,11 @@ import java.awt.event.WindowEvent;
 /**
  * @author:李罡毛
  * @date:2021/2/4 13:13
+ * new 一个Frame窗口
  */
-public class Test {
+public class Test01 {
     public static void main(String[] args) {
-        Frame frame = new Frame();
+        /*Frame frame = new Frame();
         frame.setBackground(Color.lightGray);
         frame.setResizable(false);
         frame.setTitle("坦克大战");
@@ -21,6 +22,8 @@ public class Test {
             public void windowClosing(WindowEvent e) {
                 System.exit(0);
             }
-        });
+        });*/
+
+        TankFrame tankFrame = new TankFrame();
     }
 }
