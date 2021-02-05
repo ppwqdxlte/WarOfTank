@@ -6,10 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.stream.Stream;
 
 import static com.lgm.Dir.*;
 
@@ -24,6 +21,15 @@ public class TankFrame extends Frame {
     private Dir shootingDir = RIGHT;//子弹射出方向
     private static final int GAME_WIDTH = 800,GAME_HEIGHT = 600;
 
+    public int getWidth(){
+        return GAME_WIDTH;
+    }
+    public int getHeight(){
+        return GAME_HEIGHT;
+    }
+    public List<Bullet> getBullets(){
+        return bullets;
+    }
     public TankFrame() throws HeadlessException {
         this.tank = new Tank(40,30, IMMOBILE);
         this.setTitle("坦克大战");
@@ -31,7 +37,7 @@ public class TankFrame extends Frame {
         this.setResizable(false);
         this.setVisible(true);
         //添加键盘监听器
-        this.addKeyListener(new MyKeyAdapter());
+        this.addKeyListener(new MyKeyAdapter(this));
         //添加窗口监听器
         this.addWindowListener(new WindowAdapter() {
             @Override
@@ -68,13 +74,27 @@ public class TankFrame extends Frame {
         g.drawString("子弹的数量："+bullets.size(),10,60);
         g.setColor(c);
         this.tank.paint(g);
+        /*
+        //这里有一个大坑，foreach底层用iterator迭代，而iterator迭代过程中不能执行remove()方法，否则出错，
+        //而传统的fori方法就可以边迭代边删除而不报错！
         for (Bullet b:
              bullets) {
             if (b!=null) b.paint(g);
+        }*/
+        for (int i = 0; i < bullets.size(); i++) {
+            if (bullets.get(i)!=null){
+                bullets.get(i).paint(g);
+            }
         }
     }
 
     class MyKeyAdapter extends KeyAdapter {
+        private final TankFrame tankFrame;
+
+        public MyKeyAdapter(TankFrame tankFrame) {
+            super();
+            this.tankFrame = tankFrame;
+        }
 
         @Override
         public void keyPressed(KeyEvent e) {
@@ -98,7 +118,7 @@ public class TankFrame extends Frame {
 //            repaint();
             //判断子弹方向
             if (keyCode == KeyEvent.VK_CONTROL){
-                Bullet bullet = new Bullet(tank.getX(),tank.getY(),shootingDir);
+                Bullet bullet = new Bullet(tank.getX(),tank.getY(),shootingDir,this.tankFrame);
                 bullets.add(bullet);
             }
         }
@@ -107,5 +127,6 @@ public class TankFrame extends Frame {
         public void keyReleased(KeyEvent e) {
             tank.setDir(IMMOBILE);
         }
+
     }
 }
