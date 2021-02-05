@@ -22,12 +22,12 @@ public class TankFrame extends Frame {
     private final Tank tank ;
     private final List<Bullet> bullets = new ArrayList<>();//弹夹
     private Dir shootingDir = RIGHT;//子弹射出方向
+    private static final int GAME_WIDTH = 800,GAME_HEIGHT = 600;
 
     public TankFrame() throws HeadlessException {
         this.tank = new Tank(40,30, IMMOBILE);
         this.setTitle("坦克大战");
-        this.setSize(800,600);
-        this.setBackground(Color.pink);
+        this.setSize(GAME_WIDTH,GAME_HEIGHT);
         this.setResizable(false);
         this.setVisible(true);
         //添加键盘监听器
@@ -39,6 +39,26 @@ public class TankFrame extends Frame {
                 System.exit(0);
             }
         });
+    }
+
+    private Image offScreenImage = null;
+    /**
+     * 界面防抖
+     * @param g
+     * offScreenImage:
+     */
+    @Override
+    public void update(Graphics g) {
+        if(offScreenImage == null) {
+            offScreenImage = this.createImage(GAME_WIDTH, GAME_HEIGHT);
+        }
+        Graphics gOffScreen = offScreenImage.getGraphics();
+        Color c = gOffScreen.getColor();
+        gOffScreen.setColor(Color.BLACK);
+        gOffScreen.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+        gOffScreen.setColor(c);
+        paint(gOffScreen);
+        g.drawImage(offScreenImage, 0, 0, null);
     }
 
     @Override
