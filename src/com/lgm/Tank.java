@@ -47,8 +47,10 @@ public class Tank implements Serializable {
     }
 
     public void paint(Graphics g) {
-        System.out.println("...Graphics of tank is painting.............");
+        Color c = g.getColor();
+        g.setColor(Color.YELLOW);
         g.fillRect(x,y,50,50);
+        g.setColor(c);
         this.move();
     }
     private void move(){
