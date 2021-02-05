@@ -1,9 +1,5 @@
 package com.lgm;
 
-import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
 /**
  * @author:李罡毛
  * @date:2021/2/4 13:13

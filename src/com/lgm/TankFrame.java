@@ -13,11 +13,11 @@ import static com.lgm.Dir.*;
  * @date:2021/2/4 17:17
  */
 public class TankFrame extends Frame {
-    private int x = 80;
-    private int y = 60;
-    private Dir dir = Dir.IMMOBILE;//初始化静止
-    private static final int SPEED = 10;
+
+    private final Tank tank ;
+
     public TankFrame() throws HeadlessException {
+        this.tank = new Tank(40,30, IMMOBILE);
         this.setTitle("坦克大战");
         this.setSize(800,600);
         this.setBackground(Color.pink);
@@ -36,52 +36,29 @@ public class TankFrame extends Frame {
 
     @Override
     public void paint(Graphics g) {
-        System.out.println("..............Graphics is painting.............");
-        g.fillRect(x,y,50,50);
-        switch (dir){
-            case LEFT:
-                x -= SPEED;
-                break;
-            case RIGHT:
-                x += SPEED;
-                break;
-            case UP:
-                y -= SPEED;
-                break;
-            case DOWN:
-                y += SPEED;
-                break;
-            default :
-                break;
-        }
-//        x+=SPEED;
-//        y+=SPEED;
+        this.tank.paint(g);
     }
 
     class MyKeyAdapter extends KeyAdapter {
-//        private boolean bL = false;
-//        private boolean bR = false;
-//        private boolean bU = false;
-//        private boolean bD = false;
 
         @Override
         public void keyPressed(KeyEvent e) {
             int keyCode = e.getKeyCode();
             switch (keyCode){
                 case KeyEvent.VK_LEFT:
-                    dir = LEFT;
+                    tank.setDir(LEFT);
                     break;
                 case KeyEvent.VK_RIGHT:
-                    dir = RIGHT;
+                    tank.setDir(RIGHT);
                     break;
                 case KeyEvent.VK_UP:
-                    dir = UP;
+                    tank.setDir(UP);
                     break;
                 case KeyEvent.VK_DOWN:
-                    dir = DOWN;
+                    tank.setDir(DOWN);
                     break;
                 default:
-                    dir = IMMOBILE;
+                    tank.setDir(IMMOBILE);
                     break;
             }
             repaint();
@@ -89,24 +66,7 @@ public class TankFrame extends Frame {
 
         @Override
         public void keyReleased(KeyEvent e) {
-//            int keyCode = e.getKeyCode();
-//            switch (keyCode){
-//                case KeyEvent.VK_LEFT:
-//                    bL = false;
-//                    break;
-//                case KeyEvent.VK_RIGHT:
-//                    bR = false;
-//                    break;
-//                case KeyEvent.VK_UP:
-//                    bU = false;
-//                    break;
-//                case KeyEvent.VK_DOWN:
-//                    bD = false;
-//                    break;
-//                default:
-//                    break;
-//            }
-            dir = Dir.IMMOBILE;
+            tank.setDir(IMMOBILE);
         }
     }
 }
