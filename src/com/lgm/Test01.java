@@ -8,10 +8,10 @@ package com.lgm;
 public class Test01 {
     public static void main(String[] args) throws InterruptedException {
         TankFrame tankFrame = new TankFrame();
-        /*//不需要自动移动，接下来尝试方向键控制方块的运动
+
         while (true){
-            Thread.sleep(300);
+            Thread.sleep(50);
             tankFrame.repaint();
-        }*/
+        }
     }
 }

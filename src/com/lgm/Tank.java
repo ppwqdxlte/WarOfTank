@@ -15,7 +15,7 @@ public class Tank implements Serializable {
     private int x;
     private int y;
     private Dir dir;
-    private static final int SPEED = 10;
+    private final int SPEED = 10;
 
     public Tank() {
     }
@@ -38,7 +38,7 @@ public class Tank implements Serializable {
         return dir;
     }
 
-    public static int getSPEED() {
+    public int getSPEED() {
         return SPEED;
     }
 
@@ -47,23 +47,19 @@ public class Tank implements Serializable {
     }
 
     public void paint(Graphics g) {
-        System.out.println("..............Graphics is painting.............");
+        System.out.println("...Graphics of tank is painting.............");
         g.fillRect(x,y,50,50);
-        switch (dir){
-            case LEFT:
-                x -= SPEED;
-                break;
-            case RIGHT:
-                x += SPEED;
-                break;
-            case UP:
-                y -= SPEED;
-                break;
-            case DOWN:
-                y += SPEED;
-                break;
-            default :
-                break;
+        this.move();
+    }
+    private void move(){
+        if (dir == Dir.LEFT){
+            x -= SPEED;
+        }else if (dir == Dir.RIGHT){
+            x += SPEED;
+        }else if (dir == Dir.UP){
+            y -= SPEED;
+        }else if (dir == Dir.DOWN){
+            y += SPEED;
         }
     }
 }
