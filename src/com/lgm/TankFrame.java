@@ -6,6 +6,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import static com.lgm.Dir.*;
+
 /**
  * @author:李罡毛
  * @date:2021/2/4 17:17
@@ -13,6 +15,8 @@ import java.awt.event.WindowEvent;
 public class TankFrame extends Frame {
     private int x = 80;
     private int y = 60;
+    private Dir dir = Dir.IMMOBILE;//初始化静止
+    private static final int SPEED = 10;
     public TankFrame() throws HeadlessException {
         this.setTitle("坦克大战");
         this.setSize(800,600);
@@ -34,55 +38,75 @@ public class TankFrame extends Frame {
     public void paint(Graphics g) {
         System.out.println("..............Graphics is painting.............");
         g.fillRect(x,y,50,50);
-        x+=40;
-        y+=30;
+        switch (dir){
+            case LEFT:
+                x -= SPEED;
+                break;
+            case RIGHT:
+                x += SPEED;
+                break;
+            case UP:
+                y -= SPEED;
+                break;
+            case DOWN:
+                y += SPEED;
+                break;
+            default :
+                break;
+        }
+//        x+=SPEED;
+//        y+=SPEED;
     }
+
     class MyKeyAdapter extends KeyAdapter {
-        private boolean bL = false;
-        private boolean bR = false;
-        private boolean bU = false;
-        private boolean bD = false;
+//        private boolean bL = false;
+//        private boolean bR = false;
+//        private boolean bU = false;
+//        private boolean bD = false;
 
         @Override
         public void keyPressed(KeyEvent e) {
             int keyCode = e.getKeyCode();
             switch (keyCode){
                 case KeyEvent.VK_LEFT:
-                    bL = true;
+                    dir = LEFT;
                     break;
                 case KeyEvent.VK_RIGHT:
-                    bR = true;
+                    dir = RIGHT;
                     break;
                 case KeyEvent.VK_UP:
-                    bU = true;
+                    dir = UP;
                     break;
                 case KeyEvent.VK_DOWN:
-                    bD = true;
+                    dir = DOWN;
                     break;
                 default:
+                    dir = IMMOBILE;
                     break;
             }
+            repaint();
         }
 
         @Override
         public void keyReleased(KeyEvent e) {
-            int keyCode = e.getKeyCode();
-            switch (keyCode){
-                case KeyEvent.VK_LEFT:
-                    bL = false;
-                    break;
-                case KeyEvent.VK_RIGHT:
-                    bR = false;
-                    break;
-                case KeyEvent.VK_UP:
-                    bU = false;
-                    break;
-                case KeyEvent.VK_DOWN:
-                    bD = false;
-                    break;
-                default:
-                    break;
-            }
+//            int keyCode = e.getKeyCode();
+//            switch (keyCode){
+//                case KeyEvent.VK_LEFT:
+//                    bL = false;
+//                    break;
+//                case KeyEvent.VK_RIGHT:
+//                    bR = false;
+//                    break;
+//                case KeyEvent.VK_UP:
+//                    bU = false;
+//                    break;
+//                case KeyEvent.VK_DOWN:
+//                    bD = false;
+//                    break;
+//                default:
+//                    break;
+//            }
+            dir = Dir.IMMOBILE;
         }
     }
 }
