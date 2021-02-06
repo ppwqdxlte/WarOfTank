@@ -16,11 +16,15 @@ import static com.lgm.Dir.*;
  */
 public class TankFrame extends Frame {
 
-    private final Tank tank ;
+    private final Tank tank ;//我方坦克
     private final List<Bullet> bullets = new ArrayList<>();//弹夹
     private Dir shootingDir = RIGHT;//子弹射出方向
-    private static final int GAME_WIDTH = 800,GAME_HEIGHT = 600;
+    private static final int GAME_WIDTH = 800,GAME_HEIGHT = 600;//窗口大小
+    private final List<Tank> enemyTanks = new ArrayList<>();//敌方坦克
 
+    public List<Tank> getEnemyTanks(){
+        return enemyTanks;
+    }
     public Tank getTank() {
         return tank;
     }
@@ -77,6 +81,10 @@ public class TankFrame extends Frame {
         g.drawString("子弹的数量："+bullets.size(),10,60);
         g.setColor(c);
         this.tank.paint(g);
+        //绘制敌方坦克
+        for (int i = 0; i < enemyTanks.size(); i++) {
+            enemyTanks.get(i).paint(g);
+        }
 
         for (int i = 0; i < bullets.size(); i++) {
             if (bullets.get(i)!=null){

@@ -8,6 +8,10 @@ package com.lgm;
 public class Test01 {
     public static void main(String[] args) throws InterruptedException {
         TankFrame tankFrame = new TankFrame();
+        //初始化5个敌方坦克
+        for (int i = 0; i < 5; i++) {
+            tankFrame.getEnemyTanks().add(new Tank(100+i*50,200,Dir.IMMOBILE));
+        }
 
         while (true){
             Thread.sleep(50);
