@@ -18,6 +18,7 @@ public class Bullet implements Serializable {
     private final int SPEED = 20;
     private boolean isLive = true;//子弹撞车或者跃出窗口就移除，等待回收，否则子弹变多后占用内存导致内存溢出
     private TankFrame tankFrame;//获取坦克窗口的私有属性
+    private int fireX,fireY;//子弹射出时候的坐标，通过坦克坐标、图片长宽、运行方向 获取
 
     public Bullet() {
     }
@@ -34,7 +35,29 @@ public class Bullet implements Serializable {
             this.tankFrame.getBullets().remove(this);
             return;
         }
-        g.fillOval(x,y,width,width);
+
+        switch (dir){
+            case LEFT:
+                fireX = x;
+                fireY = y+ResourceMgr.bulletL.getHeight()*5;
+                g.drawImage(ResourceMgr.bulletL,fireX,fireY,null);
+                break;
+            case RIGHT:
+                fireX = x+ResourceMgr.bulletR.getWidth()*2;
+                fireY = y+ResourceMgr.bulletR.getHeight()*5;
+                g.drawImage(ResourceMgr.bulletR,fireX,fireY,null);
+                break;
+            case UP:
+                fireX = x+ResourceMgr.bulletU.getWidth()*2;
+                fireY = y;
+                g.drawImage(ResourceMgr.bulletU,fireX,fireY,null);
+                break;
+            case DOWN:
+                fireX = x+ResourceMgr.bulletD.getWidth()*2;
+                fireY = y+ResourceMgr.bulletD.getHeight()*5;
+                g.drawImage(ResourceMgr.bulletD,fireX,fireY,null);
+                break;
+        }
         this.move();
     }
     private void move(){

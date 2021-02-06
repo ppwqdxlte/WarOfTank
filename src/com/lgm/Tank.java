@@ -16,6 +16,7 @@ public class Tank implements Serializable {
     private int y;
     private Dir dir;
     private final int SPEED = 10;
+    private Dir dirBeforeImmobile;
 
     public Tank() {
     }
@@ -24,6 +25,10 @@ public class Tank implements Serializable {
         this.x = x;
         this.y = y;
         this.dir = dir;
+    }
+
+    public Dir getDirBeforeImmobile() {
+        return dirBeforeImmobile;
     }
 
     public int getX() {
@@ -46,11 +51,31 @@ public class Tank implements Serializable {
         this.dir = dir;
     }
 
+    public void setDirBeforeImmobile(Dir dirBeforeImmobile) {
+        this.dirBeforeImmobile = dirBeforeImmobile;
+    }
+
     public void paint(Graphics g) {
-        Color c = g.getColor();
-        g.setColor(Color.YELLOW);
-        g.fillRect(x,y,50,50);
-        g.setColor(c);
+        if (dirBeforeImmobile==null){
+            dirBeforeImmobile = Dir.RIGHT;
+            g.drawImage(ResourceMgr.tankR,x,y,null);
+            this.move();
+            return;
+        }
+        switch (dirBeforeImmobile){
+            case LEFT:
+                g.drawImage(ResourceMgr.tankL,x,y,null);
+                break;
+            case RIGHT:
+                g.drawImage(ResourceMgr.tankR,x,y,null);
+                break;
+            case UP:
+                g.drawImage(ResourceMgr.tankU,x,y,null);
+                break;
+            case DOWN:
+                g.drawImage(ResourceMgr.tankD,x,y,null);
+                break;
+        }
         this.move();
     }
     private void move(){

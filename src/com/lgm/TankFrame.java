@@ -21,6 +21,9 @@ public class TankFrame extends Frame {
     private Dir shootingDir = RIGHT;//子弹射出方向
     private static final int GAME_WIDTH = 800,GAME_HEIGHT = 600;
 
+    public Tank getTank() {
+        return tank;
+    }
     public int getWidth(){
         return GAME_WIDTH;
     }
@@ -74,13 +77,7 @@ public class TankFrame extends Frame {
         g.drawString("子弹的数量："+bullets.size(),10,60);
         g.setColor(c);
         this.tank.paint(g);
-        /*
-        //这里有一个大坑，foreach底层用iterator迭代，而iterator迭代过程中不能执行remove()方法，否则出错，
-        //而传统的fori方法就可以边迭代边删除而不报错！
-        for (Bullet b:
-             bullets) {
-            if (b!=null) b.paint(g);
-        }*/
+
         for (int i = 0; i < bullets.size(); i++) {
             if (bullets.get(i)!=null){
                 bullets.get(i).paint(g);
@@ -103,15 +100,19 @@ public class TankFrame extends Frame {
             if (keyCode == KeyEvent.VK_LEFT){
                 tank.setDir(LEFT);
                 shootingDir = LEFT;
+                tankFrame.getTank().setDirBeforeImmobile(LEFT);
             }else if (keyCode == KeyEvent.VK_RIGHT){
                 tank.setDir(RIGHT);
                 shootingDir = RIGHT;
+                tankFrame.getTank().setDirBeforeImmobile(RIGHT);
             }else if (keyCode == KeyEvent.VK_UP){
                 tank.setDir(UP);
                 shootingDir = UP;
+                tankFrame.getTank().setDirBeforeImmobile(UP);
             }else if (keyCode == KeyEvent.VK_DOWN){
                 tank.setDir(DOWN);
                 shootingDir = DOWN;
+                tankFrame.getTank().setDirBeforeImmobile(DOWN);
             }else {
                 tank.setDir(IMMOBILE);
             }
