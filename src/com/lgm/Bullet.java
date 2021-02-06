@@ -14,7 +14,6 @@ public class Bullet implements Serializable {
     private int x;
     private int y;
     private Dir dir;
-    private final int width = 20;
     private final int SPEED = 20;
     private boolean isLive = true;//子弹撞车或者跃出窗口就移除，等待回收，否则子弹变多后占用内存导致内存溢出
     private TankFrame tankFrame;//获取坦克窗口的私有属性
@@ -39,22 +38,22 @@ public class Bullet implements Serializable {
         switch (dir){
             case LEFT:
                 fireX = x;
-                fireY = y+ResourceMgr.bulletL.getHeight()*5;
+                fireY = y-ResourceMgr.bulletL.getHeight()/2+ResourceMgr.tankL.getHeight()/2;
                 g.drawImage(ResourceMgr.bulletL,fireX,fireY,null);
                 break;
             case RIGHT:
-                fireX = x+ResourceMgr.bulletR.getWidth()*2;
-                fireY = y+ResourceMgr.bulletR.getHeight()*5;
+                fireX = x+ResourceMgr.tankR.getWidth()-ResourceMgr.bulletR.getWidth();
+                fireY = y-ResourceMgr.bulletL.getHeight()/2+ResourceMgr.tankL.getHeight()/2;
                 g.drawImage(ResourceMgr.bulletR,fireX,fireY,null);
                 break;
             case UP:
-                fireX = x+ResourceMgr.bulletU.getWidth()*2;
+                fireX = x+ResourceMgr.tankU.getWidth()/2-ResourceMgr.bulletU.getWidth()/2;
                 fireY = y;
                 g.drawImage(ResourceMgr.bulletU,fireX,fireY,null);
                 break;
             case DOWN:
-                fireX = x+ResourceMgr.bulletD.getWidth()*2;
-                fireY = y+ResourceMgr.bulletD.getHeight()*5;
+                fireX = x+ResourceMgr.tankD.getWidth()/2-ResourceMgr.bulletD.getWidth()/2;
+                fireY = y+ResourceMgr.tankD.getHeight()-ResourceMgr.bulletD.getHeight();
                 g.drawImage(ResourceMgr.bulletD,fireX,fireY,null);
                 break;
         }
