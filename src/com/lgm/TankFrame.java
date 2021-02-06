@@ -38,7 +38,7 @@ public class TankFrame extends Frame {
         return bullets;
     }
     public TankFrame() throws HeadlessException {
-        this.tank = new Tank(40,30, IMMOBILE);
+        this.tank = new Tank(40,30, IMMOBILE,this);
         this.setTitle("坦克大战");
         this.setSize(GAME_WIDTH,GAME_HEIGHT);
         this.setResizable(false);
@@ -79,16 +79,23 @@ public class TankFrame extends Frame {
         Color c = g.getColor();
         g.setColor(Color.GREEN);
         g.drawString("子弹的数量："+bullets.size(),10,60);
+        g.drawString("敌方坦克的数量："+enemyTanks.size(),10,90);
         g.setColor(c);
         this.tank.paint(g);
         //绘制敌方坦克
         for (int i = 0; i < enemyTanks.size(); i++) {
             enemyTanks.get(i).paint(g);
         }
-
+        //绘制子弹
         for (int i = 0; i < bullets.size(); i++) {
             if (bullets.get(i)!=null){
                 bullets.get(i).paint(g);
+            }
+        }
+        //嵌套循环，子弹与敌方坦克的碰撞验证
+        for (int i = 0; i < bullets.size(); i++) {
+            for (int j = 0; j < enemyTanks.size(); j++) {
+                bullets.get(i).collideWith(enemyTanks.get(i));
             }
         }
     }
