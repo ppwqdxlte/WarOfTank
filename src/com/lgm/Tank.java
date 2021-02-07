@@ -87,6 +87,11 @@ public class Tank implements Serializable {
     public void paint(Graphics g) {
         //如果是敌方，绘制前判断一下存活状态
         if (!isLive && this.getGroup() == Group.BAD){
+            Explode explode = tankFrame.getExplode();
+            explode.setX(x);
+            explode.setY(y);
+            explode.setTankFrame(tankFrame);
+            explode.paint(g);
             tankFrame.getTanks().remove(this);
             return;
         }

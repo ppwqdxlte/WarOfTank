@@ -20,7 +20,9 @@ public class TankFrame extends Frame {
     private Dir shootingDir = RIGHT;//子弹射出方向
     private static final int GAME_WIDTH = 800,GAME_HEIGHT = 600;//窗口大小
     private final List<Tank> tanks = new ArrayList<>();//全部坦克集合
+    private final Explode explode = new Explode(0,0,this);//爆炸
 
+    public Explode getExplode(){ return explode;}
     public List<Tank> getTanks(){
         return tanks;
     }
