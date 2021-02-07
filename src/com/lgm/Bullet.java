@@ -19,20 +19,24 @@ public class Bullet implements Serializable {
     private TankFrame tankFrame;//获取坦克窗口的私有属性
     private int fireX,fireY;//子弹射出时候的坐标，通过坦克坐标、图片长宽、运行方向 获取
     private static int WIDTH,HEIGHT;//子弹的宽度，高度
+    private Tank tank;//所属坦克
+    private final Rectangle myRectangle = new Rectangle(x,y,WIDTH,HEIGHT);//this子弹的矩形
+    private final Rectangle otherRectangle = new Rectangle(x,y,WIDTH,HEIGHT);//碰撞坦克的矩形
 
     public Bullet() {
     }
 
-    public Bullet(int x, int y, Dir dir,TankFrame tankFrame) {
+    public Bullet(int x, int y, Dir dir,TankFrame tankFrame,Tank tank) {
         this.x = x;
         this.y = y;
         this.dir = dir;
         this.tankFrame = tankFrame;
+        this.tank = tank;
     }
 
     public void paint(Graphics g){
         if (!isLive){
-            this.tankFrame.getBullets().remove(this);
+            this.tank.getBulletList().remove(this);
             return;
         }
 
@@ -84,9 +88,16 @@ public class Bullet implements Serializable {
     }
     //子弹与坦克碰撞
     public void collideWith(Tank tank) {
-        Rectangle bulletRectangle = new Rectangle(x,y,WIDTH,HEIGHT);
-        Rectangle enemyTankRectange = new Rectangle(tank.getX(),tank.getY(),tank.getWIDTH(),tank.getHEIGHT());
-        if (bulletRectangle.intersects(enemyTankRectange)) {
+        //判断是否友军,是友军就不炸
+        if (this.tank.getGroup() == tank.getGroup()){
+            return;
+        }
+        myRectangle.setSize(WIDTH,HEIGHT);
+        myRectangle.setLocation(x,y);
+        otherRectangle.setSize(tank.getWIDTH(),tank.getHEIGHT());
+        otherRectangle.setLocation(tank.getX(),tank.getY());
+        //不会误伤友军，只会炸掉敌方坦克
+        if (myRectangle.intersects(otherRectangle)) {
             this.isLive = false;
             tank.setIsLive(false);
         }
