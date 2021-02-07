@@ -29,47 +29,7 @@ public class Explode implements Serializable {
     public void paint(Graphics g){
         g.drawImage(ResourceMgr.explodeImages[f++],x,y,null);
         if (f>=ResourceMgr.explodeImages.length){
-            f = 0;
+            this.tankFrame.getExplodeList().remove(this);
         }
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public TankFrame getTankFrame() {
-        return tankFrame;
-    }
-
-    public void setTankFrame(TankFrame tankFrame) {
-        this.tankFrame = tankFrame;
-    }
-
-    public static int getWIDTH() {
-        return WIDTH;
-    }
-
-    public static void setWIDTH(int WIDTH) {
-        Explode.WIDTH = WIDTH;
-    }
-
-    public static int getHEIGHT() {
-        return HEIGHT;
-    }
-
-    public static void setHEIGHT(int HEIGHT) {
-        Explode.HEIGHT = HEIGHT;
     }
 }

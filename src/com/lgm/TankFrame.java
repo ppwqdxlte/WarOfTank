@@ -20,9 +20,9 @@ public class TankFrame extends Frame {
     private Dir shootingDir = RIGHT;//子弹射出方向
     private static final int GAME_WIDTH = 800,GAME_HEIGHT = 600;//窗口大小
     private final List<Tank> tanks = new ArrayList<>();//全部坦克集合
-    private final Explode explode = new Explode(0,0,this);//爆炸
+    private final List<Explode> explodeList = new ArrayList<>();//爆炸集合
 
-    public Explode getExplode(){ return explode;}
+    public List<Explode> getExplodeList(){ return explodeList;}
     public List<Tank> getTanks(){
         return tanks;
     }
@@ -76,13 +76,18 @@ public class TankFrame extends Frame {
     @Override
     public void paint(Graphics g) {
         Color c = g.getColor();
-        g.setColor(Color.GREEN);
-        g.drawString("我的坦克子弹的数量："+this.tank.getBulletList().size(),10,60);
-        g.drawString("敌方坦克的数量："+tanks.stream().filter((x)->x.getGroup()==Group.BAD).count(),10,90);
+        g.setColor(Color.MAGENTA);
+        g.drawString("我的坦克子弹的数量："+this.tank.getBulletList().size(),10,50);
+        g.drawString("敌方坦克的数量："+tanks.stream().filter((x)->x.getGroup()==Group.BAD).count(),10,70);
+        g.drawString("爆炸对象数量："+this.explodeList.size(),10,90);
         g.setColor(c);
         //绘制坦克
         for (int i = 0; i < this.tanks.size(); i++) {
             this.tanks.get(i).paint(g);
+        }
+        //绘制爆炸
+        for (int i = 0; i < explodeList.size(); i++) {
+            this.explodeList.get(i).paint(g);
         }
     }
 
