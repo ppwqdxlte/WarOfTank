@@ -26,6 +26,8 @@ public class Tank implements Serializable {
     private Group group;//区分敌方或友方坦克
     private final Random random = new Random();//随机数，控制子弹发射
     private final List<Bullet> bulletList = new ArrayList<Bullet>();//弹夹
+    private int f;//第几帧，控制坦克按照一个方向的运行起止
+    private int secRandom;//坦克按照一个方向的运行秒数的随机数
 
     public Tank() {
     }
@@ -142,6 +144,7 @@ public class Tank implements Serializable {
         }
         this.move();
     }
+
     private void move(){
         if (dir == Dir.LEFT){
             x -= SPEED;
@@ -152,10 +155,32 @@ public class Tank implements Serializable {
         }else if (dir == Dir.DOWN){
             y += SPEED;
         }
-        //敌方坦克随机发射子弹
         if (this.getGroup() == Group.BAD){
-            if (random.nextInt(20)>18) {
+            //敌方坦克随机发射子弹
+            if (random.nextInt(100)>95) {
                 this.fire();
+            }
+            //敌方坦克随即移动
+            //几个可能值就代表几个方向 tempNum,f表示第几帧，控制改变方向,secRandom 随机秒数
+            f++;
+            if (f>=20*secRandom){//游戏程序入口50毫秒刷新一帧，1秒20帧左右，这里设置敌坦克按照一个方向的运行时间单位为1秒，具体几秒由随机数获得
+                secRandom = random.nextInt(10)+1;//确定下一次的时长，保底1秒
+                f = 0;//f清零
+                switch (random.nextInt(4)){//确定下一次的方向
+                    case 0:
+                        dir = Dir.LEFT;
+                        break;
+                    case 1:
+                        dir = Dir.RIGHT;
+                        break;
+                    case 2:
+                        dir = Dir.UP;
+                        break;
+                    case 3:
+                        dir = Dir.DOWN;
+                        break;
+                }
+                this.dirBeforeImmobile = dir;
             }
         }
     }
