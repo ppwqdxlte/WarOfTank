@@ -128,6 +128,7 @@ public class Tank implements Serializable {
             if (this == tankFrame.getTanks().get(i))continue;
             this.collideWith(tankFrame.getTanks().get(i));
         }
+
         switch (dirBeforeImmobile){
             case LEFT:
                 WIDTH = ResourceMgr.tankL.getWidth();
@@ -226,17 +227,17 @@ public class Tank implements Serializable {
     }
 
     /**
-     * 坦克移动（改变坐标值）
+     * 坦克移动（改变坐标值），但是不能出界，必须在窗体内运行
      */
     private void move(){
         if (dir == Dir.LEFT){
-            x -= SPEED;
+            x = x-SPEED<=0?x:x-SPEED;
         }else if (dir == Dir.RIGHT){
-            x += SPEED;
+            x = x+SPEED>=tankFrame.getWidth()-WIDTH?x:x+SPEED;
         }else if (dir == Dir.UP){
-            y -= SPEED;
+            y = y-SPEED<=0?y:y-SPEED;
         }else if (dir == Dir.DOWN){
-            y += SPEED;
+            y = y+SPEED>=tankFrame.getHeight()-HEIGHT?y:y+SPEED;
         }
     }
 
