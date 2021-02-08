@@ -80,6 +80,8 @@ public class TankFrame extends Frame {
         g.drawString("我的坦克子弹的数量："+this.tank.getBulletList().size(),10,50);
         g.drawString("敌方坦克的数量："+tanks.stream().filter((x)->x.getGroup()==Group.BAD).count(),10,70);
         g.drawString("爆炸对象数量："+this.explodeList.size(),10,90);
+        g.drawString("友军坦克数量（除了我自己）:"+tanks.stream().filter(
+                (x)->x.getGroup()==Group.GOOD&&x!=this.tank).count(),10,110);
         g.setColor(c);
         //绘制坦克
         for (int i = 0; i < this.tanks.size(); i++) {

@@ -28,6 +28,9 @@ public class Tank implements Serializable {
     private final List<Bullet> bulletList = new ArrayList<Bullet>();//弹夹
     private int f;//第几帧，控制坦克按照一个方向的运行起止
     private int secRandom;//坦克按照一个方向的运行秒数的随机数
+    private final Rectangle myRectangle = new Rectangle(x,y,WIDTH,HEIGHT);//this坦克的矩形
+    private final Rectangle otherRectangle = new Rectangle(x,y,WIDTH,HEIGHT);//碰撞坦克的矩形
+    private Rectangle interSection;//碰撞交叉区域
 
     public Tank() {
     }
@@ -120,6 +123,11 @@ public class Tank implements Serializable {
                 this.bulletList.get(i).collideWith(tankFrame.getTanks().get(j));
             }
         }
+        //坦克碰撞验证
+        for (int i = 0; i < tankFrame.getTanks().size(); i++) {
+            if (this == tankFrame.getTanks().get(i))continue;
+            this.collideWith(tankFrame.getTanks().get(i));
+        }
         switch (dirBeforeImmobile){
             case LEFT:
                 WIDTH = ResourceMgr.tankL.getWidth();
@@ -143,24 +151,56 @@ public class Tank implements Serializable {
                 break;
         }
         this.move();
+        this.tankRandomAction();
     }
 
-    private void move(){
-        if (dir == Dir.LEFT){
-            x -= SPEED;
-        }else if (dir == Dir.RIGHT){
-            x += SPEED;
-        }else if (dir == Dir.UP){
-            y -= SPEED;
-        }else if (dir == Dir.DOWN){
-            y += SPEED;
+    /**
+     * @param tank 与其它坦克碰撞测试
+     */
+    private void collideWith(Tank tank) {
+        myRectangle.setSize(WIDTH,HEIGHT);
+        myRectangle.setLocation(x,y);
+        otherRectangle.setSize(tank.getWIDTH(),tank.getHEIGHT());
+        otherRectangle.setLocation(tank.getX(),tank.getY());
+        //如果碰撞
+        if (myRectangle.intersects(otherRectangle)) {
+            //判断是否友军,是友军就不炸,且不会相交不会覆盖(改变坐标)
+            if (this.getGroup() == tank.getGroup()){
+                //玩家操作的主战坦克忽略
+                if (this == tankFrame.getTank())return;
+                //交叉区域矩形几何中心和当前坦克几何中心的相对位置，来决定当前坦克的位移
+                interSection = myRectangle.intersection(otherRectangle);
+                if (Math.abs(interSection.getCenterX() - myRectangle.getCenterX())//左右移动
+                        <=Math.abs(interSection.getCenterY() - myRectangle.getCenterY())) {
+                    if (interSection.getCenterX() > myRectangle.getCenterX()) {//左移
+                        x -= SPEED>=tank.SPEED?SPEED:tank.SPEED;
+                    }else {//右移
+                        x += SPEED>=tank.SPEED?SPEED:tank.SPEED;
+                    }
+                }else {//上下移动
+                    if (interSection.getCenterY() > myRectangle.getCenterY()){//上移
+                        y -= SPEED>=tank.SPEED?SPEED:tank.SPEED;
+                    }else{//下移
+                        y += SPEED>=tank.SPEED?SPEED:tank.SPEED;
+                    }
+                }
+                return;
+            }
+            this.isLive = false;
+            tank.setIsLive(false);
         }
-        if (this.getGroup() == Group.BAD){
-            //敌方坦克随机发射子弹
+    }
+
+    /**
+     * 除了玩家操纵的主战坦克，其它坦克的随机行为
+     */
+    private void tankRandomAction() {
+        if (this != tankFrame.getTank()){
+            //坦克随机发射子弹
             if (random.nextInt(100)>95) {
                 this.fire();
             }
-            //敌方坦克随即移动
+            //坦克随机移动
             //几个可能值就代表几个方向 tempNum,f表示第几帧，控制改变方向,secRandom 随机秒数
             f++;
             if (f>=20*secRandom){//游戏程序入口50毫秒刷新一帧，1秒20帧左右，这里设置敌坦克按照一个方向的运行时间单位为1秒，具体几秒由随机数获得
@@ -184,6 +224,25 @@ public class Tank implements Serializable {
             }
         }
     }
+
+    /**
+     * 坦克移动（改变坐标值）
+     */
+    private void move(){
+        if (dir == Dir.LEFT){
+            x -= SPEED;
+        }else if (dir == Dir.RIGHT){
+            x += SPEED;
+        }else if (dir == Dir.UP){
+            y -= SPEED;
+        }else if (dir == Dir.DOWN){
+            y += SPEED;
+        }
+    }
+
+    /**
+     * 开火
+     */
     public void fire() {
         Bullet bullet = new Bullet(this.x,this.y,this.dirBeforeImmobile,this.tankFrame,this);
         bulletList.add(bullet);

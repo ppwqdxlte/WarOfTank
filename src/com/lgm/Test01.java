@@ -11,6 +11,7 @@ public class Test01 {
         //初始化5个敌方坦克
         for (int i = 0; i < 5; i++) {
             tankFrame.getTanks().add(new Tank(300+i*50,10,Dir.DOWN,tankFrame,Group.BAD));
+            tankFrame.getTanks().add(new Tank(100+i*50,300,Dir.UP,tankFrame,Group.GOOD));
         }
 
         while (true){
