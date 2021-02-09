@@ -175,14 +175,18 @@ public class Tank implements Serializable {
                         <=Math.abs(interSection.getCenterY() - myRectangle.getCenterY())) {
                     if (interSection.getCenterX() > myRectangle.getCenterX()) {//左移
                         x -= SPEED>=tank.SPEED?SPEED:tank.SPEED;
+                        dirBeforeImmobile = dir = Dir.LEFT;
                     }else {//右移
                         x += SPEED>=tank.SPEED?SPEED:tank.SPEED;
+                        dirBeforeImmobile = dir = Dir.RIGHT;
                     }
                 }else {//上下移动
                     if (interSection.getCenterY() > myRectangle.getCenterY()){//上移
                         y -= SPEED>=tank.SPEED?SPEED:tank.SPEED;
+                        dirBeforeImmobile = dir = Dir.UP;
                     }else{//下移
                         y += SPEED>=tank.SPEED?SPEED:tank.SPEED;
+                        dirBeforeImmobile = dir = Dir.DOWN;
                     }
                 }
                 return;
