@@ -21,7 +21,8 @@ public class Tank implements Serializable {
     private int SPEED = 5;
     private Dir dirBeforeImmobile;
     private TankFrame tankFrame;
-    private static int WIDTH,HEIGHT;//坦克高度宽度
+    private static final int WIDTH = ResourceMgr.tankL.getWidth();
+    private static final int HEIGHT = ResourceMgr.tankL.getHeight();
     private boolean isLive = true;//坦克存活状态，初始化是true
     private Group group;//区分敌方或友方坦克
     private final Random random = new Random();//随机数，控制子弹发射
@@ -100,15 +101,11 @@ public class Tank implements Serializable {
       //静止前方向如果是null,初始化赋予向右的方向
         if (dirBeforeImmobile==null && this.group == Group.GOOD){
             dirBeforeImmobile = Dir.RIGHT;
-            WIDTH = ResourceMgr.tankR.getWidth();
-            HEIGHT = ResourceMgr.tankR.getHeight();
             g.drawImage(ResourceMgr.tankR,x,y,null);
             return;
         }else if (dirBeforeImmobile == null && this.group ==Group.BAD){
             dirBeforeImmobile = Dir.DOWN;
-            WIDTH = ResourceMgr.tankD.getWidth();
-            HEIGHT = ResourceMgr.tankD.getHeight();
-            g.drawImage(ResourceMgr.tankD,x,y,null);
+            g.drawImage(ResourceMgr.badTankD,x,y,null);
             return;
         }
         //绘制子弹
@@ -131,24 +128,16 @@ public class Tank implements Serializable {
 
         switch (dirBeforeImmobile){
             case LEFT:
-                WIDTH = ResourceMgr.tankL.getWidth();
-                HEIGHT = ResourceMgr.tankL.getHeight();
-                g.drawImage(ResourceMgr.tankL,x,y,null);
+                g.drawImage(this.group==Group.GOOD?ResourceMgr.tankL:ResourceMgr.badTankL,x,y,null);
                 break;
             case RIGHT:
-                WIDTH = ResourceMgr.tankR.getWidth();
-                HEIGHT = ResourceMgr.tankR.getHeight();
-                g.drawImage(ResourceMgr.tankR,x,y,null);
+                g.drawImage(this.group==Group.GOOD?ResourceMgr.tankR:ResourceMgr.badTankR,x,y,null);
                 break;
             case UP:
-                WIDTH = ResourceMgr.tankU.getWidth();
-                HEIGHT = ResourceMgr.tankU.getHeight();
-                g.drawImage(ResourceMgr.tankU,x,y,null);
+                g.drawImage(this.group==Group.GOOD?ResourceMgr.tankU:ResourceMgr.badTankR,x,y,null);
                 break;
             case DOWN:
-                WIDTH = ResourceMgr.tankD.getWidth();
-                HEIGHT = ResourceMgr.tankD.getHeight();
-                g.drawImage(ResourceMgr.tankD,x,y,null);
+                g.drawImage(this.group==Group.GOOD?ResourceMgr.tankD:ResourceMgr.badTankD,x,y,null);
                 break;
         }
         this.move();
@@ -205,27 +194,13 @@ public class Tank implements Serializable {
             if (random.nextInt(100)>95) {
                 this.fire();
             }
-            //坦克随机移动
-            //几个可能值就代表几个方向 tempNum,f表示第几帧，控制改变方向,secRandom 随机秒数
+            //坦克随机移动 代表几个方向 tempNum,f表示第几帧，控制改变方向,secRandom 随机秒数
             f++;
             if (f>=20*secRandom){//游戏程序入口50毫秒刷新一帧，1秒20帧左右，这里设置敌坦克按照一个方向的运行时间单位为1秒，具体几秒由随机数获得
                 secRandom = random.nextInt(10)+1;//确定下一次的时长，保底1秒
                 f = 0;//f清零
-                switch (random.nextInt(4)){//确定下一次的方向
-                    case 0:
-                        dir = Dir.LEFT;
-                        break;
-                    case 1:
-                        dir = Dir.RIGHT;
-                        break;
-                    case 2:
-                        dir = Dir.UP;
-                        break;
-                    case 3:
-                        dir = Dir.DOWN;
-                        break;
-                }
-                this.dirBeforeImmobile = dir;
+                //确定下一次的方向
+                this.dirBeforeImmobile = dir = Dir.values()[random.nextInt(4)];
             }
         }
     }
