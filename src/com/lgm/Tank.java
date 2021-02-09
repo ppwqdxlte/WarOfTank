@@ -34,6 +34,7 @@ public class Tank implements Serializable {
     private final Rectangle otherRectangle = new Rectangle(x,y,WIDTH,HEIGHT);//碰撞坦克的矩形
     private Rectangle interSection;//碰撞交叉区域
     private int escapeSpeed;//友军相会逃离速度
+    private Thread moveSound;//行进时有声音，线程运行，停止后声音停止，线程阻塞
 
     public Tank() {
     }
@@ -194,7 +195,7 @@ public class Tank implements Serializable {
     private void tankRandomAction() {
         if (this != tankFrame.getTank()){
             //坦克随机发射子弹
-            if (random.nextInt(100)>95) {
+            if (random.nextInt(100)>97) {
                 this.fire();
             }
             //坦克随机移动 代表几个方向 tempNum,f表示第几帧，控制改变方向,secRandom 随机秒数
@@ -228,6 +229,7 @@ public class Tank implements Serializable {
      */
     public void fire() {
         Bullet bullet = new Bullet(this.x,this.y,this.dirBeforeImmobile,this.tankFrame,this);
+        new Thread(()->new Audio("audio/tank_fire.wav").play()).start();
         bulletList.add(bullet);
     }
 }
