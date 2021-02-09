@@ -14,7 +14,7 @@ public class Bullet implements Serializable {
     private int x;
     private int y;
     private Dir dir;
-    private final int SPEED = 20;
+    private final int SPEED = Integer.parseInt((String)PropertiesMgr.getProperty("bulletSpeed"));
     private boolean isLive = true;//子弹撞车或者跃出窗口就移除，等待回收，否则子弹变多后占用内存导致内存溢出
     private TankFrame tankFrame;//获取坦克窗口的私有属性
     private int fireX,fireY;//子弹射出时候的坐标，通过坦克坐标、图片长宽、运行方向 获取

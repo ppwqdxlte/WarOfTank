@@ -18,7 +18,8 @@ public class Tank implements Serializable {
     private int x;
     private int y;
     private Dir dir;
-    private int SPEED = 5;
+    private int SPEED = this.group==Group.GOOD?Integer.parseInt((String)PropertiesMgr.getProperty("goodTankSpeed")):
+                    Integer.parseInt((String)PropertiesMgr.getProperty("badTankSpeed"));
     private Dir dirBeforeImmobile;
     private TankFrame tankFrame;
     private static final int WIDTH = ResourceMgr.tankL.getWidth();
@@ -135,7 +136,7 @@ public class Tank implements Serializable {
                 g.drawImage(this.group==Group.GOOD?ResourceMgr.tankR:ResourceMgr.badTankR,x,y,null);
                 break;
             case UP:
-                g.drawImage(this.group==Group.GOOD?ResourceMgr.tankU:ResourceMgr.badTankR,x,y,null);
+                g.drawImage(this.group==Group.GOOD?ResourceMgr.tankU:ResourceMgr.badTankU,x,y,null);
                 break;
             case DOWN:
                 g.drawImage(this.group==Group.GOOD?ResourceMgr.tankD:ResourceMgr.badTankD,x,y,null);

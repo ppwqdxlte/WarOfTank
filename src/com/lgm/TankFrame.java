@@ -18,7 +18,8 @@ public class TankFrame extends Frame {
 
     private final Tank tank ;//我方坦克
     private Dir shootingDir = RIGHT;//子弹射出方向
-    private static final int GAME_WIDTH = 800,GAME_HEIGHT = 600;//窗口大小
+    private static final int GAME_WIDTH = Integer.parseInt((String)PropertiesMgr.getProperty("gameWidth"));
+    private static final int GAME_HEIGHT = Integer.parseInt((String)PropertiesMgr.getProperty("gameHeight"));
     private final List<Tank> tanks = new ArrayList<>();//全部坦克集合
     private final List<Explode> explodeList = new ArrayList<>();//爆炸集合
 
@@ -36,9 +37,12 @@ public class TankFrame extends Frame {
         return GAME_HEIGHT;
     }
     public TankFrame() throws HeadlessException {
-        this.tank = new Tank(40,300, IMMOBILE,this,Group.GOOD,15);
+        this.tank = new Tank(Integer.parseInt((String)PropertiesMgr.getProperty("myTankInitX")),
+                Integer.parseInt((String)PropertiesMgr.getProperty("myTankInitY")),
+                IMMOBILE,this,Group.GOOD,
+                Integer.parseInt((String)PropertiesMgr.getProperty("myTankSpeed")));
         this.tanks.add(tank);
-        this.setTitle("坦克大战");
+        this.setTitle((String)PropertiesMgr.getProperty("gameTitle"));
         this.setSize(GAME_WIDTH,GAME_HEIGHT);
         this.setResizable(false);
         this.setVisible(true);
