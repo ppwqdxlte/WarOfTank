@@ -32,6 +32,7 @@ public class Tank implements Serializable {
     private final Rectangle myRectangle = new Rectangle(x,y,WIDTH,HEIGHT);//this坦克的矩形
     private final Rectangle otherRectangle = new Rectangle(x,y,WIDTH,HEIGHT);//碰撞坦克的矩形
     private Rectangle interSection;//碰撞交叉区域
+    private int escapeSpeed;//友军相会逃离速度
 
     public Tank() {
     }
@@ -160,21 +161,22 @@ public class Tank implements Serializable {
                 if (this == tankFrame.getTank())return;
                 //交叉区域矩形几何中心和当前坦克几何中心的相对位置，来决定当前坦克的位移
                 interSection = myRectangle.intersection(otherRectangle);
+                escapeSpeed = SPEED>=tank.SPEED?SPEED:tank.SPEED;
                 if (Math.abs(interSection.getCenterX() - myRectangle.getCenterX())//左右移动
                         <=Math.abs(interSection.getCenterY() - myRectangle.getCenterY())) {
                     if (interSection.getCenterX() > myRectangle.getCenterX()) {//左移
-                        x -= SPEED>=tank.SPEED?SPEED:tank.SPEED;
+                        x -= escapeSpeed;
                         dirBeforeImmobile = dir = Dir.LEFT;
                     }else {//右移
-                        x += SPEED>=tank.SPEED?SPEED:tank.SPEED;
+                        x += escapeSpeed;
                         dirBeforeImmobile = dir = Dir.RIGHT;
                     }
                 }else {//上下移动
                     if (interSection.getCenterY() > myRectangle.getCenterY()){//上移
-                        y -= SPEED>=tank.SPEED?SPEED:tank.SPEED;
+                        y -= escapeSpeed;
                         dirBeforeImmobile = dir = Dir.UP;
                     }else{//下移
-                        y += SPEED>=tank.SPEED?SPEED:tank.SPEED;
+                        y += escapeSpeed;
                         dirBeforeImmobile = dir = Dir.DOWN;
                     }
                 }
@@ -210,13 +212,13 @@ public class Tank implements Serializable {
      */
     private void move(){
         if (dir == Dir.LEFT){
-            x = x-SPEED<=0?x:x-SPEED;
+            x = x-SPEED<=2?x:x-SPEED;
         }else if (dir == Dir.RIGHT){
-            x = x+SPEED>=tankFrame.getWidth()-WIDTH?x:x+SPEED;
+            x = x+SPEED>=tankFrame.getWidth()-WIDTH-2?x:x+SPEED;
         }else if (dir == Dir.UP){
-            y = y-SPEED<=0?y:y-SPEED;
+            y = y-SPEED<=28?y:y-SPEED;
         }else if (dir == Dir.DOWN){
-            y = y+SPEED>=tankFrame.getHeight()-HEIGHT?y:y+SPEED;
+            y = y+SPEED>=tankFrame.getHeight()-HEIGHT-28?y:y+SPEED;
         }
     }
 
