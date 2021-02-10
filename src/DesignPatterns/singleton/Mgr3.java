@@ -7,7 +7,7 @@ package DesignPatterns.singleton;
  */
 public class Mgr3 {
     private Mgr3(){}
-    private static Mgr3 mgr3;
+    private static volatile/*防止指令重排没初始化就返回mgr3*/ Mgr3 mgr3;
     public static Mgr3 getInstance(){
         if (mgr3 == null){
             synchronized (Mgr3.class){

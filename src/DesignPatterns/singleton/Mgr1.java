@@ -7,5 +7,8 @@ package DesignPatterns.singleton;
  */
 public class Mgr1 {
     private Mgr1(){}
-    public static final Mgr1 INSTANCE = new Mgr1();
+    private static final Mgr1 INSTANCE = new Mgr1();
+    public Mgr1 getInstance(){
+        return Mgr1.INSTANCE;
+    }
 }
