@@ -34,17 +34,9 @@ public class Tank implements Serializable {
     private final Rectangle otherRectangle = new Rectangle(x,y,WIDTH,HEIGHT);//碰撞坦克的矩形
     private Rectangle interSection;//碰撞交叉区域
     private int escapeSpeed;//友军相会逃离速度
-    private Thread moveSound;//行进时有声音，线程运行，停止后声音停止，线程阻塞
+    private FireStrategy fireStrategy;//开火策略
 
     public Tank() {
-    }
-
-    public Tank(int x, int y, Dir dir,TankFrame tankFrame,Group group) {
-        this.x = x;
-        this.y = y;
-        this.dir = dir;
-        this.tankFrame = tankFrame;
-        this.group = group;
     }
 
     public Tank(int x, int y, Dir dir,TankFrame tankFrame,Group group,int speed) {
@@ -54,8 +46,25 @@ public class Tank implements Serializable {
         this.tankFrame = tankFrame;
         this.group = group;
         this.SPEED = speed;
+
+        if(group == Group.GOOD) {
+            String goodFSName = (String)PropertiesMgr.getProperty("goodFS");
+            try {
+                fireStrategy = (FireStrategy)Class.forName(goodFSName).getDeclaredConstructor().newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            fireStrategy = new DefaultFireStrategy();
+        }
+
     }
 
+    public TankFrame getTankFrame(){ return tankFrame; }
+    public FireStrategy getFireStrategy() {
+        return fireStrategy;
+    }
     public List<Bullet> getBulletList() {
         return bulletList;
     }
@@ -228,8 +237,6 @@ public class Tank implements Serializable {
      * 开火
      */
     public void fire() {
-        Bullet bullet = new Bullet(this.x,this.y,this.dirBeforeImmobile,this.tankFrame,this);
-        new Thread(()->new Audio("audio/tank_fire.wav").play()).start();
-        bulletList.add(bullet);
+        this.fireStrategy.fire(this);
     }
 }

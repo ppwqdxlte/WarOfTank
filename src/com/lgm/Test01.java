@@ -11,9 +11,9 @@ public class Test01 {
         int initTankCount = Integer.parseInt((String)PropertiesMgr.getProperty("initTankCount"));
         /*//初始化电脑坦克
         for (int i = 0; i < initTankCount; i++) {
-            tankFrame.getTanks().add(new Tank(300+i*50,10,Dir.DOWN,tankFrame,Group.BAD));
+            tankFrame.getTanks().add(new Tank(300+i*50,10,Dir.DOWN,tankFrame,Group.BAD,5));
             if (i%5 == 0)
-            tankFrame.getTanks().add(new Tank(100+i*50,300,Dir.UP,tankFrame,Group.GOOD));
+            tankFrame.getTanks().add(new Tank(100+i*50,300,Dir.UP,tankFrame,Group.GOOD,5));
         }*/
         new Thread(()->new Audio("audio/war1.wav").loop()).start();
 

@@ -134,9 +134,7 @@ public class TankFrame extends Frame {
 //            repaint();
             //判断子弹方向
             if (keyCode == KeyEvent.VK_CONTROL){
-                Bullet bullet = new Bullet(tank.getX(),tank.getY(),shootingDir,this.tankFrame,tank);
-                new Thread(()->new Audio("audio/tank_fire.wav").play()).start();
-                tank.getBulletList().add(bullet);
+                tank.getFireStrategy().fire(tank);
             }
             new Thread(()->new Audio("audio/tank_move.wav").play()).start();
         }
