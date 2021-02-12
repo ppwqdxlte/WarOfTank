@@ -5,8 +5,14 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
 public class ImageUtil {
-	public static BufferedImage rotateImage(final BufferedImage bufferedimage,
-            final int degree) {
+    /**
+     * 私有化构造方法，单粒模式
+     */
+    private ImageUtil() {
+    }
+
+    public static BufferedImage rotateImage(final BufferedImage bufferedimage,
+                                            final int degree) {
         int w = bufferedimage.getWidth();
         int h = bufferedimage.getHeight();
         int type = bufferedimage.getColorModel().getTransparency();

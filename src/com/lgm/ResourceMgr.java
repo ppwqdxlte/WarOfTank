@@ -9,6 +9,11 @@ import java.io.IOException;
  * @date:2021/2/6 13:28
  */
 public class ResourceMgr {
+    /**
+     * 私有化无参构造方法，单粒模式
+     */
+    private ResourceMgr(){}
+
     static BufferedImage tankL,tankR,tankU,tankD;//友军
     static BufferedImage badTankL,badTankR,badTankU,badTankD;//敌军
     static BufferedImage bulletL,bulletR,bulletU,bulletD;

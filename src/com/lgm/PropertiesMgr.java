@@ -8,6 +8,11 @@ import java.util.Properties;
  * @date:2021/2/9 11:44
  */
 public class PropertiesMgr {
+    /**
+     * 私有化无参构造方法，单粒模式
+     */
+    private PropertiesMgr(){}
+    
     private static final Properties properties = new Properties();
 
     static {
