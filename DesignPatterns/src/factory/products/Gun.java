@@ -1,7 +1,5 @@
 package factory.products;
 
-import DesignPatterns.factory.products.Weapon;
-
 /**
  * @author:李罡毛
  * @date:2021/2/13 14:24

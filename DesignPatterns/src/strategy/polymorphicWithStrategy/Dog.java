@@ -1,7 +1,5 @@
 package strategy.polymorphicWithStrategy;
 
-import DesignPatterns.strategy.polymorphicWithoutStrategy.Comparable;
-
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;

@@ -1,11 +1,6 @@
 package factory.abstractFactory;
 
-import DesignPatterns.factory.abstractFactory.AbstractFactory;
-import DesignPatterns.factory.abstractFactory.MagicFactory;
-import DesignPatterns.factory.products.Food;
-import DesignPatterns.factory.products.Vehicle;
-import DesignPatterns.factory.products.Weapon;
-
+import factory.products.*;
 /**
  * @author:李罡毛
  * @date:2021/2/13 15:08

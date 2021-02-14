@@ -1,10 +1,5 @@
 package strategy.polymorphicWithStrategy;
 
-import DesignPatterns.strategy.polymorphicWithStrategy.CatHeightComparator;
-import DesignPatterns.strategy.polymorphicWithStrategy.CatWeightComparator;
-import DesignPatterns.strategy.polymorphicWithStrategy.DogAppetiteComparator;
-import DesignPatterns.strategy.polymorphicWithStrategy.Sorter;
-
 import java.util.Arrays;
 
 /**

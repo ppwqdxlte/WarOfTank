@@ -1,7 +1,6 @@
 package factory.abstractFactory;
 
-import DesignPatterns.factory.abstractFactory.AbstractFactory;
-import DesignPatterns.factory.products.*;
+import factory.products.*;
 
 /**
  * @author:李罡毛

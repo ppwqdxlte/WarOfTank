@@ -1,7 +1,5 @@
 package strategy.polymorphicWithoutStrategy;
 
-import DesignPatterns.strategy.polymorphicWithoutStrategy.Sorter;
-
 import java.util.Arrays;
 
 /**

@@ -1,7 +1,5 @@
 package strategy.polymorphicWithoutStrategy;
 
-import DesignPatterns.strategy.polymorphicWithoutStrategy.Comparable;
-
 /**
  * @author:李罡毛
  * @date:2021/2/12 11:12
