@@ -18,7 +18,7 @@ public class ImageTest {
     public void bufferedImageTest(){
         try {
             assertNotNull(ImageIO.read(
-                        new File("D:\\IdeaProjects\\WarOfTank\\src\\images\\1.gif")));
+                        new File("D:\\IdeaProjects\\WarOfTank\\src\\main\\java\\images\\1.gif")));
             assertNotNull(ImageIO.read(this.getClass().getClassLoader().getResource("images\\1.gif")));
             BufferedImage bufferedImage = ImageIO.read(ImageTest.class.getClassLoader().getResource("images\\0.gif"));
             assertNotNull(bufferedImage);

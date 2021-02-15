@@ -1,0 +1,14 @@
+#Count of tanks at initialization
+initTankCount=10
+myTankSpeed=15
+goodTankSpeed=5
+badTankSpeed=5
+bulletSpeed=20
+gameWidth=1080
+gameHeight=720
+myTankInitX=40
+myTankInitY=300
+gameTitle=WARofTANK
+#fireStrategy
+goodFS=com.lgm.FourDirFireStrategy
+badFS=com.lgm.DefaultFireStrategy
