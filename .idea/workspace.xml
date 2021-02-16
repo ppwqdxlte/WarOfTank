@@ -5,18 +5,92 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloSpring/HelloSpring.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloSpring/src/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloSpring/src/com/lgm/Driver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloSpring/src/com/lgm/SpringIOCtest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloSpring/src/com/lgm/SpringTank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/WarOfTank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WarOfTank.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Test01.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Test01.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesignPatterns/DesignPatterns.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DesignPatterns/DesignPatterns.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/audio/explode.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/audio/tank_fire.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/audio/tank_move.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/audio/war1.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/0.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/10.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/4.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/5.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/6.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/7.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/8.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/9.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/BadTank1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/BadTank2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/GoodTank1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/GoodTank2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/bulletD.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/bulletL.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/bulletR.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/bulletU.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/bulletU.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/e1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/e10.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/e11.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/e12.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/e13.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/e14.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/e15.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/e16.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/e2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/e3.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/e4.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/e5.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/e6.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/e7.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/e8.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/e9.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/missileLD.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/missileLU.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/missileRD.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/missileRU.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/square0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/square1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/square2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/square3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/square4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/square5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/square6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/tank.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/tankD.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/tankL.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/tankLD.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/tankLU.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/tankR.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/tankRD.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/tankRU.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/images/tankU.gif" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+    <option name="PARALLEL_COMPILATION" value="false" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/HelloSpring">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
@@ -29,6 +103,13 @@
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,11 +129,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/target/production/WarOfTank" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/HelloSpring" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.22873563" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -61,6 +142,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Test">
+    <configuration name="SpringIOCtest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lgm.SpringIOCtest" />
+      <module name="HelloSpring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lgm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="factory.abstractFactory.Test" />
       <module name="DesignPatterns" />
@@ -119,6 +213,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.SpringIOCtest" />
         <item itemvalue="Application.Test01" />
         <item itemvalue="JUnit.ImageTest.bufferedImageTest" />
       </list>
@@ -138,6 +233,8 @@
       <workItem from="1613403761494" duration="4331000" />
       <workItem from="1613408279398" duration="1127000" />
       <workItem from="1613409456565" duration="359000" />
+      <workItem from="1613437765580" duration="7811000" />
+      <workItem from="1613457455867" duration="773000" />
     </task>
     <servers />
   </component>
