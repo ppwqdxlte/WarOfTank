@@ -18,14 +18,14 @@ public class Tank implements Serializable {
     private int x;
     private int y;
     private Dir dir;
+    private Group group;
     private int SPEED = this.group==Group.GOOD?Integer.parseInt((String)PropertiesMgr.getProperty("goodTankSpeed")):
                     Integer.parseInt((String)PropertiesMgr.getProperty("badTankSpeed"));
-    private Dir dirBeforeImmobile;
-    private TankFrame tankFrame;
+    private GameModel gameModel;
     private static final int WIDTH = ResourceMgr.tankL.getWidth();
     private static final int HEIGHT = ResourceMgr.tankL.getHeight();
-    private boolean isLive = true;//坦克存活状态，初始化是true
-    private Group group;//区分敌方或友方坦克
+    private boolean isLive = true;
+    private boolean isMoving = true;
     private final Random random = new Random();//随机数，控制子弹发射
     private final List<Bullet> bulletList = new ArrayList<Bullet>();//弹夹
     private int f;//第几帧，控制坦克按照一个方向的运行起止
@@ -36,16 +36,15 @@ public class Tank implements Serializable {
     private int escapeSpeed;//友军相会逃离速度
     private FireStrategy fireStrategy;//开火策略
 
-    public Tank() {
-    }
+    public Tank() { }
 
-    public Tank(int x, int y, Dir dir,TankFrame tankFrame,Group group,int speed) {
+    public Tank(int x, int y, Dir dir, Group group, int speed, GameModel gameModle) {
         this.x = x;
         this.y = y;
         this.dir = dir;
-        this.tankFrame = tankFrame;
         this.group = group;
         this.SPEED = speed;
+        this.gameModel = gameModle;
 
         if(group == Group.GOOD) {
             String goodFSName = (String)PropertiesMgr.getProperty("goodFS");
@@ -61,63 +60,14 @@ public class Tank implements Serializable {
 
     }
 
-    public TankFrame getTankFrame(){ return tankFrame; }
-    public FireStrategy getFireStrategy() {
-        return fireStrategy;
-    }
-    public List<Bullet> getBulletList() {
-        return bulletList;
-    }
-    public Group getGroup() {
-        return group;
-    }
-    public int getWIDTH() {
-        return WIDTH;
-    }
-    public int getHEIGHT() {
-        return HEIGHT;
-    }
-    public void setIsLive(Boolean isLive) {
-        this.isLive = isLive;
-    }
-    public Dir getDirBeforeImmobile() {
-        return dirBeforeImmobile;
-    }
-    public int getX() {
-        return x;
-    }
-    public int getY() {
-        return y;
-    }
-    public Dir getDir() {
-        return dir;
-    }
-    public int getSPEED() {
-        return SPEED;
-    }
-    public void setDir(Dir dir) {
-        this.dir = dir;
-    }
-    public void setDirBeforeImmobile(Dir dirBeforeImmobile) {
-        this.dirBeforeImmobile = dirBeforeImmobile;
-    }
+
 
     public void paint(Graphics g) {
         //如果是敌方，绘制前判断一下存活状态
         if (!isLive && this.getGroup() == Group.BAD){
-            Explode explode = new Explode(x,y,tankFrame);
-            tankFrame.getExplodeList().add(explode);
-            tankFrame.getTanks().remove(this);
-            return;
-        }
-      //静止前方向如果是null,初始化赋予向右的方向
-        if (dirBeforeImmobile==null && this.group == Group.GOOD){
-            dirBeforeImmobile = Dir.RIGHT;
-            g.drawImage(ResourceMgr.tankR,x,y,null);
-            return;
-        }else if (dirBeforeImmobile == null && this.group ==Group.BAD){
-            dirBeforeImmobile = Dir.DOWN;
-            g.drawImage(ResourceMgr.badTankD,x,y,null);
+            Explode explode = new Explode(x,y,this.gameModel);
+            this.gameModel.getExplodes().add(explode);
+            this.gameModel.getTanks().remove(this);
             return;
         }
         //绘制子弹
@@ -128,17 +78,17 @@ public class Tank implements Serializable {
         }
         //嵌套循环，子弹与敌方坦克的碰撞验证
         for (int i = 0; i < this.bulletList.size(); i++) {
-            for (int j = 0; j < tankFrame.getTanks().size(); j++) {
-                this.bulletList.get(i).collideWith(tankFrame.getTanks().get(j));
+            for (int j = 0; j < this.gameModel.getTanks().size(); j++) {
+                this.bulletList.get(i).collideWith(this.gameModel.getTanks().get(j));
             }
         }
         //坦克碰撞验证
-        for (int i = 0; i < tankFrame.getTanks().size(); i++) {
-            if (this == tankFrame.getTanks().get(i))continue;
-            this.collideWith(tankFrame.getTanks().get(i));
+        for (int i = 0; i < this.gameModel.getTanks().size(); i++) {
+            if (this == this.gameModel.getTanks().get(i))continue;
+            this.collideWith(this.gameModel.getTanks().get(i));
         }
 
-        switch (dirBeforeImmobile){
+        switch (dir){
             case LEFT:
                 g.drawImage(this.group==Group.GOOD?ResourceMgr.tankL:ResourceMgr.badTankL,x,y,null);
                 break;
@@ -169,7 +119,7 @@ public class Tank implements Serializable {
             //判断是否友军,是友军就不炸,且不会相交不会覆盖(改变坐标)
             if (this.getGroup() == tank.getGroup()){
                 //玩家操作的主战坦克忽略
-                if (this == tankFrame.getTank())return;
+                if (this == this.gameModel.getTank())return;
                 //交叉区域矩形几何中心和当前坦克几何中心的相对位置，来决定当前坦克的位移
                 interSection = myRectangle.intersection(otherRectangle);
                 escapeSpeed = SPEED>=tank.SPEED?SPEED:tank.SPEED;
@@ -177,18 +127,18 @@ public class Tank implements Serializable {
                         <=Math.abs(interSection.getCenterY() - myRectangle.getCenterY())) {
                     if (interSection.getCenterX() > myRectangle.getCenterX()) {//左移
                         x -= escapeSpeed;
-                        dirBeforeImmobile = dir = Dir.LEFT;
+                        dir = Dir.LEFT;
                     }else {//右移
                         x += escapeSpeed;
-                        dirBeforeImmobile = dir = Dir.RIGHT;
+                        dir = Dir.RIGHT;
                     }
                 }else {//上下移动
                     if (interSection.getCenterY() > myRectangle.getCenterY()){//上移
                         y -= escapeSpeed;
-                        dirBeforeImmobile = dir = Dir.UP;
+                        dir = Dir.UP;
                     }else{//下移
                         y += escapeSpeed;
-                        dirBeforeImmobile = dir = Dir.DOWN;
+                        dir = Dir.DOWN;
                     }
                 }
                 return;
@@ -202,7 +152,7 @@ public class Tank implements Serializable {
      * 除了玩家操纵的主战坦克，其它坦克的随机行为
      */
     private void tankRandomAction() {
-        if (this != tankFrame.getTank()){
+        if (this != this.gameModel.getTank()){
             //坦克随机发射子弹
             if (random.nextInt(100)>97) {
                 this.fire();
@@ -213,7 +163,7 @@ public class Tank implements Serializable {
                 secRandom = random.nextInt(10)+1;//确定下一次的时长，保底1秒
                 f = 0;//f清零
                 //确定下一次的方向
-                this.dirBeforeImmobile = dir = Dir.values()[random.nextInt(4)];
+                dir = Dir.values()[random.nextInt(4)];
             }
         }
     }
@@ -222,14 +172,15 @@ public class Tank implements Serializable {
      * 坦克移动（改变坐标值），但是不能出界，必须在窗体内运行
      */
     private void move(){
+        if (isMoving == false) return;
         if (dir == Dir.LEFT){
             x = x-SPEED<=2?x:x-SPEED;
         }else if (dir == Dir.RIGHT){
-            x = x+SPEED>=tankFrame.getWidth()-WIDTH-2?x:x+SPEED;
+            x = x+SPEED>=this.gameModel.getTankFrame().getWidth()-WIDTH-2?x:x+SPEED;
         }else if (dir == Dir.UP){
             y = y-SPEED<=28?y:y-SPEED;
         }else if (dir == Dir.DOWN){
-            y = y+SPEED>=tankFrame.getHeight()-HEIGHT-28?y:y+SPEED;
+            y = y+SPEED>=this.gameModel.getTankFrame().getHeight()-HEIGHT-28?y:y+SPEED;
         }
     }
 
@@ -238,5 +189,45 @@ public class Tank implements Serializable {
      */
     public void fire() {
         this.fireStrategy.fire(this);
+    }
+
+    public FireStrategy getFireStrategy() {
+        return fireStrategy;
+    }
+    public List<Bullet> getBulletList() {
+        return bulletList;
+    }
+    public Group getGroup() {
+        return group;
+    }
+    public int getWIDTH() {
+        return WIDTH;
+    }
+    public int getHEIGHT() {
+        return HEIGHT;
+    }
+    public void setIsLive(Boolean isLive) {
+        this.isLive = isLive;
+    }
+    public int getX() {
+        return x;
+    }
+    public int getY() {
+        return y;
+    }
+    public void setDir(Dir dir) {
+        this.dir = dir;
+    }
+    public void setIsMoving(boolean b) {
+        this.isMoving = b;
+    }
+    public boolean getIsMoving() {
+        return isMoving;
+    }
+    public Dir getDir() {
+        return dir;
+    }
+    public GameModel getGameModel(){
+        return gameModel;
     }
 }

@@ -16,7 +16,6 @@ public class Bullet implements Serializable {
     private Dir dir;
     private final int SPEED = Integer.parseInt((String)PropertiesMgr.getProperty("bulletSpeed"));
     private boolean isLive = true;//子弹撞车或者跃出窗口就移除，等待回收，否则子弹变多后占用内存导致内存溢出
-    private TankFrame tankFrame;//获取坦克窗口的私有属性
     private int fireX,fireY;//子弹射出时候的坐标，通过坦克坐标、图片长宽、运行方向 获取
     static int WIDTH = ResourceMgr.bulletL.getWidth(),HEIGHT = ResourceMgr.bulletU.getHeight();//子弹的宽度，高度
     private Tank tank;//所属坦克
@@ -26,13 +25,11 @@ public class Bullet implements Serializable {
     public Bullet() {
     }
 
-    public Bullet(int x, int y, Dir dir,TankFrame tankFrame,Tank tank) {
+    public Bullet(int x, int y, Dir dir,Tank tank) {
         this.x = x;
         this.y = y;
         this.dir = dir;
-        this.tankFrame = tankFrame;
         this.tank = tank;
-        tank.getBulletList().add(this);
     }
 
     public void paint(Graphics g){
@@ -75,7 +72,7 @@ public class Bullet implements Serializable {
         }else if (dir == Dir.DOWN){
             y += SPEED;
         }
-        if (x<0||y<0||x>tankFrame.getWidth()||y> tankFrame.getHeight()){
+        if (x<0||y<0||x>this.tank.getGameModel().getTankFrame().getWidth()||y> this.tank.getGameModel().getTankFrame().getHeight()){
             this.isLive = false;
         }
     }

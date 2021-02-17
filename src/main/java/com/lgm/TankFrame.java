@@ -15,33 +15,22 @@ import static com.lgm.Dir.*;
  * @date:2021/2/4 17:17
  */
 public class TankFrame extends Frame {
+    //窗口View与业务模型modle分离，中间用facade门面联系
+    private GameModel gameModel;
 
-    private final Tank tank ;//我方坦克
-    private Dir shootingDir = RIGHT;//子弹射出方向
     private static final int GAME_WIDTH = Integer.parseInt((String)PropertiesMgr.getProperty("gameWidth"));
     private static final int GAME_HEIGHT = Integer.parseInt((String)PropertiesMgr.getProperty("gameHeight"));
-    private final List<Tank> tanks = new ArrayList<>();//全部坦克集合
-    private final List<Explode> explodeList = new ArrayList<>();//爆炸集合
 
-    public List<Explode> getExplodeList(){ return explodeList;}
-    public List<Tank> getTanks(){
-        return tanks;
-    }
-    public Tank getTank() {
-        return tank;
-    }
     public int getWidth(){
         return GAME_WIDTH;
     }
     public int getHeight(){
         return GAME_HEIGHT;
     }
+
     public TankFrame() throws HeadlessException {
-        this.tank = new Tank(Integer.parseInt((String)PropertiesMgr.getProperty("myTankInitX")),
-                Integer.parseInt((String)PropertiesMgr.getProperty("myTankInitY")),
-                IMMOBILE,this,Group.GOOD,
-                Integer.parseInt((String)PropertiesMgr.getProperty("myTankSpeed")));
-        this.tanks.add(tank);
+        //初始化gameModle
+        this.gameModel = new GameModel(this);
         this.setTitle((String)PropertiesMgr.getProperty("gameTitle"));
         this.setSize(GAME_WIDTH,GAME_HEIGHT);
         this.setResizable(false);
@@ -79,28 +68,13 @@ public class TankFrame extends Frame {
 
     @Override
     public void paint(Graphics g) {
-        Color c = g.getColor();
-        g.setColor(Color.MAGENTA);
-        g.drawString("我的坦克子弹的数量："+this.tank.getBulletList().size(),10,50);
-        g.drawString("敌方坦克的数量："+tanks.stream().filter((x)->x.getGroup()==Group.BAD).count(),10,70);
-        g.drawString("爆炸对象数量："+this.explodeList.size(),10,90);
-        g.drawString("友军坦克数量（除了我自己）:"+tanks.stream().filter(
-                (x)->x.getGroup()==Group.GOOD&&x!=this.tank).count(),10,110);
-        g.setColor(c);
-        //绘制坦克
-        for (int i = 0; i < this.tanks.size(); i++) {
-            this.tanks.get(i).paint(g);
-        }
-        //绘制爆炸
-        for (int i = 0; i < explodeList.size(); i++) {
-            this.explodeList.get(i).paint(g);
-        }
+        gameModel.paint(g);
     }
 
     /**
      * tank:指的是我用键盘控制的坦克，不是敌方坦克
      */
-    class MyKeyAdapter extends KeyAdapter {
+    private class MyKeyAdapter extends KeyAdapter {
         private final TankFrame tankFrame;
 
         public MyKeyAdapter(TankFrame tankFrame) {
@@ -111,37 +85,30 @@ public class TankFrame extends Frame {
         @Override
         public void keyPressed(KeyEvent e) {
             int keyCode = e.getKeyCode();
+            gameModel.getTank().setIsMoving(true);
             //判断坦克方向
             if (keyCode == KeyEvent.VK_LEFT){
-                tank.setDir(LEFT);
-                shootingDir = LEFT;
-                tankFrame.getTank().setDirBeforeImmobile(LEFT);
+                gameModel.getTank().setDir(LEFT);
             }else if (keyCode == KeyEvent.VK_RIGHT){
-                tank.setDir(RIGHT);
-                shootingDir = RIGHT;
-                tankFrame.getTank().setDirBeforeImmobile(RIGHT);
+                gameModel.getTank().setDir(RIGHT);
             }else if (keyCode == KeyEvent.VK_UP){
-                tank.setDir(UP);
-                shootingDir = UP;
-                tankFrame.getTank().setDirBeforeImmobile(UP);
+                gameModel.getTank().setDir(UP);
             }else if (keyCode == KeyEvent.VK_DOWN){
-                tank.setDir(DOWN);
-                shootingDir = DOWN;
-                tankFrame.getTank().setDirBeforeImmobile(DOWN);
+                gameModel.getTank().setDir(DOWN);
             }else {
-                tank.setDir(IMMOBILE);
+                gameModel.getTank().setIsMoving(false);
             }
-//            repaint();
-            //判断子弹方向
+            //按ctrl键开火
             if (keyCode == KeyEvent.VK_CONTROL){
-                tank.getFireStrategy().fire(tank);
+                gameModel.getTank().getFireStrategy().fire(gameModel.getTank());
             }
+            if (gameModel.getTank().getIsMoving() == true)
             new Thread(()->new Audio("audio/tank_move.wav").play()).start();
         }
 
         @Override
         public void keyReleased(KeyEvent e) {
-            tank.setDir(IMMOBILE);
+            gameModel.getTank().setIsMoving(false);
         }
 
     }
