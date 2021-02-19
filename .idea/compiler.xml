@@ -3,8 +3,6 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
       <module name="HelloSpring" target="15" />
-      <module name="HelloSpring.main" target="15" />
-      <module name="HelloSpring.test" target="15" />
     </bytecodeTargetLevel>
   </component>
 </project>

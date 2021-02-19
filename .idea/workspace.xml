@@ -4,38 +4,85 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="IDEA build多模块项目动不动编译不出来！不是没class文件就是没资源文件，手动在编译输出目录添加了资源文件，在project structure重新引入module，修改一些小细节就行了">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/gradle_wrapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/facade/package-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HelloSpring/module.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/lgm/GameModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+    <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="mediator调停者模式：GameModel统筹管理各种模型交互，模型之间解耦合，&#10;ChainOfResponsibility责任链模式：实现Collider的若干碰撞器聚合在ColliderChain中，匹配处理模型之间碰撞，责任链其它常见应用比如filter过滤器和interceptor拦截器。此外添加了墙体Wall类，在GameModel中初始化墙体，并且增加Wall的各种碰撞器，添加配置文件项">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lgm/collider/BulletWallCollider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lgm/collider/Collider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lgm/collider/ColliderChain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lgm/collider/TankBulletCollider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lgm/collider/TankTankCollider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lgm/collider/TankWallCollider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lgm/model/GameObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lgm/model/Wall.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/GameGate.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/BulletWallCollider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/Collider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/ColliderChain.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/TankBulletCollider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/TankTankCollider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/TankWallCollider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/enumeration/Dir.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/enumeration/Group.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/facade/GameModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/mgr/PropertiesMgr.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/mgr/ResourceMgr.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Bullet$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Bullet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Explode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/GameObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Wall.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/DefaultFireStrategy.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/FireStrategy.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/FourDirFireStrategy.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/util/Audio.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/util/ImageTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/util/ImageUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame$MyKeyAdapter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloSpring/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/HelloSpring/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloSpring/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/HelloSpring/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/DefaultFireStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/DefaultFireStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/Dir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/Dir.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/Explode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/Explode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/FourDirFireStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/FourDirFireStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/Tank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/TankFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/TankFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/Test01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/Test01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Bullet$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Bullet$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Bullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/DefaultFireStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/DefaultFireStrategy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Dir.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Dir.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Explode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Explode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/FourDirFireStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/FourDirFireStrategy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Tank$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Tank$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Tank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/TankFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/TankFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/TankFrame$MyKeyAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/TankFrame$MyKeyAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/TankFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/TankFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Test01.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Test01.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/Audio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/util/Audio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/model/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/DefaultFireStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/strategy/DefaultFireStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/Dir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/enumeration/Dir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/Explode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/model/Explode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/FireStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/strategy/FireStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/FourDirFireStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/strategy/FourDirFireStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/facade/GameModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/enumeration/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/ImageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/util/ImageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/util/ImageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/PropertiesMgr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/mgr/PropertiesMgr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/ResourceMgr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/mgr/ResourceMgr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/model/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/TankFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/view/TankFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/Test01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/GameGate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/config" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Audio.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Bullet$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Bullet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/DefaultFireStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Dir.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Explode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/FireStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/FourDirFireStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/GameModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Group.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/ImageTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/ImageUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/PropertiesMgr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/ResourceMgr.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Tank$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Tank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/TankFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/TankFrame$MyKeyAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/TankFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/Test01.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/config" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +122,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package-info" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -101,24 +149,41 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.22873563" />
-    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.lgm.collider" />
       <recent name="com.lgm" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\IdeaProjects\WarOfTank\target\production\WarOfTank" />
       <recent name="D:\IdeaProjects\WarOfTank\target\generated-sources" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lgm.strategy" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Test01">
+  <component name="RunManager" selected="Application.GameGate">
+    <configuration name="GameGate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lgm.GameGate" />
+      <module name="WarOfTank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lgm.strategy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SpringIOCtest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lgm.SpringIOCtest" />
       <module name="HelloSpring" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lgm.*" />
+          <option name="PATTERN" value="com.lgm.strategy.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -132,19 +197,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="factory.abstractFactory.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test01" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.lgm.Test01" />
-      <module name="WarOfTank" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lgm.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -167,12 +219,12 @@
       <module name="WarOfTank" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lgm.*" />
+          <option name="PATTERN" value="com.lgm.strategy.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.lgm" />
-      <option name="MAIN_CLASS_NAME" value="com.lgm.ImageTest" />
+      <option name="PACKAGE_NAME" value="com.lgm.util" />
+      <option name="MAIN_CLASS_NAME" value="com.lgm.util.ImageTest" />
       <option name="METHOD_NAME" value="bufferedImageTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -181,7 +233,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Test01" />
+        <item itemvalue="Application.GameGate" />
         <item itemvalue="Application.SpringIOCtest" />
         <item itemvalue="Application.Test" />
         <item itemvalue="JUnit.ImageTest.bufferedImageTest" />
@@ -204,7 +256,11 @@
       <workItem from="1613409456565" duration="359000" />
       <workItem from="1613437765580" duration="7811000" />
       <workItem from="1613457455867" duration="3051000" />
-      <workItem from="1613535888556" duration="9661000" />
+      <workItem from="1613535888556" duration="11007000" />
+      <workItem from="1613632667807" duration="17067000" />
+      <workItem from="1613699484447" duration="6436000" />
+      <workItem from="1613732791132" duration="7493000" />
+      <workItem from="1613741392465" duration="1076000" />
     </task>
     <task id="LOCAL-00001" summary="IDEA build多模块项目动不动编译不出来！不是没class文件就是没资源文件，手动在编译输出目录添加了资源文件，在project structure重新引入module，修改一些小细节就行了">
       <created>1613458920384</created>
@@ -213,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613458920384</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="facade门面模式：坦克大战view和model分离，GameModel封装坦克子弹等等，让tankFrame只和gameModel沟通指令，让gameModel操作实体行为">
+      <created>1613555596591</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1613555596591</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +296,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="IDEA build多模块项目动不动编译不出来！不是没class文件就是没资源文件，手动在编译输出目录添加了资源文件，在project structure重新引入module，修改一些小细节就行了" />
-    <option name="LAST_COMMIT_MESSAGE" value="IDEA build多模块项目动不动编译不出来！不是没class文件就是没资源文件，手动在编译输出目录添加了资源文件，在project structure重新引入module，修改一些小细节就行了" />
+    <MESSAGE value="facade门面模式：坦克大战view和model分离，GameModel封装坦克子弹等等，让tankFrame只和gameModel沟通指令，让gameModel操作实体行为" />
+    <MESSAGE value="mediator调停者模式：GameModel统筹管理各种模型交互，模型之间解耦合，&#10;ChainOfResponsibility责任链模式：实现Collider的若干碰撞器聚合在ColliderChain中，匹配处理模型之间碰撞，责任链其它常见应用比如filter过滤器和interceptor拦截器。此外添加了墙体Wall类，在GameModel中初始化墙体，并且增加Wall的各种碰撞器，添加配置文件项" />
+    <option name="LAST_COMMIT_MESSAGE" value="mediator调停者模式：GameModel统筹管理各种模型交互，模型之间解耦合，&#10;ChainOfResponsibility责任链模式：实现Collider的若干碰撞器聚合在ColliderChain中，匹配处理模型之间碰撞，责任链其它常见应用比如filter过滤器和interceptor拦截器。此外添加了墙体Wall类，在GameModel中初始化墙体，并且增加Wall的各种碰撞器，添加配置文件项" />
+  </component>
+  <component name="XPathView.XPathProjectComponent">
+    <history />
+    <find-history />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
