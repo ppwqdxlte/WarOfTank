@@ -16,7 +16,7 @@ public class GameGate {
         new Thread(()->new Audio("audio/war1.wav").loop()).start();
 
         while (true){
-            Thread.sleep(50);
+            Thread.sleep(500);
             tankFrame.repaint();
         }
     }

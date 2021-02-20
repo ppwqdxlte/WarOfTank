@@ -20,8 +20,8 @@ public class Tank extends GameObject implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 4647626261280633755L;
-    private int x;
-    private int y;
+//    private int x;
+//    private int y;
     private Dir dir;
     private Group group;
     private int SPEED = this.group==Group.GOOD?Integer.parseInt((String) PropertiesMgr.getProperty("goodTankSpeed")):Integer.parseInt((String)PropertiesMgr.getProperty("badTankSpeed"));
@@ -74,6 +74,16 @@ public class Tank extends GameObject implements Serializable {
                 g.drawImage(this.group==Group.GOOD?ResourceMgr.tankD:ResourceMgr.badTankD,x,y,null);
                 break;
         }
+    }
+
+    @Override
+    public int getWidth() {
+        return WIDTH;
+    }
+
+    @Override
+    public int getHeight() {
+        return HEIGHT;
     }
 
 

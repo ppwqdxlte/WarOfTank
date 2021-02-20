@@ -16,8 +16,8 @@ import java.io.Serializable;
 public class Bullet extends GameObject implements Serializable {
     @Serial
     private static final long serialVersionUID = 8918545667283636286L;
-    private int x;
-    private int y;
+//    private int x;
+//    private int y;
     private Dir dir;
     private final int SPEED = Integer.parseInt((String) PropertiesMgr.getProperty("bulletSpeed"));
     private boolean isLive = true;//子弹撞车或者跃出窗口就移除，等待回收，否则子弹变多后占用内存导致内存溢出
@@ -60,6 +60,17 @@ public class Bullet extends GameObject implements Serializable {
                 break;
         }
     }
+
+    @Override
+    public int getWidth() {
+        return WIDTH;
+    }
+
+    @Override
+    public int getHeight() {
+        return HEIGHT;
+    }
+
     private void move(){
         if (dir == Dir.LEFT){
             x -= SPEED;

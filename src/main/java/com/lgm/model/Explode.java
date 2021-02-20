@@ -17,7 +17,6 @@ public class Explode extends GameObject implements Serializable {
     private static final long serialVersionUID = -5927261928218784540L;
     private int x;
     private int y;
-    private static int WIDTH,HEIGHT;//帧尺寸
     private int f;//第几帧
 
     public Explode() {
@@ -34,5 +33,15 @@ public class Explode extends GameObject implements Serializable {
         if (f>=ResourceMgr.explodeImages.length){
             GameModel.getInstance().getGameObjects().remove(this);
         }
+    }
+
+    @Override
+    public int getWidth() {
+        return 0;
+    }
+
+    @Override
+    public int getHeight() {
+        return 0;
     }
 }

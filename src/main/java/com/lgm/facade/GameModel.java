@@ -48,10 +48,10 @@ public class GameModel {
         this.tankFrame = tankFrame;
 
         //添加墙体
-        gameObjects.add(new Wall(100,100,200,50,this));
-        gameObjects.add(new Wall(600,100,200,50,this));
-        gameObjects.add(new Wall(300,300,50,200,this));
-        gameObjects.add(new Wall(700,300,50,200,this));
+        gameObjects.add(new Wall(100,100,200,50));
+        gameObjects.add(new Wall(600,100,200,50));
+        gameObjects.add(new Wall(300,300,50,200));
+        gameObjects.add(new Wall(700,300,50,200));
 
         //碰撞责任链从配置文件中读取列表，根据配置添加责任对象
         String[] colliders = ((String) PropertiesMgr.getProperty("colliderChain")).split(",");
