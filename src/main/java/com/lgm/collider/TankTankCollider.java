@@ -46,8 +46,8 @@ public class TankTankCollider implements Collider<Tank,Tank>{
                     }
                 }else {
                     //碰撞双方不是友军
-                    ((Tank) o1).setIsLive(((Tank) o1).getGroup() == Group.BAD ? false : true);
-                    ((Tank) o2).setIsLive(((Tank) o2).getGroup() == Group.BAD ? false : true);
+                    if (((Tank) o1).getGroup() == Group.BAD) ((Tank) o1).die();
+                    if (((Tank) o2).getGroup() == Group.BAD) ((Tank) o2).die();
                 }
                 return false;
             }

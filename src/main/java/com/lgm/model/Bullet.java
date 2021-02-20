@@ -33,10 +33,6 @@ public class Bullet extends GameObject implements Serializable {
     }
 
     public void paint(Graphics g){
-        if (!isLive){
-            tank.getGameModel().getGameObjects().remove(this);
-            return;
-        }
 
         this.move();
 
@@ -74,7 +70,7 @@ public class Bullet extends GameObject implements Serializable {
             y += SPEED;
         }
         if (x<0||y<0||x>this.tank.getGameModel().getTankFrame().getWidth()||y> this.tank.getGameModel().getTankFrame().getHeight()){
-            this.isLive = false;
+            this.die();
         }
     }
 
@@ -98,5 +94,10 @@ public class Bullet extends GameObject implements Serializable {
     }
     public int getY() {
         return y;
+    }
+
+    public void die() {
+        this.setLive(false);
+        this.getTank().getGameModel().getGameObjects().remove(this);
     }
 }

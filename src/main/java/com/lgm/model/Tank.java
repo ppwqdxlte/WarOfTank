@@ -174,4 +174,11 @@ public class Tank extends GameObject implements Serializable {
     public int getSPEED() {
         return SPEED;
     }
+
+    public void die() {
+        this.setIsLive(false);
+        this.getGameModel().getGameObjects().remove(this);
+        Explode explode = new Explode(x,y,this.getGameModel());
+        this.getGameModel().getGameObjects().add(explode);
+    }
 }

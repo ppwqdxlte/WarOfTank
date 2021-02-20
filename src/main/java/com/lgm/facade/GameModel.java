@@ -24,8 +24,11 @@ public class GameModel {
     private TankFrame tankFrame;
     private List<GameObject> gameObjects = new ArrayList<>();
     private ColliderChain colliderChain = new ColliderChain();
+    private static GameModel instance;
 
-    public GameModel(TankFrame tankFrame){
+    private GameModel(){}
+
+    private GameModel(TankFrame tankFrame){
 
         //添加主坦克
         Tank mainTank = new Tank(Integer.parseInt((String)PropertiesMgr.getProperty("myTankInitX")),
@@ -69,6 +72,17 @@ public class GameModel {
         }
     }
 
+    public static GameModel getInstance(TankFrame tankFrame) {
+        if (instance == null){
+            synchronized (GameModel.class){
+                if (instance == null){
+                    instance = new GameModel(tankFrame);
+                }
+            }
+        }
+        return instance;
+    }
+
     public TankFrame getTankFrame() {
         return tankFrame;
     }
@@ -95,16 +109,6 @@ public class GameModel {
 
         //绘制模型
         for (int i = 0; i < gameObjects.size(); i++) {
-            // 如果是敌方坦克，绘制前判断一下存活状态，这个判断应该放在GameModel中，解开坦克和爆炸的耦合
-            if (gameObjects.get(i) instanceof Tank){
-                Tank deadTank = (Tank)gameObjects.get(i);
-                if (!deadTank.getIsLive() && deadTank.getGroup() == Group.BAD){
-                    Explode explode = new Explode(deadTank.getX(),deadTank.getY(),this);
-                    gameObjects.add(explode);
-                    gameObjects.remove(deadTank);
-                    continue;
-                }
-            }
             gameObjects.get(i).paint(g);
         }
     }
