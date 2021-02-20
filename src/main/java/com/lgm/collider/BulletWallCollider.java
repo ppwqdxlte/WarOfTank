@@ -15,11 +15,14 @@ public class BulletWallCollider implements Collider<Bullet, Wall> {
     @Override
     public boolean collideBetween(GameObject o1, GameObject o2) {
         if (o1 instanceof Bullet && o2 instanceof Wall){
+            //必须更新位置
+            setRectangleLocation((Bullet) o1,(Wall) o2);
             if (((Bullet) o1).getRectangle().intersects(((Wall) o2).getRectangle())){
-                System.err.println("子弹打在了墙上！"+(counter.incrementAndGet()));
-                ((Bullet) o1).setLive(false);
+//                System.err.println("子弹"+o1.hashCode()+"打在了墙"+o2.hashCode()+"上！"+(counter.incrementAndGet()));
+                ((Bullet) o1).die();
                 return false;
             }
+//            System.out.println("Bullet:\t"+o1.hashCode()+"\tWall:\t"+o2.hashCode());
         }else if (o1 instanceof Wall && o2 instanceof Bullet){
             return collideBetween(o2,o1);
         }

@@ -19,8 +19,8 @@ public class TankBulletCollider implements Collider<Bullet,Tank>{
             setRectangleLocation((Bullet) o1,(Tank) o2);
             //不会误伤友军，只会炸掉敌方坦克
             if (((Bullet) o1).getRectangle().intersects(((Tank) o2).getRectangle())) {
-                ((Bullet) o1).setLive(false);
-                ((Tank) o2).setIsLive(false);
+                ((Bullet) o1).die();
+                ((Tank) o2).die();
                 return false;
             }
         }else if (o1 instanceof Tank && o2 instanceof Bullet){

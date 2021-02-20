@@ -33,7 +33,7 @@ public class TankFrame extends Frame {
 
     public TankFrame() throws HeadlessException {
         //初始化gameModle
-        this.gameModel = new GameModel(this);
+        this.gameModel = GameModel.getInstance(this);
         this.setTitle((String)PropertiesMgr.getProperty("gameTitle"));
         this.setSize(GAME_WIDTH,GAME_HEIGHT);
         this.setResizable(false);
