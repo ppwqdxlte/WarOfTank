@@ -25,7 +25,6 @@ public class Tank extends GameObject implements Serializable {
     private Dir dir;
     private Group group;
     private int SPEED = this.group==Group.GOOD?Integer.parseInt((String) PropertiesMgr.getProperty("goodTankSpeed")):Integer.parseInt((String)PropertiesMgr.getProperty("badTankSpeed"));
-    private GameModel gameModel;
     private static final int WIDTH = ResourceMgr.tankL.getWidth();
     private static final int HEIGHT = ResourceMgr.tankL.getHeight();
     private boolean isLive = true;
@@ -36,14 +35,12 @@ public class Tank extends GameObject implements Serializable {
     private Rectangle rectangle = new Rectangle(0,0,WIDTH,HEIGHT);//this坦克的矩形
     private FireStrategy fireStrategy;//开火策略
 
-    public Tank(int x, int y, Dir dir, Group group, int speed, GameModel gameModel) {
+    public Tank(int x, int y, Dir dir, Group group, int speed) {
         this.x = x;
         this.y = y;
         this.dir = dir;
         this.group = group;
         this.SPEED = speed;
-        this.gameModel = gameModel;
-
         if(group == Group.GOOD) {
             String goodFSName = (String)PropertiesMgr.getProperty("goodFS");
             try {
@@ -84,7 +81,7 @@ public class Tank extends GameObject implements Serializable {
      * 除了玩家操纵的主战坦克，其它坦克的随机行为
      */
     private void tankRandomAction() {
-        if (this != ((Tank)(gameModel.getGameObjects().get(0)))){
+        if (this != ((Tank)(GameModel.getInstance().getGameObjects().get(0)))){
             //坦克随机发射子弹
             if (random.nextInt(100)>97) {
                 this.fire();
@@ -108,11 +105,11 @@ public class Tank extends GameObject implements Serializable {
         if (dir == Dir.LEFT){
             x = x-SPEED<=2?x:x-SPEED;
         }else if (dir == Dir.RIGHT){
-            x = x+SPEED>=this.gameModel.getTankFrame().getWidth()-WIDTH-2?x:x+SPEED;
+            x = x+SPEED>=GameModel.getInstance().getTankFrame().getWidth()-WIDTH-2?x:x+SPEED;
         }else if (dir == Dir.UP){
             y = y-SPEED<=28?y:y-SPEED;
         }else if (dir == Dir.DOWN){
-            y = y+SPEED>=this.gameModel.getTankFrame().getHeight()-HEIGHT-28?y:y+SPEED;
+            y = y+SPEED>=GameModel.getInstance().getTankFrame().getHeight()-HEIGHT-28?y:y+SPEED;
         }
     }
 
@@ -165,9 +162,6 @@ public class Tank extends GameObject implements Serializable {
     public Dir getDir() {
         return dir;
     }
-    public GameModel getGameModel(){
-        return gameModel;
-    }
     public Rectangle getRectangle(){
         return rectangle;
     }
@@ -177,8 +171,8 @@ public class Tank extends GameObject implements Serializable {
 
     public void die() {
         this.setIsLive(false);
-        this.getGameModel().getGameObjects().remove(this);
-        Explode explode = new Explode(x,y,this.getGameModel());
-        this.getGameModel().getGameObjects().add(explode);
+        GameModel.getInstance().getGameObjects().remove(this);
+        Explode explode = new Explode(x,y);
+        GameModel.getInstance().getGameObjects().add(explode);
     }
 }

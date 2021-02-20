@@ -1,6 +1,7 @@
 package com.lgm.model;
 
 import com.lgm.enumeration.Dir;
+import com.lgm.facade.GameModel;
 import com.lgm.mgr.PropertiesMgr;
 import com.lgm.mgr.ResourceMgr;
 
@@ -69,7 +70,7 @@ public class Bullet extends GameObject implements Serializable {
         }else if (dir == Dir.DOWN){
             y += SPEED;
         }
-        if (x<0||y<0||x>this.tank.getGameModel().getTankFrame().getWidth()||y> this.tank.getGameModel().getTankFrame().getHeight()){
+        if (x<0||y<0||x> GameModel.getInstance().getTankFrame().getWidth()||y> GameModel.getInstance().getTankFrame().getHeight()){
             this.die();
         }
     }
@@ -98,6 +99,6 @@ public class Bullet extends GameObject implements Serializable {
 
     public void die() {
         this.setLive(false);
-        this.getTank().getGameModel().getGameObjects().remove(this);
+        GameModel.getInstance().getGameObjects().remove(this);
     }
 }

@@ -34,16 +34,16 @@ public class GameModel {
         Tank mainTank = new Tank(Integer.parseInt((String)PropertiesMgr.getProperty("myTankInitX")),
                 Integer.parseInt((String)PropertiesMgr.getProperty("myTankInitY")),
                 RIGHT,Group.GOOD,
-                Integer.parseInt((String)PropertiesMgr.getProperty("myTankSpeed")),this);
+                Integer.parseInt((String)PropertiesMgr.getProperty("myTankSpeed")));
         mainTank.setIsMoving(false);
         gameObjects.add(mainTank);//gameObjects[0] == mainTank
 
         //初始化电脑坦克
         int initTankCount = Integer.parseInt((String) PropertiesMgr.getProperty("initTankCount"));
         for (int i = 0; i < initTankCount; i++) {
-            gameObjects.add(new Tank(300+i*50,10, Dir.DOWN, Group.BAD,5,this));
+            gameObjects.add(new Tank(300+i*50,10, Dir.DOWN, Group.BAD,5));
             if (i%5 == 0)
-            gameObjects.add(new Tank(100+i*50,300,Dir.UP,Group.GOOD,5,this));
+            gameObjects.add(new Tank(100+i*50,300,Dir.UP,Group.GOOD,5));
         }
         this.tankFrame = tankFrame;
 
@@ -72,7 +72,11 @@ public class GameModel {
         }
     }
 
-    public static GameModel getInstance(TankFrame tankFrame) {
+    public static GameModel getInstance() {
+        return instance;
+    }
+
+    public static void init(TankFrame tankFrame) {
         if (instance == null){
             synchronized (GameModel.class){
                 if (instance == null){
@@ -80,7 +84,6 @@ public class GameModel {
                 }
             }
         }
-        return instance;
     }
 
     public TankFrame getTankFrame() {

@@ -4,23 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="mediator调停者模式：GameModel统筹管理各种模型交互，模型之间解耦合，&#10;ChainOfResponsibility责任链模式：实现Collider的若干碰撞器聚合在ColliderChain中，匹配处理模型之间碰撞，责任链其它常见应用比如filter过滤器和interceptor拦截器。此外添加了墙体Wall类，在GameModel中初始化墙体，并且增加Wall的各种碰撞器，添加配置文件项，【注意】子弹碰墙开始时候消失功能正常，一段时间后穿墙而过，碰撞处理失败！不知为何原因？非常诡异！！！">
+    <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/collider/BulletWallCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/collider/BulletWallCollider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/collider/TankBulletCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/collider/TankBulletCollider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/collider/TankTankCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/collider/TankTankCollider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/facade/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/facade/GameModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/model/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/model/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/model/Explode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/model/Explode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/model/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/model/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/strategy/DefaultFireStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/strategy/DefaultFireStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/strategy/FourDirFireStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/strategy/FourDirFireStrategy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/view/TankFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/view/TankFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/BulletWallCollider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/BulletWallCollider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/TankBulletCollider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/TankBulletCollider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/TankTankCollider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/TankTankCollider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/facade/GameModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/facade/GameModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Bullet$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Bullet$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Bullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,15 +134,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -201,7 +191,8 @@
       <workItem from="1613699484447" duration="6436000" />
       <workItem from="1613732791132" duration="7493000" />
       <workItem from="1613741392465" duration="1125000" />
-      <workItem from="1613782414224" duration="3005000" />
+      <workItem from="1613782414224" duration="3876000" />
+      <workItem from="1613791564237" duration="718000" />
     </task>
     <task id="LOCAL-00001" summary="IDEA build多模块项目动不动编译不出来！不是没class文件就是没资源文件，手动在编译输出目录添加了资源文件，在project structure重新引入module，修改一些小细节就行了">
       <created>1613458920384</created>
@@ -224,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613742491048</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="mediator调停者模式：GameModel统筹管理各种模型交互，模型之间解耦合，&#10;ChainOfResponsibility责任链模式：实现Collider的若干碰撞器聚合在ColliderChain中，匹配处理模型之间碰撞，责任链其它常见应用比如filter过滤器和【解决BUG】只因在子弹墙体碰撞器中忘记更新location了！此外GameModel变成单粒模式，paint方法中取消了判断isLive，直接在游戏模型中添加die方法，触发死亡事件就马上移除模型即可，节约了计算资源和时间">
+      <created>1613785625818</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1613785625818</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +245,8 @@
     <MESSAGE value="facade门面模式：坦克大战view和model分离，GameModel封装坦克子弹等等，让tankFrame只和gameModel沟通指令，让gameModel操作实体行为" />
     <MESSAGE value="mediator调停者模式：GameModel统筹管理各种模型交互，模型之间解耦合，&#10;ChainOfResponsibility责任链模式：实现Collider的若干碰撞器聚合在ColliderChain中，匹配处理模型之间碰撞，责任链其它常见应用比如filter过滤器和interceptor拦截器。此外添加了墙体Wall类，在GameModel中初始化墙体，并且增加Wall的各种碰撞器，添加配置文件项" />
     <MESSAGE value="mediator调停者模式：GameModel统筹管理各种模型交互，模型之间解耦合，&#10;ChainOfResponsibility责任链模式：实现Collider的若干碰撞器聚合在ColliderChain中，匹配处理模型之间碰撞，责任链其它常见应用比如filter过滤器和interceptor拦截器。此外添加了墙体Wall类，在GameModel中初始化墙体，并且增加Wall的各种碰撞器，添加配置文件项，【注意】子弹碰墙开始时候消失功能正常，一段时间后穿墙而过，碰撞处理失败！不知为何原因？非常诡异！！！" />
-    <option name="LAST_COMMIT_MESSAGE" value="mediator调停者模式：GameModel统筹管理各种模型交互，模型之间解耦合，&#10;ChainOfResponsibility责任链模式：实现Collider的若干碰撞器聚合在ColliderChain中，匹配处理模型之间碰撞，责任链其它常见应用比如filter过滤器和interceptor拦截器。此外添加了墙体Wall类，在GameModel中初始化墙体，并且增加Wall的各种碰撞器，添加配置文件项，【注意】子弹碰墙开始时候消失功能正常，一段时间后穿墙而过，碰撞处理失败！不知为何原因？非常诡异！！！" />
+    <MESSAGE value="【解决BUG】只因在子弹墙体碰撞器中忘记更新location了！此外GameModel变成单粒模式，paint方法中取消了判断isLive，直接在游戏模型中添加die方法，触发死亡事件就马上移除模型即可，节约了计算资源和时间" />
+    <option name="LAST_COMMIT_MESSAGE" value="【解决BUG】只因在子弹墙体碰撞器中忘记更新location了！此外GameModel变成单粒模式，paint方法中取消了判断isLive，直接在游戏模型中添加die方法，触发死亡事件就马上移除模型即可，节约了计算资源和时间" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />

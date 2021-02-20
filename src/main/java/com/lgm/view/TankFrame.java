@@ -18,8 +18,6 @@ import static com.lgm.enumeration.Dir.*;
  * @date:2021/2/4 17:17
  */
 public class TankFrame extends Frame {
-    //窗口View与业务模型modle分离，中间用GameModel(facade门面)联系
-    private GameModel gameModel;
 
     private static final int GAME_WIDTH = Integer.parseInt((String) PropertiesMgr.getProperty("gameWidth"));
     private static final int GAME_HEIGHT = Integer.parseInt((String)PropertiesMgr.getProperty("gameHeight"));
@@ -33,7 +31,7 @@ public class TankFrame extends Frame {
 
     public TankFrame() throws HeadlessException {
         //初始化gameModle
-        this.gameModel = GameModel.getInstance(this);
+        GameModel.init(this);
         this.setTitle((String)PropertiesMgr.getProperty("gameTitle"));
         this.setSize(GAME_WIDTH,GAME_HEIGHT);
         this.setResizable(false);
@@ -71,7 +69,7 @@ public class TankFrame extends Frame {
 
     @Override
     public void paint(Graphics g) {
-        gameModel.paint(g);
+        GameModel.getInstance().paint(g);
     }
 
     /**
@@ -88,30 +86,30 @@ public class TankFrame extends Frame {
         @Override
         public void keyPressed(KeyEvent e) {
             int keyCode = e.getKeyCode();
-            ((Tank)(gameModel.getGameObjects().get(0))).setIsMoving(true);
+            ((Tank)(GameModel.getInstance().getGameObjects().get(0))).setIsMoving(true);
             //判断坦克方向
             if (keyCode == KeyEvent.VK_LEFT){
-                ((Tank)(gameModel.getGameObjects().get(0))).setDir(LEFT);
+                ((Tank)(GameModel.getInstance().getGameObjects().get(0))).setDir(LEFT);
             }else if (keyCode == KeyEvent.VK_RIGHT){
-                ((Tank)(gameModel.getGameObjects().get(0))).setDir(RIGHT);
+                ((Tank)(GameModel.getInstance().getGameObjects().get(0))).setDir(RIGHT);
             }else if (keyCode == KeyEvent.VK_UP){
-                ((Tank)(gameModel.getGameObjects().get(0))).setDir(UP);
+                ((Tank)(GameModel.getInstance().getGameObjects().get(0))).setDir(UP);
             }else if (keyCode == KeyEvent.VK_DOWN){
-                ((Tank)(gameModel.getGameObjects().get(0))).setDir(DOWN);
+                ((Tank)(GameModel.getInstance().getGameObjects().get(0))).setDir(DOWN);
             }else {
-                ((Tank)(gameModel.getGameObjects().get(0))).setIsMoving(false);
+                ((Tank)(GameModel.getInstance().getGameObjects().get(0))).setIsMoving(false);
             }
             //按ctrl键开火
             if (keyCode == KeyEvent.VK_CONTROL){
-                ((Tank)(gameModel.getGameObjects().get(0))).getFireStrategy().fire(((Tank)(gameModel.getGameObjects().get(0))));
+                ((Tank)(GameModel.getInstance().getGameObjects().get(0))).getFireStrategy().fire(((Tank)(GameModel.getInstance().getGameObjects().get(0))));
             }
-            if (((Tank)gameModel.getGameObjects().get(0)).getIsMoving() == true)
+            if (((Tank)GameModel.getInstance().getGameObjects().get(0)).getIsMoving() == true)
             new Thread(()->new Audio("audio/tank_move.wav").play()).start();
         }
 
         @Override
         public void keyReleased(KeyEvent e) {
-            ((Tank)(gameModel.getGameObjects().get(0))).setIsMoving(false);
+            ((Tank)(GameModel.getInstance().getGameObjects().get(0))).setIsMoving(false);
         }
 
     }

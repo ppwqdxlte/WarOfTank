@@ -2,6 +2,7 @@ package com.lgm.strategy;
 
 import com.lgm.enumeration.Dir;
 import com.lgm.enumeration.Group;
+import com.lgm.facade.GameModel;
 import com.lgm.model.Bullet;
 import com.lgm.model.Tank;
 import com.lgm.util.Audio;
@@ -19,7 +20,7 @@ public class FourDirFireStrategy implements FireStrategy {
         Dir[] dirs = Dir.values();
         for(Dir dir : dirs) {
             Bullet bullet = new Bullet(bX, bY, dir, tank);
-            tank.getGameModel().getGameObjects().add(bullet);
+            GameModel.getInstance().getGameObjects().add(bullet);
         }
 
         if(tank.getGroup() == Group.GOOD) new Thread(()->new Audio("audio/tank_fire.wav").play()).start();

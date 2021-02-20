@@ -1,6 +1,7 @@
 package com.lgm.strategy;
 
 import com.lgm.enumeration.Group;
+import com.lgm.facade.GameModel;
 import com.lgm.model.Bullet;
 import com.lgm.model.Tank;
 import com.lgm.util.Audio;
@@ -16,7 +17,7 @@ public class DefaultFireStrategy implements FireStrategy {
         int bY = tank.getY() + tank.getHEIGHT()/2 - Bullet.getHEIGHT()/2;
 
         Bullet bullet = new Bullet(bX, bY, tank.getDir(), tank);
-        tank.getGameModel().getGameObjects().add(bullet);
+        GameModel.getInstance().getGameObjects().add(bullet);
 
         if(tank.getGroup() == Group.GOOD) new Thread(()->new Audio("audio/tank_fire.wav").play()).start();
     }
