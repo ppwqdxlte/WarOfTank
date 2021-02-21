@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/observer/Child.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/observer/Dad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/observer/Event.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/observer/GrandMa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/observer/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/observer/Mum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/observer/Observer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/observer/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/observer/TestFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/observer/WakeUpEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/composite/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/flyWeight/Bullet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/flyWeight/BulletPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/flyWeight/Fire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/flyWeight/TestString.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,39 +93,13 @@
       <recent name="com.lgm.strategy" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TestFrame">
-    <configuration name="GameGate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.lgm.GameGate" />
-      <module name="WarOfTank" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lgm.strategy.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="observer.Main" />
+  <component name="RunManager" selected="Application.Fire">
+    <configuration name="Fire" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="flyWeight.Fire" />
       <module name="DesignPatterns" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="observer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SpringIOCtest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.lgm.SpringIOCtest" />
-      <module name="HelloSpring" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lgm.strategy.*" />
+          <option name="PATTERN" value="flyWeight.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -151,6 +120,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="composite.Test" />
+      <module name="DesignPatterns" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="composite.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="observer.TestFrame" />
       <module name="DesignPatterns" />
@@ -164,24 +146,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration name="TestString" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="flyWeight.TestString" />
+      <module name="DesignPatterns" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="flyWeight.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Fire" />
+        <item itemvalue="Application.TestString" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.TestFrame" />
         <item itemvalue="Application.Test (1)" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.GameGate" />
-        <item itemvalue="Application.SpringIOCtest" />
       </list>
     </recent_temporary>
   </component>
@@ -209,7 +206,8 @@
       <workItem from="1613782414224" duration="3876000" />
       <workItem from="1613791564237" duration="4621000" />
       <workItem from="1613811216482" duration="2940000" />
-      <workItem from="1613873576716" duration="7912000" />
+      <workItem from="1613873576716" duration="9181000" />
+      <workItem from="1613892386838" duration="2652000" />
     </task>
     <task id="LOCAL-00001" summary="IDEA build多模块项目动不动编译不出来！不是没class文件就是没资源文件，手动在编译输出目录添加了资源文件，在project structure重新引入module，修改一些小细节就行了">
       <created>1613458920384</created>
@@ -253,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613814135489</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="observer观察者模式demo">
+      <created>1613886610637</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1613886610637</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,7 +284,8 @@
     <MESSAGE value="【解决BUG】只因在子弹墙体碰撞器中忘记更新location了！此外GameModel变成单粒模式，paint方法中取消了判断isLive，直接在游戏模型中添加die方法，触发死亡事件就马上移除模型即可，节约了计算资源和时间" />
     <MESSAGE value="模型刪除了GameModel屬性，進一步解耦合" />
     <MESSAGE value="Decorator裝飾者模式：被裝飾模型聚合在裝飾器中，裝飾器可以叠加聚合，要刪除子類模型的與父類同名屬性，因爲調用父類屬性引用會被子類同名屬性覆蓋而取不出！此坦克項目在defaultFairStrategy中裝飾了bullet模型" />
-    <option name="LAST_COMMIT_MESSAGE" value="Decorator裝飾者模式：被裝飾模型聚合在裝飾器中，裝飾器可以叠加聚合，要刪除子類模型的與父類同名屬性，因爲調用父類屬性引用會被子類同名屬性覆蓋而取不出！此坦克項目在defaultFairStrategy中裝飾了bullet模型" />
+    <MESSAGE value="observer观察者模式demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="observer观察者模式demo" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />
