@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <aop:aspectj-autoproxy/>
+
+
+    <bean id="tank" class="com.lgm.SpringTank">
+        <!--注入driver bean-->
+       <!-- <property name="driver" ref="driver"/>-->
+    </bean>
+    <bean id="driver" class="com.lgm.Driver"></bean>
+    <bean id="timeProxyWithAnnotation" class="com.lgm.aop.TimeProxyWithAnnotation"></bean>
+    <bean id="aopTank" class="com.lgm.aop.Tank"></bean>
+
+
+</beans>

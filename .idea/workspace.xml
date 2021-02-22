@@ -5,12 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/composite/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/flyWeight/Bullet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/flyWeight/BulletPool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/flyWeight/Fire.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/flyWeight/TestString.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/gradle_wrapper1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/gradle_wrapper2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/proxy/dynamic/TestV3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/proxy/dynamic/TestV4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/proxy/standing/TestV1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DesignPatterns/src/proxy/standing/TestV2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloSpring/HelloSpring1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloSpring/src/app-aop-TestV1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloSpring/src/app-aop-TestV2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloSpring/src/com/lgm/CodeGeneratorLib_cglib_TestV4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloSpring/src/com/lgm/aop/Tank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloSpring/src/com/lgm/aop/TestV5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloSpring/src/com/lgm/aop/TestV6.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloSpring/src/com/lgm/aop/TimeProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HelloSpring/src/com/lgm/aop/TimeProxyWithAnnotation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloSpring/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/HelloSpring/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloSpring/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/HelloSpring/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloSpring/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/HelloSpring/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloSpring/HelloSpring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HelloSpring/HelloSpring.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloSpring/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/HelloSpring/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloSpring/src/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HelloSpring/src/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HelloSpring/src/com/lgm/SpringTank.java" beforeDir="false" afterPath="$PROJECT_DIR$/HelloSpring/src/com/lgm/SpringTank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/GameGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/GameGate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/HelloSpring/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/SpringTank.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/SpringTank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/GameGate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/GameGate.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +96,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/target/production/WarOfTank" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/HelloSpring" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.22873563" />
@@ -86,20 +109,23 @@
       <recent name="com.lgm" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\WarOfTank\HelloSpring\src" />
       <recent name="D:\IdeaProjects\WarOfTank\target\production\WarOfTank" />
+      <recent name="D:\IdeaProjects\WarOfTank\DesignPatterns\src\proxy\standing" />
       <recent name="D:\IdeaProjects\WarOfTank\target\generated-sources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lgm.aop" />
       <recent name="com.lgm.strategy" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Fire">
-    <configuration name="Fire" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="flyWeight.Fire" />
-      <module name="DesignPatterns" />
+  <component name="RunManager" selected="Application.GameGate">
+    <configuration name="CodeGeneratorLib_cglib_TestV4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lgm.CodeGeneratorLib_cglib_TestV4" />
+      <module name="HelloSpring" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="flyWeight.*" />
+          <option name="PATTERN" value="com.lgm.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -107,12 +133,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="observer.Test" />
-      <module name="DesignPatterns" />
+    <configuration name="GameGate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lgm.GameGate" />
+      <module name="WarOfTank" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="observer.*" />
+          <option name="PATTERN" value="com.lgm.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -120,12 +146,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="composite.Test" />
+    <configuration name="TestV3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="proxy.dynamic.TestV3" />
       <module name="DesignPatterns" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="composite.*" />
+          <option name="PATTERN" value="proxy.dynamic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -133,12 +159,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="observer.TestFrame" />
-      <module name="DesignPatterns" />
+    <configuration name="TestV5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lgm.aop.TestV5" />
+      <module name="HelloSpring" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="observer.*" />
+          <option name="PATTERN" value="com.lgm.aop.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -146,12 +172,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestString" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="flyWeight.TestString" />
-      <module name="DesignPatterns" />
+    <configuration name="TestV6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lgm.aop.TestV6" />
+      <module name="HelloSpring" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="flyWeight.*" />
+          <option name="PATTERN" value="com.lgm.aop.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -174,11 +200,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Fire" />
-        <item itemvalue="Application.TestString" />
-        <item itemvalue="Application.Test" />
-        <item itemvalue="Application.TestFrame" />
-        <item itemvalue="Application.Test (1)" />
+        <item itemvalue="Application.GameGate" />
+        <item itemvalue="Application.TestV3" />
+        <item itemvalue="Application.TestV6" />
+        <item itemvalue="Application.TestV5" />
+        <item itemvalue="Application.CodeGeneratorLib_cglib_TestV4" />
       </list>
     </recent_temporary>
   </component>
@@ -207,7 +233,10 @@
       <workItem from="1613791564237" duration="4621000" />
       <workItem from="1613811216482" duration="2940000" />
       <workItem from="1613873576716" duration="9181000" />
-      <workItem from="1613892386838" duration="2652000" />
+      <workItem from="1613892386838" duration="2755000" />
+      <workItem from="1613908794304" duration="13000" />
+      <workItem from="1613956227668" duration="9892000" />
+      <workItem from="1613977927204" duration="10475000" />
     </task>
     <task id="LOCAL-00001" summary="IDEA build多模块项目动不动编译不出来！不是没class文件就是没资源文件，手动在编译输出目录添加了资源文件，在project structure重新引入module，修改一些小细节就行了">
       <created>1613458920384</created>
@@ -258,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613886610637</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="composite组合模式demo&#10;flyWeight享元模式demo">
+      <created>1613895074822</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1613895074822</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,7 +321,8 @@
     <MESSAGE value="模型刪除了GameModel屬性，進一步解耦合" />
     <MESSAGE value="Decorator裝飾者模式：被裝飾模型聚合在裝飾器中，裝飾器可以叠加聚合，要刪除子類模型的與父類同名屬性，因爲調用父類屬性引用會被子類同名屬性覆蓋而取不出！此坦克項目在defaultFairStrategy中裝飾了bullet模型" />
     <MESSAGE value="observer观察者模式demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="observer观察者模式demo" />
+    <MESSAGE value="composite组合模式demo&#10;flyWeight享元模式demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="composite组合模式demo&#10;flyWeight享元模式demo" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />

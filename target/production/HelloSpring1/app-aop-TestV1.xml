@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="tank" class="com.lgm.SpringTank">
+        <!--注入driver bean-->
+        <property name="driver" ref="driver"/>
+    </bean>
+    <bean id="driver" class="com.lgm.Driver"></bean>
+    <bean id="timeProxy" class="com.lgm.aop.TimeProxy"></bean>
+    <bean id="aopTank" class="com.lgm.aop.Tank"></bean>
+
+    <aop:config>
+        <aop:aspect id="time" ref="timeProxy">
+            <aop:pointcut id="onMove" expression="execution(void com.lgm.aop.Tank.move())"/>
+            <aop:before method="before" pointcut-ref="onMove"></aop:before>
+            <aop:after method="after" pointcut-ref="onMove"></aop:after>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

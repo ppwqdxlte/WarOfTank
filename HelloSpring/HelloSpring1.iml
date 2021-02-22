@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <output url="file://$MODULE_DIR$/../target/production/HelloSpring" />
-    <output-test url="file://$MODULE_DIR$/../target/test/HelloSpring" />
+    <output url="file://$MODULE_DIR$/../target/production/HelloSpring1" />
+    <output-test url="file://$MODULE_DIR$/../target/test/HelloSpring1" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
@@ -24,6 +24,5 @@
     <orderEntry type="library" name="Gradle: org.springframework:spring-core:5.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-expression:5.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-jcl:5.1.6.RELEASE" level="project" />
-    <orderEntry type="library" name="gradle-wrapper" level="project" />
   </component>
 </module>
