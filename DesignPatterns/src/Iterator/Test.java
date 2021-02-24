@@ -6,13 +6,13 @@ package Iterator;
  */
 public class Test {
     public static void main(String[] args) {
-        List<String> list = new ArrayList();
-        list.add("aaa").add("bbb").add("ccc").add("123").add("2").add("").add("12").add("")
-        .add("").add("").add("").add("");
-        System.out.println(list.toString());
+        List<String> arrayList = new ArrayList();
+        arrayList.add("aaa").add("bbb").add("ccc").add("123").add("2").add("").add("12").add("")
+        .add("").add("").add("").add("123");
+        System.out.println(arrayList.toString());
         try {
-            System.out.println(list.get(3));
-            System.out.println(list.get(20));
+            System.out.println(arrayList.get(3));
+            System.out.println(arrayList.get(20));
         }catch (IndexOutOfBoundsException indexOutOfBoundsException){
             System.out.println("数组下标越界");
         }
@@ -26,6 +26,20 @@ public class Test {
             System.out.println(e.getLocalizedMessage());
         }
         System.out.println(linkedIntList.toString());
+        System.out.println(linkedIntList.size());
+        Integer integer = linkedIntList.get(0);
 
+        System.out.println("------------------");
+        Iterator<String> iterator = arrayList.iterator();
+        while (iterator.hasNext()){
+            String next = iterator.next();
+            System.out.println(next);
+        }
+
+        System.out.println("------------------");
+        Iterator<Integer> iterator1 = linkedIntList.iterator();
+        while (iterator1.hasNext()){
+            System.out.println(iterator1.next());
+        }
     }
 }
