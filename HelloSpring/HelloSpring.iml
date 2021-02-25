@@ -9,6 +9,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="gradle-wrapper" level="project" />
     <orderEntry type="library" name="Gradle: cglib:cglib:3.2.12" level="project" />
     <orderEntry type="library" name="Gradle: org.apiguardian:apiguardian-api:1.1.0" level="project" />
     <orderEntry type="library" name="Gradle: org.aspectj:aspectjweaver:1.9.4" level="project" />
@@ -17,13 +18,12 @@
     <orderEntry type="library" scope="TEST" name="Gradle: org.junit.platform:junit-platform-commons:1.6.0" level="project" />
     <orderEntry type="library" name="Gradle: org.junit.platform:junit-platform-engine:1.6.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.opentest4j:opentest4j:1.2.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.ow2.asm:asm:7.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.ow2.asm:asm:7.1" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-aop:5.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-beans:5.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-context:5.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-core:5.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-expression:5.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-jcl:5.1.6.RELEASE" level="project" />
-    <orderEntry type="library" name="gradle-wrapper" level="project" />
   </component>
 </module>

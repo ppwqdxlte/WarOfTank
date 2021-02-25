@@ -16,6 +16,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     compile group:'cglib',name: 'cglib',version:'3.2.12'
     implementation group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.4'
+    implementation group: 'org.ow2.asm',name: 'asm',version: '9.1'
 }
 
 test {
