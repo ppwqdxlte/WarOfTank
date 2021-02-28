@@ -1,6 +1,5 @@
 package strategy.polymorphicWithoutStrategy;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -9,7 +8,7 @@ import java.util.Objects;
  * @date:2021/2/12 11:07
  */
 public class Dog implements Serializable, Comparable<Dog> {
-    @Serial
+
     private static final long serialVersionUID = -8741750107645037313L;
     private int appetite;//狗狗饭量
 

@@ -1,6 +1,5 @@
 package strategy.polymorphicWithoutStrategy;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -9,8 +8,8 @@ import java.util.Objects;
  * @date:2021/2/12 11:04
  */
 public class Cat implements Serializable, Comparable<Cat> {
-    @Serial
-    private static final long serialVersionUID = -4425668413067543691L;
+
+    private static final long serialVersionUID = -6237353660547480144L;
     private int weight;
     private int height;
 
