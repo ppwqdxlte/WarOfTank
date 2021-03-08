@@ -6,13 +6,12 @@ import com.lgm.util.Audio;
 
 import java.awt.*;
 import java.io.Serial;
-import java.io.Serializable;
 
 /**
  * @author:李罡毛
  * @date:2021/2/5 13:18
  */
-public class Explode extends GameObject implements Serializable {
+public class Explode extends GameObject {
     @Serial
     private static final long serialVersionUID = -5927261928218784540L;
     private int x;

@@ -9,6 +9,7 @@ import com.lgm.model.*;
 import com.lgm.view.TankFrame;
 
 import java.awt.*;
+import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +20,9 @@ import static com.lgm.enumeration.Dir.RIGHT;
  * @author:李罡毛
  * @date:2021/2/17 15:50
  */
-public class GameModel {
+public class GameModel implements Serializable{
 
-    private TankFrame tankFrame;
+//    private TankFrame tankFrame;
     private List<GameObject> gameObjects = new ArrayList<>();
     private ColliderChain colliderChain = new ColliderChain();
     private static GameModel instance;
@@ -45,7 +46,7 @@ public class GameModel {
             if (i%5 == 0)
             gameObjects.add(new Tank(100+i*50,300,Dir.UP,Group.GOOD,5));
         }
-        this.tankFrame = tankFrame;
+//        this.tankFrame = tankFrame;
 
         //添加墙体
         gameObjects.add(new Wall(100,100,200,50));
@@ -87,7 +88,7 @@ public class GameModel {
     }
 
     public TankFrame getTankFrame() {
-        return tankFrame;
+        return TankFrame.getInstance();
     }
     public List<GameObject> getGameObjects(){
         return gameObjects;
@@ -116,4 +117,69 @@ public class GameModel {
         }
     }
 
+    /**
+     * 存盘
+     */
+    public void save() {
+        ObjectOutputStream oos = null;
+        FileOutputStream fos = null;
+        File file = new File("temp.data");
+        try{
+            fos = new FileOutputStream(file);
+            oos = new ObjectOutputStream(fos);
+            oos.writeObject(this);
+            oos.flush();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (oos != null){
+                try {
+                    oos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /**
+     * 加载
+     */
+    public void load() {
+        ObjectInputStream ois = null;
+        FileInputStream fis = null;
+        File file = new File("temp.data");
+        try{
+            fis = new FileInputStream(file);
+            ois = new ObjectInputStream(fis);
+            Object o = ois.readObject();
+            if (o instanceof GameModel) {
+                instance = (GameModel) o;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if (fis != null) {
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (ois != null){
+                try {
+                    ois.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }

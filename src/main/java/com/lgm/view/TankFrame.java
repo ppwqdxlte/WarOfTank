@@ -10,6 +10,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.Serializable;
 
 import static com.lgm.enumeration.Dir.*;
 
@@ -17,7 +18,7 @@ import static com.lgm.enumeration.Dir.*;
  * @author:李罡毛
  * @date:2021/2/4 17:17
  */
-public class TankFrame extends Frame {
+public class TankFrame extends Frame implements Serializable {
 
     private static final int GAME_WIDTH = Integer.parseInt((String) PropertiesMgr.getProperty("gameWidth"));
     private static final int GAME_HEIGHT = Integer.parseInt((String)PropertiesMgr.getProperty("gameHeight"));
@@ -29,7 +30,7 @@ public class TankFrame extends Frame {
         return GAME_HEIGHT;
     }
 
-    public TankFrame() throws HeadlessException {
+    private TankFrame() throws HeadlessException {
         //初始化gameModle
         GameModel.init(this);
         this.setTitle((String)PropertiesMgr.getProperty("gameTitle"));
@@ -105,6 +106,9 @@ public class TankFrame extends Frame {
             }
             if (((Tank)GameModel.getInstance().getGameObjects().get(0)).getIsMoving() == true)
             new Thread(()->new Audio("audio/tank_move.wav").play()).start();
+            //存盘、加载
+            if (keyCode == KeyEvent.VK_S) GameModel.getInstance().save();
+            if (keyCode == KeyEvent.VK_L) GameModel.getInstance().load();
         }
 
         @Override
@@ -112,5 +116,10 @@ public class TankFrame extends Frame {
             ((Tank)(GameModel.getInstance().getGameObjects().get(0))).setIsMoving(false);
         }
 
+
+    }
+    private static final TankFrame INSTANCE = new TankFrame();
+    public static TankFrame getInstance(){
+        return INSTANCE;
     }
 }

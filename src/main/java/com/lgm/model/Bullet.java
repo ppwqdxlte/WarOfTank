@@ -7,13 +7,12 @@ import com.lgm.mgr.ResourceMgr;
 
 import java.awt.*;
 import java.io.Serial;
-import java.io.Serializable;
 
 /**
  * @author:李罡毛
  * @date:2021/2/5 13:18
  */
-public class Bullet extends GameObject implements Serializable {
+public class Bullet extends GameObject {
     @Serial
     private static final long serialVersionUID = 8918545667283636286L;
 //    private int x;

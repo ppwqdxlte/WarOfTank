@@ -9,14 +9,13 @@ import com.lgm.strategy.*;
 
 import java.awt.*;
 import java.io.Serial;
-import java.io.Serializable;
 import java.util.Random;
 
 /**
  * @author:李罡毛
  * @date:2021/2/5 10:24
  */
-public class Tank extends GameObject implements Serializable {
+public class Tank extends GameObject {
 
     @Serial
     private static final long serialVersionUID = 4647626261280633755L;

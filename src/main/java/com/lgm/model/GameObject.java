@@ -1,12 +1,13 @@
 package com.lgm.model;
 
 import java.awt.*;
+import java.io.Serializable;
 
 /**
  * @author:李罡毛
  * @date:2021/2/18 15:42
  */
-public abstract class GameObject {
+public abstract class GameObject implements Serializable {
     public int x;
     public int y;
     public abstract void paint(Graphics g);

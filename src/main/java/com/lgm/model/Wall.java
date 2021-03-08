@@ -2,13 +2,12 @@ package com.lgm.model;
 
 import java.awt.*;
 import java.io.Serial;
-import java.io.Serializable;
 
 /**
  * @author:李罡毛
  * @date:2021/2/19 19:12
  */
-public class Wall extends GameObject implements Serializable {
+public class Wall extends GameObject {
     @Serial
     private static final long serialVersionUID = -7402335168777034330L;
 //    private int x,y;

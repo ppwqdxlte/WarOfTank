@@ -2,10 +2,11 @@ package com.lgm.collider;
 
 import com.lgm.model.GameObject;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ColliderChain implements Collider{
+public class ColliderChain implements Collider {
 
     private List<Collider> colliders = new LinkedList<>();
 

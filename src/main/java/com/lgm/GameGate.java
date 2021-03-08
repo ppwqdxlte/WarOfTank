@@ -1,5 +1,6 @@
 package com.lgm;
 
+import com.lgm.model.Tank;
 import com.lgm.util.Audio;
 import com.lgm.view.TankFrame;
 
@@ -11,7 +12,7 @@ import com.lgm.view.TankFrame;
 public class GameGate {
     public static void main(String[] args) throws InterruptedException {
 
-        TankFrame tankFrame = new TankFrame();
+        TankFrame tankFrame = TankFrame.getInstance();
 
         new Thread(()->new Audio("audio/war1.wav").loop()).start();
 
