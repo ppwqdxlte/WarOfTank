@@ -5,46 +5,136 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/gradle_wrapper1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/lgm/net/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/lgm/net/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/lgm/net/ServerFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/lgm/net/TankMsg.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/lgm/net/TankMsgDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/lgm/net/TankMsgEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/com/lgm/net/TankMsgDecoderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/com/lgm/net/TankMsgEncoderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/gradle_wrapper1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/gradle_wrapper2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/GameGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/GameGate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/collider/Collider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/collider/Collider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/collider/ColliderChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/collider/ColliderChain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/decorator/Decorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/decorator/Decorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/facade/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/facade/GameModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/model/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/model/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/model/Explode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/model/Explode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/model/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/model/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/model/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/model/Tank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/model/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/model/Wall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/strategy/FireStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/strategy/FireStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/view/TankFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lgm/view/TankFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/DesignPatterns/strategy/polymorphicWithStrategy/Cat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/DesignPatterns/strategy/polymorphicWithStrategy/Cat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/DesignPatterns/strategy/polymorphicWithStrategy/Dog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/DesignPatterns/strategy/polymorphicWithStrategy/Dog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/DesignPatterns/strategy/polymorphicWithoutStrategy/Cat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/DesignPatterns/strategy/polymorphicWithoutStrategy/Cat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/DesignPatterns/strategy/polymorphicWithoutStrategy/Dog.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/DesignPatterns/strategy/polymorphicWithoutStrategy/Dog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/CodeGeneratorLib_cglib_TestV4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/CodeGeneratorLib_cglib_TestV4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/Driver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/LogInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/LogInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/SpringIOCtest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/SpringIOCtest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/SpringTank.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/SpringTank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/TimeInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/TimeInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/aop/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/aop/Tank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/aop/TestV5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/aop/TestV5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/aop/TestV6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/aop/TestV6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/aop/TimeProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/aop/TimeProxy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/aop/TimeProxyWithAnnotation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/aop/TimeProxyWithAnnotation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring1/app-aop-TestV1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring1/app-aop-TestV2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring1/applicationContext.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DesignPatterns/DesignPatterns.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DesignPatterns/DesignPatterns.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/audio/explode.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/audio/explode.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/audio/tank_fire.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/audio/tank_fire.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/audio/tank_move.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/audio/tank_move.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/audio/war1.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/audio/war1.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/GameGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/GameGate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/collider/BulletWallCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/collider/BulletWallCollider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/collider/Collider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/collider/Collider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/collider/ColliderChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/collider/ColliderChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/collider/TankBulletCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/collider/TankBulletCollider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/collider/TankTankCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/collider/TankTankCollider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/collider/TankWallCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/collider/TankWallCollider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/decorator/Decorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/decorator/Decorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/decorator/RectDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/decorator/RectDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/decorator/TailDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/decorator/TailDecorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/enumeration/Dir.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/enumeration/Dir.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/enumeration/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/enumeration/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/facade/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/facade/GameModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/mgr/PropertiesMgr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/mgr/PropertiesMgr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/mgr/ResourceMgr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/mgr/ResourceMgr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/model/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/model/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/model/Explode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/model/Explode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/model/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/model/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/model/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/model/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/model/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/model/Wall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/strategy/DefaultFireStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/strategy/DefaultFireStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/strategy/FireStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/strategy/FireStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/strategy/FourDirFireStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/strategy/FourDirFireStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/util/Audio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/util/Audio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/util/ImageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/util/ImageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/util/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/util/ImageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lgm/view/TankFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/view/TankFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/config" beforeDir="false" afterPath="$PROJECT_DIR$/src/config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/0.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/0.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/1.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/1.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/10.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/10.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/2.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/2.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/3.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/3.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/4.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/4.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/5.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/5.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/6.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/6.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/7.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/7.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/8.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/8.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/9.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/9.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/BadTank1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/BadTank1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/BadTank2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/BadTank2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/GoodTank1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/GoodTank1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/GoodTank2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/GoodTank2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/bulletD.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/bulletD.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/bulletL.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/bulletL.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/bulletR.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/bulletR.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/bulletU.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/bulletU.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/bulletU.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/bulletU.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/e1.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/e1.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/e10.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/e10.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/e11.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/e11.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/e12.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/e12.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/e13.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/e13.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/e14.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/e14.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/e15.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/e15.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/e16.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/e16.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/e2.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/e2.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/e3.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/e3.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/e4.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/e4.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/e5.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/e5.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/e6.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/e6.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/e7.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/e7.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/e8.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/e8.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/e9.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/e9.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/missileLD.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/missileLD.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/missileLU.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/missileLU.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/missileRD.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/missileRD.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/missileRU.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/missileRU.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/square0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/square0.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/square1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/square1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/square2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/square2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/square3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/square3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/square4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/square4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/square5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/square5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/square6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/square6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/tank.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/tank.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/tankD.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/tankD.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/tankL.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/tankL.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/tankLD.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/tankLD.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/tankLU.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/tankLU.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/tankR.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/tankR.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/tankRD.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/tankRD.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/tankRU.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/tankRU.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/tankU.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/tankU.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/CodeGeneratorLib_cglib_TestV4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/Driver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/LogInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/SpringIOCtest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/SpringTank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/TimeInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/aop/Tank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/aop/TestV5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/aop/TestV6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/aop/TimeProxy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/HelloSpring/com/lgm/aop/TimeProxyWithAnnotation.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/GameGate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/GameGate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/BulletWallCollider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/BulletWallCollider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/Collider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/Collider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/ColliderChain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/ColliderChain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/TankBulletCollider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/TankBulletCollider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/TankTankCollider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/TankTankCollider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/TankWallCollider.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/collider/TankWallCollider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/decorator/Decorator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/decorator/Decorator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/decorator/RectDecorator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/decorator/RectDecorator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/decorator/TailDecorator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/decorator/TailDecorator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/enumeration/Dir.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/enumeration/Dir.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/enumeration/Group.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/enumeration/Group.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/facade/GameModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/facade/GameModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/mgr/PropertiesMgr.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/mgr/PropertiesMgr.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/mgr/ResourceMgr.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/mgr/ResourceMgr.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Bullet$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Bullet$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Bullet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Explode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Explode.class" afterDir="false" />
@@ -52,7 +142,12 @@
       <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Wall.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Wall.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/DefaultFireStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/DefaultFireStrategy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/FireStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/FireStrategy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/FourDirFireStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/FourDirFireStrategy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/util/Audio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/util/Audio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/util/ImageTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/util/ImageTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/util/ImageUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/util/ImageUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame$MyKeyAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame$MyKeyAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame.class" afterDir="false" />
@@ -95,13 +190,35 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="package-info" />
+        <option value="Class" />
+        <option value="JUnit4 Test Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="userSettingsFile" value="D:\Program Files\JetBrains\IntelliJ IDEA 2020.3.1\plugins\maven\lib\maven3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="ProjectId" id="1oWQjoKpeWkr6EWiIrQLTrZzZTv" />
   <component name="ProjectViewState">
@@ -118,12 +235,17 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/target/production/WarOfTank" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/HelloSpring" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.49265426" />
+    <property name="project.structure.side.proportion" value="0.37941176" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/main/java/com/lgm/model/GameObject.java" />
   </component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
@@ -137,25 +259,36 @@
       <recent name="com.lgm.collider" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\WarOfTank\src\com" />
+      <recent name="D:\IdeaProjects\WarOfTank\DesignPatterns\src\interpreter" />
+      <recent name="D:\IdeaProjects\WarOfTank\DesignPatterns\src\state" />
       <recent name="D:\IdeaProjects\WarOfTank\target\production\WarOfTank" />
       <recent name="D:\IdeaProjects\WarOfTank\DesignPatterns\src\command" />
-      <recent name="D:\IdeaProjects\WarOfTank\DesignPatterns\src\bridge\v2" />
-      <recent name="D:\IdeaProjects\WarOfTank\HelloSpring\src" />
-      <recent name="D:\IdeaProjects\WarOfTank\DesignPatterns\src\proxy\standing" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\WarOfTank\src" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.lgm.net" />
+      <recent name="test.com.lgm.net" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="state.v1" />
       <recent name="com.lgm.ASM" />
       <recent name="com.lgm.aop" />
       <recent name="com.lgm.strategy" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GameGate">
-    <configuration name="GameGate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.lgm.GameGate" />
+  <component name="RunManager" selected="JUnit.TankMsgDecoderTest.decode">
+    <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lgm.net.Client" />
       <module name="WarOfTank" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lgm.*" />
+          <option name="PATTERN" value="com.lgm.net.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -163,51 +296,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="command.Main" />
-      <module name="DesignPatterns" />
+    <configuration name="ServerFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lgm.net.ServerFrame" />
+      <module name="WarOfTank" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="command.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="bridge.v4.Test" />
-      <module name="DesignPatterns" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="bridge.v4.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="prototype.Test" />
-      <module name="DesignPatterns" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="prototype.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="builder.Test" />
-      <module name="DesignPatterns" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="builder.*" />
+          <option name="PATTERN" value="com.lgm.net.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -226,13 +320,68 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TankMsgDecoderTest.decode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WarOfTank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lgm.net.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lgm.net" />
+      <option name="MAIN_CLASS_NAME" value="com.lgm.net.TankMsgDecoderTest" />
+      <option name="METHOD_NAME" value="decode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TankMsgEncoderTest.encode (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WarOfTank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lgm.net.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lgm.net" />
+      <option name="MAIN_CLASS_NAME" value="com.lgm.net.TankMsgEncoderTest" />
+      <option name="METHOD_NAME" value="encode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TankMsgEncoderTest.encode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WarOfTank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.com.lgm.net.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test.com.lgm.net" />
+      <option name="MAIN_CLASS_NAME" value="test.com.lgm.net.TankMsgEncoderTest" />
+      <option name="METHOD_NAME" value="encode" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.ServerFrame" />
+      <item itemvalue="JUnit.TankMsgEncoderTest.encode" />
+      <item itemvalue="JUnit.TankMsgEncoderTest.encode (1)" />
+      <item itemvalue="JUnit.TankMsgDecoderTest.decode" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GameGate" />
-        <item itemvalue="Application.Test (2)" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Test (1)" />
-        <item itemvalue="Application.Test" />
+        <item itemvalue="JUnit.TankMsgDecoderTest.decode" />
+        <item itemvalue="JUnit.TankMsgEncoderTest.encode (1)" />
+        <item itemvalue="JUnit.TankMsgEncoderTest.encode" />
+        <item itemvalue="Application.ServerFrame" />
+        <item itemvalue="Application.Client" />
       </list>
     </recent_temporary>
   </component>
@@ -271,7 +420,16 @@
       <workItem from="1614217399287" duration="19066000" />
       <workItem from="1614472178538" duration="15677000" />
       <workItem from="1614569107311" duration="213000" />
-      <workItem from="1615208336231" duration="6757000" />
+      <workItem from="1615208336231" duration="7817000" />
+      <workItem from="1615350597475" duration="37000" />
+      <workItem from="1615540024560" duration="117000" />
+      <workItem from="1615957149893" duration="1362000" />
+      <workItem from="1616047294785" duration="693000" />
+      <workItem from="1616076132119" duration="684000" />
+      <workItem from="1616114903685" duration="601000" />
+      <workItem from="1616991769997" duration="4180000" />
+      <workItem from="1616998251328" duration="17354000" />
+      <workItem from="1617077371716" duration="6202000" />
     </task>
     <task id="LOCAL-00001" summary="IDEA build多模块项目动不动编译不出来！不是没class文件就是没资源文件，手动在编译输出目录添加了资源文件，在project structure重新引入module，修改一些小细节就行了">
       <created>1613458920384</created>
@@ -399,7 +557,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615215750361</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="memento备忘录模式：记录状态，便于回滚。比如：记录快照（瞬时状态），存盘；&#10;War Of Tank 里面添加save()\load()，TankFrame 里面添加键盘事件S,L">
+      <created>1615216194645</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1615216194645</updated>
+    </task>
+    <task id="LOCAL-00020" summary="TemplateMethod模板方法模式：【钩子函数】方法重写，本质还是多态&#10;state状态模式：根据状态影响行为，线程状态机和state模式不是一回事儿！&#10;interpreter解释器模式：动态脚本解析">
+      <created>1615217134578</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1615217134578</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,7 +609,9 @@
     <MESSAGE value="bridge桥接模式（双维度扩展）：接口树，实现树，接口树的子类持有实现root" />
     <MESSAGE value="command命令模式demo:command模式又名action、transaction事务，封装命令，结合cor实现undo..." />
     <MESSAGE value="prototype原型模式：往往需要实现标记接口Cloneable，且重写clone方法，克隆分为浅克隆和深克隆" />
-    <option name="LAST_COMMIT_MESSAGE" value="prototype原型模式：往往需要实现标记接口Cloneable，且重写clone方法，克隆分为浅克隆和深克隆" />
+    <MESSAGE value="memento备忘录模式：记录状态，便于回滚。比如：记录快照（瞬时状态），存盘；&#10;War Of Tank 里面添加save()\load()，TankFrame 里面添加键盘事件S,L" />
+    <MESSAGE value="TemplateMethod模板方法模式：【钩子函数】方法重写，本质还是多态&#10;state状态模式：根据状态影响行为，线程状态机和state模式不是一回事儿！&#10;interpreter解释器模式：动态脚本解析" />
+    <option name="LAST_COMMIT_MESSAGE" value="TemplateMethod模板方法模式：【钩子函数】方法重写，本质还是多态&#10;state状态模式：根据状态影响行为，线程状态机和state模式不是一回事儿！&#10;interpreter解释器模式：动态脚本解析" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />
