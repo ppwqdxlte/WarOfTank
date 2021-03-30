@@ -11,6 +11,7 @@ import com.lgm.strategy.FireStrategy;
 import java.awt.*;
 import java.io.Serial;
 import java.util.Random;
+import java.util.UUID;
 
 /**
  * @author:李罡毛
@@ -34,6 +35,7 @@ public class Tank extends GameObject {
     private int secRandom;//坦克按照一个方向的运行秒数的随机数
     private Rectangle rectangle = new Rectangle(0,0,WIDTH,HEIGHT);//this坦克的矩形
     private FireStrategy fireStrategy;//开火策略
+    private UUID uuid;
 
     public Tank(int x, int y, Dir dir, Group group, int speed) {
         this.x = x;
@@ -52,7 +54,7 @@ public class Tank extends GameObject {
         } else {
             fireStrategy = new DefaultFireStrategy();
         }
-
+        uuid = UUID.randomUUID();
     }
 
     public void paint(Graphics g) {
@@ -177,6 +179,14 @@ public class Tank extends GameObject {
     }
     public int getSPEED() {
         return SPEED;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
     }
 
     public void die() {

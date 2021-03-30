@@ -8,12 +8,16 @@ import java.util.List;
 
 /**
  * @author:李罡毛
- * @date:2021/3/29 15:59
+ * @date:2021/3/30 22:11
  */
-public class TankMsgDecoder extends ByteToMessageDecoder {
+public class TankJoinMsgDecoder extends ByteToMessageDecoder {
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
-        if (byteBuf.readableBytes() < 8) return;
-        list.add(new TankMsg(byteBuf.readInt(),byteBuf.readInt()));
+        if (byteBuf.readableBytes() < 33) return;
+        byte[] bytes = new byte[byteBuf.readableBytes()];
+        byteBuf.readBytes(bytes);
+        TankJoinMsg tankJoinMsg = new TankJoinMsg();
+        tankJoinMsg.parse(bytes);
+        list.add(tankJoinMsg);
     }
 }

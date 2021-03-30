@@ -1,8 +1,12 @@
 package com.lgm.net;
 
+import com.lgm.enumeration.Dir;
+import com.lgm.enumeration.Group;
 import io.netty.channel.embedded.EmbeddedChannel;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+
+import java.util.UUID;
 
 class TankMsgDecoderTest {
 
@@ -12,10 +16,10 @@ class TankMsgDecoderTest {
      */
     @Test
     void decode() {
-        TankMsg tankMsg = new TankMsg(200,100);
-        EmbeddedChannel embeddedChannel = new EmbeddedChannel(new TankMsgEncoder(),new TankMsgDecoder());
+        TankJoinMsg tankMsg = new TankJoinMsg(300,200, Dir.UP,false, Group.BAD, UUID.randomUUID());
+        EmbeddedChannel embeddedChannel = new EmbeddedChannel(new TankJoinMsgEncoder(),new TankJoinMsgDecoder());
         embeddedChannel.writeInbound(tankMsg);
-        TankMsg readMsg = (TankMsg) embeddedChannel.readInbound();
+        TankJoinMsg readMsg = (TankJoinMsg) embeddedChannel.readInbound();
         Assert.assertEquals(readMsg.x,tankMsg.x);
         Assert.assertEquals(readMsg.y,tankMsg.y);
     }

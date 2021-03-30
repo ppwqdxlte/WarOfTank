@@ -1,5 +1,7 @@
 package com.lgm.net;
 
+import com.lgm.enumeration.Dir;
+import com.lgm.enumeration.Group;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -8,6 +10,8 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.ReferenceCountUtil;
+
+import java.util.UUID;
 
 /**
  * @author:李罡毛
@@ -61,7 +65,7 @@ class ClientChannelInitializer extends ChannelInitializer<SocketChannel>{
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception {
         socketChannel.pipeline()
-                .addLast(new TankMsgEncoder())
+                .addLast(new TankJoinMsgEncoder())
                 .addLast(new ClientChannelHandler());
     }
 }
@@ -69,7 +73,7 @@ class ClientChannelInitializer extends ChannelInitializer<SocketChannel>{
 class ClientChannelHandler extends ChannelInboundHandlerAdapter{
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-       ctx.writeAndFlush(new TankMsg(5,8));
+       ctx.writeAndFlush(new TankJoinMsg(300,200, Dir.UP,false, Group.BAD, UUID.randomUUID()));
     }
 
     @Override
@@ -80,6 +84,7 @@ class ClientChannelHandler extends ChannelInboundHandlerAdapter{
             byte[] bytes = new byte[byteBuf.readableBytes()];
             byteBuf.getBytes(byteBuf.readerIndex(),bytes);
             String msgAccepted = new String(bytes);
+            System.out.println("Client read ..."+msgAccepted);
         } finally {
             if (byteBuf!=null&&byteBuf.refCnt()>0) ReferenceCountUtil.release(byteBuf);
         }
