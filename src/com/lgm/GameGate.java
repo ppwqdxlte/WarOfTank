@@ -1,5 +1,6 @@
 package com.lgm;
 
+import com.lgm.net.Client;
 import com.lgm.util.Audio;
 import com.lgm.view.TankFrame;
 
@@ -15,9 +16,18 @@ public class GameGate {
 
         new Thread(()->new Audio("audio/war1.wav").loop()).start();
 
-        while (true){
-            Thread.sleep(50);
-            tankFrame.repaint();
-        }
+        new Thread(()->{
+            while (true){
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                tankFrame.repaint();
+            }
+        }).start();
+        //connect to server,or you can new a thread to run this
+        Client client = new Client();
+        client.connect();
     }
 }

@@ -13,6 +13,7 @@ import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author:李罡毛
@@ -24,14 +25,14 @@ public class GameModel implements Serializable{
     private List<GameObject> gameObjects = new ArrayList<>();
     private ColliderChain colliderChain = new ColliderChain();
     private static GameModel instance;
+    private Random random = new Random();
 
     private GameModel(){}
 
     private GameModel(TankFrame tankFrame){
 
-        //添加主坦克
-        Tank mainTank = new Tank(Integer.parseInt((String) PropertiesMgr.getProperty("myTankInitX")),
-                Integer.parseInt((String) PropertiesMgr.getProperty("myTankInitY")),
+        //添加主坦克，初始位置随机
+        Tank mainTank = new Tank(random.nextInt(tankFrame.getWidth()),random.nextInt(tankFrame.getHeight()),
                 Dir.RIGHT, Group.GOOD,
                 Integer.parseInt((String) PropertiesMgr.getProperty("myTankSpeed")));
         mainTank.setIsMoving(false);

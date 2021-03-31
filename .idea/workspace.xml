@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="client端添加codec.Decoder，server端添加codec.Encoder，经测试发现Encoder在Outbound方向有效，Decoder在Inbound方向有效">
+    <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="由于channel两边都是TankJoinMsg，用带泛型的SimpleChannelIn...更方便">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/GameGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/GameGate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/facade/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/facade/GameModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,13 +144,26 @@
       <recent name="com.lgm.strategy" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.GameGate">
     <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lgm.net.Client" />
       <module name="WarOfTank" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.lgm.net.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameGate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lgm.GameGate" />
+      <module name="WarOfTank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lgm.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -180,22 +193,6 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TankMsgDecoderTest.decode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WarOfTank" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lgm.net.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lgm.net" />
-      <option name="MAIN_CLASS_NAME" value="com.lgm.net.TankMsgDecoderTest" />
-      <option name="METHOD_NAME" value="decode" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -235,17 +232,17 @@
     <list>
       <item itemvalue="Application.ServerFrame" />
       <item itemvalue="Application.Client" />
-      <item itemvalue="JUnit.TankMsgDecoderTest.decode" />
       <item itemvalue="JUnit.TankMsgEncoderTest.encodeWithClientChannelHandler" />
       <item itemvalue="JUnit.TankMsgEncoderTest.client_Add_Encoder$Decoder" />
+      <item itemvalue="Application.GameGate" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.GameGate" />
         <item itemvalue="Application.ServerFrame" />
+        <item itemvalue="Application.Client" />
         <item itemvalue="JUnit.TankMsgEncoderTest.client_Add_Encoder$Decoder" />
         <item itemvalue="JUnit.TankMsgEncoderTest.encodeWithClientChannelHandler" />
-        <item itemvalue="JUnit.TankMsgDecoderTest.decode" />
       </list>
     </recent_temporary>
   </component>
@@ -294,7 +291,7 @@
       <workItem from="1616991769997" duration="4180000" />
       <workItem from="1616998251328" duration="17354000" />
       <workItem from="1617077371716" duration="15130000" />
-      <workItem from="1617164738676" duration="7775000" />
+      <workItem from="1617164738676" duration="11919000" />
     </task>
     <task id="LOCAL-00001" summary="IDEA build多模块项目动不动编译不出来！不是没class文件就是没资源文件，手动在编译输出目录添加了资源文件，在project structure重新引入module，修改一些小细节就行了">
       <created>1613458920384</created>
@@ -457,7 +454,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617172555807</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="由于channel两边都是TankJoinMsg，用带泛型的SimpleChannelIn...更方便">
+      <created>1617174349639</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1617174349639</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,7 +516,8 @@
     <MESSAGE value="WarOfTank模块添加maven，引入netty依赖，建立net包，实现简单S/C，单元测试Encoder/Decoder连通性" />
     <MESSAGE value="添加TankJoinMsg，并让tankJoinMsg对象可以自己转化成byte[]，且可以自己解析byte[]从而修改tank属性值，修改对应的encoder\decoder，单元测试连通性" />
     <MESSAGE value="client端添加codec.Decoder，server端添加codec.Encoder，经测试发现Encoder在Outbound方向有效，Decoder在Inbound方向有效" />
-    <option name="LAST_COMMIT_MESSAGE" value="client端添加codec.Decoder，server端添加codec.Encoder，经测试发现Encoder在Outbound方向有效，Decoder在Inbound方向有效" />
+    <MESSAGE value="由于channel两边都是TankJoinMsg，用带泛型的SimpleChannelIn...更方便" />
+    <option name="LAST_COMMIT_MESSAGE" value="由于channel两边都是TankJoinMsg，用带泛型的SimpleChannelIn...更方便" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />
