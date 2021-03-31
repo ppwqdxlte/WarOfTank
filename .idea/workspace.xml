@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="">
+    <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="client端添加codec.Decoder，server端添加codec.Encoder，经测试发现Encoder在Outbound方向有效，Decoder在Inbound方向有效">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lgm/net/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lgm/net/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/ServerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/ServerFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/lgm/net/TankMsgEncoderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/lgm/net/TankMsgEncoderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +145,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Client">
-    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lgm.net.Client" />
       <module name="WarOfTank" />
       <extension name="coverage">
@@ -235,11 +233,11 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.ServerFrame" />
+      <item itemvalue="Application.Client" />
       <item itemvalue="JUnit.TankMsgDecoderTest.decode" />
       <item itemvalue="JUnit.TankMsgEncoderTest.encodeWithClientChannelHandler" />
       <item itemvalue="JUnit.TankMsgEncoderTest.client_Add_Encoder$Decoder" />
-      <item itemvalue="Application.ServerFrame" />
-      <item itemvalue="Application.Client" />
     </list>
     <recent_temporary>
       <list>
@@ -296,7 +294,7 @@
       <workItem from="1616991769997" duration="4180000" />
       <workItem from="1616998251328" duration="17354000" />
       <workItem from="1617077371716" duration="15130000" />
-      <workItem from="1617164738676" duration="6641000" />
+      <workItem from="1617164738676" duration="7775000" />
     </task>
     <task id="LOCAL-00001" summary="IDEA build多模块项目动不动编译不出来！不是没class文件就是没资源文件，手动在编译输出目录添加了资源文件，在project structure重新引入module，修改一些小细节就行了">
       <created>1613458920384</created>
@@ -452,7 +450,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617117339230</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="client端添加codec.Decoder，server端添加codec.Encoder，经测试发现Encoder在Outbound方向有效，Decoder在Inbound方向有效">
+      <created>1617172555807</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1617172555807</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -506,7 +511,8 @@
     <MESSAGE value="TemplateMethod模板方法模式：【钩子函数】方法重写，本质还是多态&#10;state状态模式：根据状态影响行为，线程状态机和state模式不是一回事儿！&#10;interpreter解释器模式：动态脚本解析" />
     <MESSAGE value="WarOfTank模块添加maven，引入netty依赖，建立net包，实现简单S/C，单元测试Encoder/Decoder连通性" />
     <MESSAGE value="添加TankJoinMsg，并让tankJoinMsg对象可以自己转化成byte[]，且可以自己解析byte[]从而修改tank属性值，修改对应的encoder\decoder，单元测试连通性" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加TankJoinMsg，并让tankJoinMsg对象可以自己转化成byte[]，且可以自己解析byte[]从而修改tank属性值，修改对应的encoder\decoder，单元测试连通性" />
+    <MESSAGE value="client端添加codec.Decoder，server端添加codec.Encoder，经测试发现Encoder在Outbound方向有效，Decoder在Inbound方向有效" />
+    <option name="LAST_COMMIT_MESSAGE" value="client端添加codec.Decoder，server端添加codec.Encoder，经测试发现Encoder在Outbound方向有效，Decoder在Inbound方向有效" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />
