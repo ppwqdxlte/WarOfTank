@@ -27,7 +27,9 @@ public class Server {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
-                            socketChannel.pipeline().addLast(new TankJoinMsgDecoder())
+                            socketChannel.pipeline()
+                                    .addLast(new TankJoinMsgEncoder())//codec的添加顺序不影响结果
+                                    .addLast(new TankJoinMsgDecoder())
                                     .addLast(new ServerChildHandler());
                         }
                     })
@@ -44,11 +46,6 @@ public class Server {
         }
     }
 
-    public boolean isActive(){
-        if (channel == null)return false;
-        return channel.isActive();
-    }
-
     public void shutDown(){
         System.out.println("正在关闭服务器。。。");
         channel.close();
@@ -60,13 +57,13 @@ class ServerChildHandler extends ChannelInboundHandlerAdapter{
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         Server.clients.add(ctx.channel());
+        ServerFrame.getINSTANCE().updateClientMsg(ctx.channel().remoteAddress().toString());
     }
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        TankJoinMsg tankMsg = (TankJoinMsg) msg;
-        System.out.println(tankMsg);
-        ReferenceCountUtil.release(msg);
+        System.out.println(msg);//msg instanceof TankJoinMsg
+        Server.clients.writeAndFlush(msg);
     }
 
     @Override

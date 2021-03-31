@@ -9,7 +9,6 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.util.ReferenceCountUtil;
 
 import java.util.UUID;
 
@@ -66,6 +65,7 @@ class ClientChannelInitializer extends ChannelInitializer<SocketChannel>{
     protected void initChannel(SocketChannel socketChannel) throws Exception {
         socketChannel.pipeline()
                 .addLast(new TankJoinMsgEncoder())
+                .addLast(new TankJoinMsgDecoder())
                 .addLast(new ClientChannelHandler());
     }
 }
@@ -78,15 +78,6 @@ class ClientChannelHandler extends ChannelInboundHandlerAdapter{
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf byteBuf = null;
-        try{
-            byteBuf = (ByteBuf) msg;
-            byte[] bytes = new byte[byteBuf.readableBytes()];
-            byteBuf.getBytes(byteBuf.readerIndex(),bytes);
-            String msgAccepted = new String(bytes);
-            System.out.println("Client read ..."+msgAccepted);
-        } finally {
-            if (byteBuf!=null&&byteBuf.refCnt()>0) ReferenceCountUtil.release(byteBuf);
-        }
+        System.out.println(msg);
     }
 }

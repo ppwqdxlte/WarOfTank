@@ -12,8 +12,6 @@ import java.awt.event.WindowEvent;
  */
 public class ServerFrame extends Frame {
 
-//    public static ServerFrame INSTANCE;
-//    private Button buttonStart = new Button("start");
     private TextArea taLeft = new TextArea();
     private TextArea taRight = new TextArea();
     private Server server;
@@ -42,26 +40,9 @@ public class ServerFrame extends Frame {
         taLeft.setFont(new Font("verderna",Font.PLAIN,25));
         this.addWindowListener(new WindowAdapter() {
             @Override
-            public void windowActivated(WindowEvent e) {
-                /*
-                //我发现不触发button事件，Frame窗口可以正常关闭，触发button事件以后，窗口没法关闭，索性取消button
-                buttonStart.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (server == null) server = new Server();
-                        if (server.isActive()) return;
-                        server.serverStart();
-                    }
-                });*/
-            }
-            @Override
             public void windowClosing(WindowEvent e) {
-                /*if (server!=null){
-                    server.shutDown();
-                }*/
-                System.exit(0);
+                if (server!=null) server.shutDown();
             }
-
         });
         this.setVisible(true);
     }
