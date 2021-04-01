@@ -5,6 +5,7 @@ import com.lgm.enumeration.Group;
 import com.lgm.facade.GameModel;
 import com.lgm.mgr.PropertiesMgr;
 import com.lgm.mgr.ResourceMgr;
+import com.lgm.net.TankJoinMsg;
 import com.lgm.strategy.DefaultFireStrategy;
 import com.lgm.strategy.FireStrategy;
 
@@ -36,8 +37,9 @@ public class Tank extends GameObject {
     private Rectangle rectangle = new Rectangle(0,0,WIDTH,HEIGHT);//this坦克的矩形
     private FireStrategy fireStrategy;//开火策略
     private UUID uuid;
+    private GameModel gameModel;
 
-    public Tank(int x, int y, Dir dir, Group group, int speed) {
+    public Tank(int x, int y, Dir dir, Group group, int speed,GameModel gameModel) {
         this.x = x;
         this.y = y;
         this.dir = dir;
@@ -54,7 +56,32 @@ public class Tank extends GameObject {
         } else {
             fireStrategy = new DefaultFireStrategy();
         }
+        fireStrategy.setGameModel(gameModel);
         uuid = UUID.randomUUID();
+        this.gameModel = gameModel;
+    }
+
+    public Tank(TankJoinMsg tankJoinMsg,GameModel gameModel) {
+        this.x = tankJoinMsg.x;
+        this.y = tankJoinMsg.y;
+        this.dir = tankJoinMsg.dir;
+        this.group = tankJoinMsg.group;
+        this.SPEED = Integer.parseInt((String) PropertiesMgr.getProperty("myTankSpeed"));
+        if(group == Group.GOOD) {
+            String goodFSName = (String) PropertiesMgr.getProperty("goodFS");
+            try {
+                fireStrategy = (FireStrategy)Class.forName(goodFSName).getDeclaredConstructor().newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            fireStrategy = new DefaultFireStrategy();
+        }
+        fireStrategy.setGameModel(gameModel);
+        this.uuid = tankJoinMsg.uuid;
+        this.isMoving = false;
+        this.gameModel = gameModel;
     }
 
     public void paint(Graphics g) {
@@ -93,7 +120,7 @@ public class Tank extends GameObject {
      * 除了玩家操纵的主战坦克，其它坦克的随机行为
      */
     private void tankRandomAction() {
-        if (this != ((Tank)(GameModel.getInstance().getGameObjects().get(0)))){
+        if (this != ((Tank)(this.gameModel.getGameObjects().get(0)))){
             //坦克随机发射子弹
             if (random.nextInt(100)>97) {
                 this.fire();
@@ -117,11 +144,11 @@ public class Tank extends GameObject {
         if (dir == Dir.LEFT){
             x = x-SPEED<=2?x:x-SPEED;
         }else if (dir == Dir.RIGHT){
-            x = x+SPEED>= GameModel.getInstance().getTankFrame().getWidth()-WIDTH-2?x:x+SPEED;
+            x = x+SPEED>= this.gameModel.getTankFrame().getWidth()-WIDTH-2?x:x+SPEED;
         }else if (dir == Dir.UP){
             y = y-SPEED<=28?y:y-SPEED;
         }else if (dir == Dir.DOWN){
-            y = y+SPEED>= GameModel.getInstance().getTankFrame().getHeight()-HEIGHT-28?y:y+SPEED;
+            y = y+SPEED>= this.gameModel.getTankFrame().getHeight()-HEIGHT-28?y:y+SPEED;
         }
     }
 
@@ -148,10 +175,10 @@ public class Tank extends GameObject {
         this.isLive = isLive;
     }
     public int getX() {
-        return x;
+        return this.x;
     }
     public int getY() {
-        return y;
+        return this.y;
     }
     public void setX(int x) {
         this.x = x;
@@ -180,19 +207,20 @@ public class Tank extends GameObject {
     public int getSPEED() {
         return SPEED;
     }
-
     public UUID getUuid() {
         return uuid;
     }
-
     public void setUuid(UUID uuid) {
         this.uuid = uuid;
+    }
+    public GameModel getGameModel(){
+        return this.gameModel;
     }
 
     public void die() {
         this.setIsLive(false);
-        GameModel.getInstance().getGameObjects().remove(this);
-        Explode explode = new Explode(x,y);
-        GameModel.getInstance().getGameObjects().add(explode);
+        this.gameModel.getGameObjects().remove(this);
+        Explode explode = new Explode(x,y,this.gameModel);
+        this.gameModel.getGameObjects().add(explode);
     }
 }

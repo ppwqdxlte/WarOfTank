@@ -6,14 +6,15 @@ import com.lgm.enumeration.Dir;
 import com.lgm.enumeration.Group;
 import com.lgm.mgr.PropertiesMgr;
 import com.lgm.model.*;
+import com.lgm.net.Client;
+import com.lgm.net.TankJoinMsg;
 import com.lgm.view.TankFrame;
 
 import java.awt.*;
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Random;
 
 /**
  * @author:李罡毛
@@ -21,35 +22,42 @@ import java.util.Random;
  */
 public class GameModel implements Serializable{
 
-//    private TankFrame tankFrame;
+    private TankFrame tankFrame;
     private List<GameObject> gameObjects = new ArrayList<>();
     private ColliderChain colliderChain = new ColliderChain();
     private static GameModel instance;
     private Random random = new Random();
+    private Client client;
+    private Map<UUID,GameObject> goMap = new Hashtable<>();
 
     private GameModel(){}
 
-    private GameModel(TankFrame tankFrame){
-
+    public GameModel(TankFrame tankFrame){
+        this.tankFrame = tankFrame;
         //添加主坦克，初始位置随机
         Tank mainTank = new Tank(random.nextInt(tankFrame.getWidth()),random.nextInt(tankFrame.getHeight()),
                 Dir.RIGHT, Group.GOOD,
-                Integer.parseInt((String) PropertiesMgr.getProperty("myTankSpeed")));
+                Integer.parseInt((String) PropertiesMgr.getProperty("myTankSpeed")),this);
         mainTank.setIsMoving(false);
         gameObjects.add(mainTank);//gameObjects[0] == mainTank
+        goMap.put(mainTank.getUuid(),mainTank);
 
         //初始化电脑坦克
-        int initTankCount = Integer.parseInt((String) PropertiesMgr.getProperty("initTankCount"));
+        /*int initTankCount = Integer.parseInt((String) PropertiesMgr.getProperty("initTankCount"));
         for (int i = 0; i < initTankCount; i++) {
-            gameObjects.add(new Tank(300+i*50,10, Dir.DOWN, Group.BAD,5));
-            if (i%5 == 0)
-            gameObjects.add(new Tank(100+i*50,300, Dir.UP, Group.GOOD,5));
-        }
-//        this.tankFrame = tankFrame;
+            Tank tb = new Tank(300+i*50,10, Dir.DOWN, Group.BAD,5,this);
+            gameObjects.add(tb);
+            goMap.put(tb.getUuid(),tb);
+            if (i%5 == 0){
+                Tank tg = new Tank(100+i*50,300, Dir.UP, Group.GOOD,5,this);
+                gameObjects.add(tg);
+                goMap.put(tg.getUuid(),tg);
+            }
+        }*/
 
         //添加墙体
-        gameObjects.add(new Wall(100,100,200,50));
-        gameObjects.add(new Wall(600,100,200,50));
+        gameObjects.add(new Wall(100,120,200,50));
+        gameObjects.add(new Wall(600,120,200,50));
         gameObjects.add(new Wall(300,300,50,200));
         gameObjects.add(new Wall(700,300,50,200));
 
@@ -70,27 +78,41 @@ public class GameModel implements Serializable{
                 e.printStackTrace();
             }
         }
-    }
 
-    public static GameModel getInstance() {
-        return instance;
-    }
-
-    public static void init(TankFrame tankFrame) {
-        if (instance == null){
-            synchronized (GameModel.class){
-                if (instance == null){
-                    instance = new GameModel(tankFrame);
-                }
+        //连接到服务器，必须启动新线程，因为client连接后会阻塞住，放在一起就无法初始化TankFrame
+        client = new Client(this);
+        new Thread(()->{
+            try {
+                Thread.sleep(100);//阻塞一会儿以确保main-tank和client成功初始化
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            client.connect();
+        }).start();
+
+        //发送tankJoinMsg给server
+        TankJoinMsg tankJoinMsg = new TankJoinMsg(mainTank.getX(),mainTank.getY(),mainTank.getDir()
+                ,mainTank.getIsMoving(),mainTank.getGroup(),mainTank.getUuid());
+        if (client.getChannel()!=null && client.getChannel().isActive()) {
+            client.getChannel().writeAndFlush(tankJoinMsg);
+        } else {
+            while (client.getChannel() == null){ } //空轮询，等待channel初始化
+            while (!client.getChannel().isActive()){ } //空轮询，等待channel可用
+            client.getChannel().writeAndFlush(tankJoinMsg);
         }
     }
 
-    public TankFrame getTankFrame() {
-        return TankFrame.getInstance();
+    public TankFrame getTankFrame(){
+        return tankFrame;
     }
     public List<GameObject> getGameObjects(){
         return gameObjects;
+    }
+    public Map<UUID,GameObject> getGoMap(){
+        return goMap;
+    }
+    public GameObject getGameObjectWithUUID(UUID uuid) {
+        return goMap.get(uuid);
     }
 
     public void paint(Graphics g) {

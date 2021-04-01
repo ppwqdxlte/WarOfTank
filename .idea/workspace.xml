@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="由于channel两边都是TankJoinMsg，用带泛型的SimpleChannelIn...更方便">
+    <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lgm/GameGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/GameGate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lgm/facade/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/facade/GameModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/model/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/model/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/model/Explode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/model/Explode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/model/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/model/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/strategy/DefaultFireStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/strategy/DefaultFireStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/strategy/FireStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/strategy/FireStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/strategy/FourDirFireStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/strategy/FourDirFireStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/view/TankFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/view/TankFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/GameGate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/GameGate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/facade/GameModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/facade/GameModel.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +168,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameGate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="GameGate" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lgm.GameGate" />
       <module name="WarOfTank" />
       <extension name="coverage">
@@ -184,15 +194,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -232,9 +240,9 @@
     <list>
       <item itemvalue="Application.ServerFrame" />
       <item itemvalue="Application.Client" />
+      <item itemvalue="Application.GameGate" />
       <item itemvalue="JUnit.TankMsgEncoderTest.encodeWithClientChannelHandler" />
       <item itemvalue="JUnit.TankMsgEncoderTest.client_Add_Encoder$Decoder" />
-      <item itemvalue="Application.GameGate" />
     </list>
     <recent_temporary>
       <list>
@@ -291,7 +299,8 @@
       <workItem from="1616991769997" duration="4180000" />
       <workItem from="1616998251328" duration="17354000" />
       <workItem from="1617077371716" duration="15130000" />
-      <workItem from="1617164738676" duration="11919000" />
+      <workItem from="1617164738676" duration="13107000" />
+      <workItem from="1617273358485" duration="15031000" />
     </task>
     <task id="LOCAL-00001" summary="IDEA build多模块项目动不动编译不出来！不是没class文件就是没资源文件，手动在编译输出目录添加了资源文件，在project structure重新引入module，修改一些小细节就行了">
       <created>1613458920384</created>
@@ -461,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617174349639</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="游戏启动，客户端连接服务器，主战坦克设置随机初始位置，单独用一个线程来重画">
+      <created>1617188252168</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1617188252168</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -492,7 +508,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="IDEA build多模块项目动不动编译不出来！不是没class文件就是没资源文件，手动在编译输出目录添加了资源文件，在project structure重新引入module，修改一些小细节就行了" />
     <MESSAGE value="facade门面模式：坦克大战view和model分离，GameModel封装坦克子弹等等，让tankFrame只和gameModel沟通指令，让gameModel操作实体行为" />
     <MESSAGE value="mediator调停者模式：GameModel统筹管理各种模型交互，模型之间解耦合，&#10;ChainOfResponsibility责任链模式：实现Collider的若干碰撞器聚合在ColliderChain中，匹配处理模型之间碰撞，责任链其它常见应用比如filter过滤器和interceptor拦截器。此外添加了墙体Wall类，在GameModel中初始化墙体，并且增加Wall的各种碰撞器，添加配置文件项" />
     <MESSAGE value="mediator调停者模式：GameModel统筹管理各种模型交互，模型之间解耦合，&#10;ChainOfResponsibility责任链模式：实现Collider的若干碰撞器聚合在ColliderChain中，匹配处理模型之间碰撞，责任链其它常见应用比如filter过滤器和interceptor拦截器。此外添加了墙体Wall类，在GameModel中初始化墙体，并且增加Wall的各种碰撞器，添加配置文件项，【注意】子弹碰墙开始时候消失功能正常，一段时间后穿墙而过，碰撞处理失败！不知为何原因？非常诡异！！！" />
@@ -517,7 +532,8 @@
     <MESSAGE value="添加TankJoinMsg，并让tankJoinMsg对象可以自己转化成byte[]，且可以自己解析byte[]从而修改tank属性值，修改对应的encoder\decoder，单元测试连通性" />
     <MESSAGE value="client端添加codec.Decoder，server端添加codec.Encoder，经测试发现Encoder在Outbound方向有效，Decoder在Inbound方向有效" />
     <MESSAGE value="由于channel两边都是TankJoinMsg，用带泛型的SimpleChannelIn...更方便" />
-    <option name="LAST_COMMIT_MESSAGE" value="由于channel两边都是TankJoinMsg，用带泛型的SimpleChannelIn...更方便" />
+    <MESSAGE value="游戏启动，客户端连接服务器，主战坦克设置随机初始位置，单独用一个线程来重画" />
+    <option name="LAST_COMMIT_MESSAGE" value="游戏启动，客户端连接服务器，主战坦克设置随机初始位置，单独用一个线程来重画" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />

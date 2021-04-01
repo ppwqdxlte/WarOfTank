@@ -12,9 +12,9 @@ import com.lgm.view.TankFrame;
 public class GameGate {
     public static void main(String[] args) throws InterruptedException {
 
-        TankFrame tankFrame = TankFrame.getInstance();
+        TankFrame tankFrame = new TankFrame();
 
-        new Thread(()->new Audio("audio/war1.wav").loop()).start();
+//        new Thread(()->new Audio("audio/war1.wav").loop()).start();
 
         new Thread(()->{
             while (true){
@@ -26,8 +26,5 @@ public class GameGate {
                 tankFrame.repaint();
             }
         }).start();
-        //connect to server,or you can new a thread to run this
-        Client client = new Client();
-        client.connect();
     }
 }

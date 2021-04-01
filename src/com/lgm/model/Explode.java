@@ -17,20 +17,22 @@ public class Explode extends GameObject {
     private int x;
     private int y;
     private int f;//第几帧
+    private GameModel gameModel;
 
     public Explode() {
     }
 
-    public Explode(int x, int y) {
+    public Explode(int x, int y,GameModel gameModel) {
         this.x = x;
         this.y = y;
+        this.gameModel = gameModel;
         new Thread(()->new Audio("audio/explode.wav").play()).start();
     }
 
     public void paint(Graphics g){
         g.drawImage(ResourceMgr.explodeImages[f++],x,y,null);
         if (f>= ResourceMgr.explodeImages.length){
-            GameModel.getInstance().getGameObjects().remove(this);
+            this.gameModel.getGameObjects().remove(this);
         }
     }
 

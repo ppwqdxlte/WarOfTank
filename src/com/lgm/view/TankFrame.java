@@ -19,6 +19,8 @@ import java.io.Serializable;
  */
 public class TankFrame extends Frame implements Serializable {
 
+    private GameModel gameModel;
+
     private static final int GAME_WIDTH = Integer.parseInt((String) PropertiesMgr.getProperty("gameWidth"));
     private static final int GAME_HEIGHT = Integer.parseInt((String) PropertiesMgr.getProperty("gameHeight"));
 
@@ -29,9 +31,9 @@ public class TankFrame extends Frame implements Serializable {
         return GAME_HEIGHT;
     }
 
-    private TankFrame() throws HeadlessException {
+    public TankFrame() throws HeadlessException {
         //初始化gameModle
-        GameModel.init(this);
+        this.gameModel = new GameModel(this);
         this.setTitle((String) PropertiesMgr.getProperty("gameTitle"));
         this.setSize(GAME_WIDTH,GAME_HEIGHT);
         this.setResizable(false);
@@ -69,7 +71,7 @@ public class TankFrame extends Frame implements Serializable {
 
     @Override
     public void paint(Graphics g) {
-        GameModel.getInstance().paint(g);
+        this.gameModel.paint(g);
     }
 
     /**
@@ -86,39 +88,36 @@ public class TankFrame extends Frame implements Serializable {
         @Override
         public void keyPressed(KeyEvent e) {
             int keyCode = e.getKeyCode();
-            ((Tank)(GameModel.getInstance().getGameObjects().get(0))).setIsMoving(true);
+            ((Tank)(tankFrame.gameModel.getGameObjects().get(0))).setIsMoving(true);
             //判断坦克方向
             if (keyCode == KeyEvent.VK_LEFT){
-                ((Tank)(GameModel.getInstance().getGameObjects().get(0))).setDir(Dir.LEFT);
+                ((Tank)(tankFrame.gameModel.getGameObjects().get(0))).setDir(Dir.LEFT);
             }else if (keyCode == KeyEvent.VK_RIGHT){
-                ((Tank)(GameModel.getInstance().getGameObjects().get(0))).setDir(Dir.RIGHT);
+                ((Tank)(tankFrame.gameModel.getGameObjects().get(0))).setDir(Dir.RIGHT);
             }else if (keyCode == KeyEvent.VK_UP){
-                ((Tank)(GameModel.getInstance().getGameObjects().get(0))).setDir(Dir.UP);
+                ((Tank)(tankFrame.gameModel.getGameObjects().get(0))).setDir(Dir.UP);
             }else if (keyCode == KeyEvent.VK_DOWN){
-                ((Tank)(GameModel.getInstance().getGameObjects().get(0))).setDir(Dir.DOWN);
+                ((Tank)(tankFrame.gameModel.getGameObjects().get(0))).setDir(Dir.DOWN);
             }else {
-                ((Tank)(GameModel.getInstance().getGameObjects().get(0))).setIsMoving(false);
+                ((Tank)(tankFrame.gameModel.getGameObjects().get(0))).setIsMoving(false);
             }
             //按ctrl键开火
             if (keyCode == KeyEvent.VK_CONTROL){
-                ((Tank)(GameModel.getInstance().getGameObjects().get(0))).getFireStrategy().fire(((Tank)(GameModel.getInstance().getGameObjects().get(0))));
+                ((Tank)(tankFrame.gameModel.getGameObjects().get(0))).getFireStrategy().fire(
+                        ((Tank)(tankFrame.gameModel.getGameObjects().get(0))));
             }
-            if (((Tank) GameModel.getInstance().getGameObjects().get(0)).getIsMoving() == true)
+            if (((Tank) tankFrame.gameModel.getGameObjects().get(0)).getIsMoving() == true)
             new Thread(()->new Audio("audio/tank_move.wav").play()).start();
             //存盘、加载
-            if (keyCode == KeyEvent.VK_S) GameModel.getInstance().save();
-            if (keyCode == KeyEvent.VK_L) GameModel.getInstance().load();
+            if (keyCode == KeyEvent.VK_S) tankFrame.gameModel.save();
+            if (keyCode == KeyEvent.VK_L) tankFrame.gameModel.load();
         }
 
         @Override
         public void keyReleased(KeyEvent e) {
-            ((Tank)(GameModel.getInstance().getGameObjects().get(0))).setIsMoving(false);
+            ((Tank)(tankFrame.gameModel.getGameObjects().get(0))).setIsMoving(false);
         }
 
+    }
 
-    }
-    private static final TankFrame INSTANCE = new TankFrame();
-    public static TankFrame getInstance(){
-        return INSTANCE;
-    }
 }

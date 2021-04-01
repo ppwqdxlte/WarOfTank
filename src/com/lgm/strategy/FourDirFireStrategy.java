@@ -12,6 +12,7 @@ import com.lgm.util.Audio;
  * @date:2021/2/12 18:40
  */
 public class FourDirFireStrategy implements FireStrategy {
+    private GameModel gameModel;
     @Override
     public void fire(Tank tank) {
         int bX = tank.getX() + tank.getWIDTH()/2 - Bullet.getWIDTH()/2;
@@ -20,9 +21,13 @@ public class FourDirFireStrategy implements FireStrategy {
         Dir[] dirs = Dir.values();
         for(Dir dir : dirs) {
             Bullet bullet = new Bullet(bX, bY, dir, tank);
-            GameModel.getInstance().getGameObjects().add(bullet);
+            this.gameModel.getGameObjects().add(bullet);
         }
 
         if(tank.getGroup() == Group.GOOD) new Thread(()->new Audio("audio/tank_fire.wav").play()).start();
+    }
+    @Override
+    public void setGameModel(GameModel gameModel){
+        this.gameModel = gameModel;
     }
 }

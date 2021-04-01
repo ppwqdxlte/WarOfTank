@@ -79,7 +79,8 @@ public class Bullet extends GameObject {
         }else if (dir == Dir.DOWN){
             y += SPEED;
         }
-        if (x<0||y<0||x> GameModel.getInstance().getTankFrame().getWidth()||y> GameModel.getInstance().getTankFrame().getHeight()){
+        if (x<0||y<0||x> this.getTank().getGameModel().getTankFrame().getWidth()
+                ||y> this.getTank().getGameModel().getTankFrame().getHeight()){
             this.die();
         }
     }
@@ -108,6 +109,6 @@ public class Bullet extends GameObject {
 
     public void die() {
         this.setLive(false);
-        GameModel.getInstance().getGameObjects().remove(this);
+        this.getTank().getGameModel().getGameObjects().remove(this);
     }
 }

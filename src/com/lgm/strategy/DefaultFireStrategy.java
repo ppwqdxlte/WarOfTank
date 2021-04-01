@@ -13,16 +13,21 @@ import com.lgm.util.Audio;
  * @date:2021/2/12 18:40
  */
 public class DefaultFireStrategy implements FireStrategy {
+    private GameModel gameModel;
     @Override
     public void fire(Tank tank) {
         int bX = tank.getX() + tank.getWIDTH()/2 - Bullet.getWIDTH()/2;
         int bY = tank.getY() + tank.getHEIGHT()/2 - Bullet.getHEIGHT()/2;
 
 //        Bullet bullet = new Bullet(bX, bY, tank.getDir(), tank);
-        GameModel.getInstance().getGameObjects().add(
+        this.gameModel.getGameObjects().add(
                 new TailDecorator(new RectDecorator(new Bullet(bX,bY,tank.getDir(),tank))));
 
 
         if(tank.getGroup() == Group.GOOD) new Thread(()->new Audio("audio/tank_fire.wav").play()).start();
+    }
+    @Override
+    public void setGameModel(GameModel gameModel){
+        this.gameModel = gameModel;
     }
 }
