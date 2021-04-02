@@ -4,25 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="">
+    <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="整理代码，BUG尚未解决，等完善Msg功能再说">
+      <change afterPath="$PROJECT_DIR$/src/com/lgm/net/Msg.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lgm/GameGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/GameGate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lgm/facade/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/facade/GameModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lgm/net/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/ServerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/ServerFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/GameGate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/GameGate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/facade/GameModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/facade/GameModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Bullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Explode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Explode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/DefaultFireStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/DefaultFireStrategy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/FireStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/FireStrategy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/FourDirFireStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/FourDirFireStrategy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame$MyKeyAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame$MyKeyAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/TankJoinMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/TankJoinMsg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/facade/GameModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Bullet$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Bullet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Explode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/DefaultFireStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/FireStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/strategy/FourDirFireStrategy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame$MyKeyAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,7 +308,7 @@
       <workItem from="1617273358485" duration="15896000" />
       <workItem from="1617338773009" duration="2143000" />
       <workItem from="1617340940780" duration="1676000" />
-      <workItem from="1617342815117" duration="3503000" />
+      <workItem from="1617342815117" duration="6846000" />
     </task>
     <task id="LOCAL-00001" summary="IDEA build多模块项目动不动编译不出来！不是没class文件就是没资源文件，手动在编译输出目录添加了资源文件，在project structure重新引入module，修改一些小细节就行了">
       <created>1613458920384</created>
@@ -494,7 +492,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617289850749</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="整理代码，BUG尚未解决，等完善Msg功能再说">
+      <created>1617346708595</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1617346708595</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -525,7 +530,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="mediator调停者模式：GameModel统筹管理各种模型交互，模型之间解耦合，&#10;ChainOfResponsibility责任链模式：实现Collider的若干碰撞器聚合在ColliderChain中，匹配处理模型之间碰撞，责任链其它常见应用比如filter过滤器和interceptor拦截器。此外添加了墙体Wall类，在GameModel中初始化墙体，并且增加Wall的各种碰撞器，添加配置文件项" />
     <MESSAGE value="mediator调停者模式：GameModel统筹管理各种模型交互，模型之间解耦合，&#10;ChainOfResponsibility责任链模式：实现Collider的若干碰撞器聚合在ColliderChain中，匹配处理模型之间碰撞，责任链其它常见应用比如filter过滤器和interceptor拦截器。此外添加了墙体Wall类，在GameModel中初始化墙体，并且增加Wall的各种碰撞器，添加配置文件项，【注意】子弹碰墙开始时候消失功能正常，一段时间后穿墙而过，碰撞处理失败！不知为何原因？非常诡异！！！" />
     <MESSAGE value="【解决BUG】只因在子弹墙体碰撞器中忘记更新location了！此外GameModel变成单粒模式，paint方法中取消了判断isLive，直接在游戏模型中添加die方法，触发死亡事件就马上移除模型即可，节约了计算资源和时间" />
     <MESSAGE value="模型刪除了GameModel屬性，進一步解耦合" />
@@ -550,7 +554,8 @@
     <MESSAGE value="由于channel两边都是TankJoinMsg，用带泛型的SimpleChannelIn...更方便" />
     <MESSAGE value="游戏启动，客户端连接服务器，主战坦克设置随机初始位置，单独用一个线程来重画" />
     <MESSAGE value="模拟多client，重构代码取消tf和gm的单粒模式，c添加新坦克到gm中【有个BUG】：开2个c坦克数量正常，开3个以上出现个别c对不上数的问题，怀疑client.channel处理不好并发read" />
-    <option name="LAST_COMMIT_MESSAGE" value="模拟多client，重构代码取消tf和gm的单粒模式，c添加新坦克到gm中【有个BUG】：开2个c坦克数量正常，开3个以上出现个别c对不上数的问题，怀疑client.channel处理不好并发read" />
+    <MESSAGE value="整理代码，BUG尚未解决，等完善Msg功能再说" />
+    <option name="LAST_COMMIT_MESSAGE" value="整理代码，BUG尚未解决，等完善Msg功能再说" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />

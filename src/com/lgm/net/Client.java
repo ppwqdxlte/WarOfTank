@@ -96,14 +96,6 @@ class ClientChannelHandler extends SimpleChannelInboundHandler<TankJoinMsg>{
 
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, TankJoinMsg msg) throws Exception {
-        //只处理别人的新坦克，已存在的坦克不处理
-        if (this.client.getGameModel().getGameObjectWithUUID(msg.uuid) == null) {
-            System.out.println(msg);
-            Tank newTank = new Tank(msg,this.client.getGameModel());
-            this.client.getGameModel().getGameObjects().add(newTank);
-            this.client.getGameModel().getGoMap().put(msg.uuid,newTank);
-            //然后告诉别人，自己的坦克
-            channelHandlerContext.writeAndFlush(myTankJoinMsg);
-        }
+        msg.handle(this.client,this.myTankJoinMsg);
     }
 }

@@ -2,6 +2,7 @@ package com.lgm.net;
 
 import com.lgm.enumeration.Dir;
 import com.lgm.enumeration.Group;
+import com.lgm.model.Tank;
 
 import java.io.*;
 import java.util.UUID;
@@ -10,7 +11,7 @@ import java.util.UUID;
  * @author:李罡毛
  * @date:2021/3/30 15:52
  */
-public class TankJoinMsg {
+public class TankJoinMsg extends Msg{
     public int x, y;    //8
     public Dir dir;     //4
     public boolean isMoving;//1
@@ -88,24 +89,37 @@ public class TankJoinMsg {
         return bytes;
     }
 
+    @Override
+    public void handle(Client client,Msg myTankJoinMsg) {
+        //只处理别人的新坦克，已存在的坦克不处理
+        if (client.getGameModel().getGameObjectWithUUID(this.uuid) == null) {
+            System.out.println(this);
+            Tank newTank = new Tank(this, client.getGameModel());
+            client.getGameModel().getGameObjects().add(newTank);
+            client.getGameModel().getGoMap().put(this.uuid, newTank);
+            //然后告诉别人，自己的坦克
+            client.getChannel().writeAndFlush(myTankJoinMsg);
+        }
+    }
+
     /**
      * @param bytes 包含TankJoinMsg信息的字节数组
      *              让tankJoinMsg对象自己解析并修改属性值
      */
-    public void parse(byte[] bytes) {
+    public void parse(byte[] bytes){
         DataInputStream dis = null;
-        try{
+        try {
             dis = new DataInputStream(new ByteArrayInputStream(bytes));
-           this.x = dis.readInt();
-           this.y = dis.readInt();
-           this.dir = Dir.values()[dis.readInt()];
-           this.isMoving = dis.readBoolean();
-           this.group = Group.values()[dis.readInt()];
-           this.uuid = new UUID(dis.readLong(),dis.readLong());
+            this.x = dis.readInt();
+            this.y = dis.readInt();
+            this.dir = Dir.values()[dis.readInt()];
+            this.isMoving = dis.readBoolean();
+            this.group = Group.values()[dis.readInt()];
+            this.uuid = new UUID(dis.readLong(), dis.readLong());
 //           this.name = dis.readUTF();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             if (dis != null) {
                 try {
                     dis.close();
@@ -115,6 +129,4 @@ public class TankJoinMsg {
             }
         }
     }
-
-
 }
