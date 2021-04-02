@@ -7,7 +7,6 @@ import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.util.ReferenceCountUtil;
 import io.netty.util.concurrent.GlobalEventExecutor;
 
 /**
@@ -62,7 +61,7 @@ class ServerChildHandler extends SimpleChannelInboundHandler<TankJoinMsg>{
 
     @Override
     public void channelRead0(ChannelHandlerContext ctx, TankJoinMsg msg) throws Exception {
-        System.out.println(msg);
+        System.out.println(ctx.channel().remoteAddress()+"---->>"+msg.uuid);
         Server.clients.writeAndFlush(msg);
     }
 

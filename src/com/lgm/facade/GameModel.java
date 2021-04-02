@@ -7,7 +7,6 @@ import com.lgm.enumeration.Group;
 import com.lgm.mgr.PropertiesMgr;
 import com.lgm.model.*;
 import com.lgm.net.Client;
-import com.lgm.net.TankJoinMsg;
 import com.lgm.view.TankFrame;
 
 import java.awt.*;
@@ -41,19 +40,6 @@ public class GameModel implements Serializable{
         mainTank.setIsMoving(false);
         gameObjects.add(mainTank);//gameObjects[0] == mainTank
         goMap.put(mainTank.getUuid(),mainTank);
-
-        //初始化电脑坦克
-        /*int initTankCount = Integer.parseInt((String) PropertiesMgr.getProperty("initTankCount"));
-        for (int i = 0; i < initTankCount; i++) {
-            Tank tb = new Tank(300+i*50,10, Dir.DOWN, Group.BAD,5,this);
-            gameObjects.add(tb);
-            goMap.put(tb.getUuid(),tb);
-            if (i%5 == 0){
-                Tank tg = new Tank(100+i*50,300, Dir.UP, Group.GOOD,5,this);
-                gameObjects.add(tg);
-                goMap.put(tg.getUuid(),tg);
-            }
-        }*/
 
         //添加墙体
         gameObjects.add(new Wall(100,120,200,50));
@@ -89,17 +75,6 @@ public class GameModel implements Serializable{
             }
             client.connect();
         }).start();
-
-        //发送tankJoinMsg给server
-        TankJoinMsg tankJoinMsg = new TankJoinMsg(mainTank.getX(),mainTank.getY(),mainTank.getDir()
-                ,mainTank.getIsMoving(),mainTank.getGroup(),mainTank.getUuid());
-        if (client.getChannel()!=null && client.getChannel().isActive()) {
-            client.getChannel().writeAndFlush(tankJoinMsg);
-        } else {
-            while (client.getChannel() == null){ } //空轮询，等待channel初始化
-            while (!client.getChannel().isActive()){ } //空轮询，等待channel可用
-            client.getChannel().writeAndFlush(tankJoinMsg);
-        }
     }
 
     public TankFrame getTankFrame(){

@@ -1,8 +1,6 @@
 package com.lgm.net;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -32,7 +30,6 @@ public class ServerFrame extends Frame {
     private ServerFrame(){
         this.setSize(800,600);
         this.setLocation(350,300);
-//        this.add(buttonStart,BorderLayout.NORTH);
         Panel panel = new Panel(new GridLayout(1,2));
         panel.add(taLeft);
         panel.add(taRight);
