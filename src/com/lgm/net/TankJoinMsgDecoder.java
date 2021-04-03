@@ -13,11 +13,25 @@ import java.util.List;
 public class TankJoinMsgDecoder extends ByteToMessageDecoder {
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
-        if (byteBuf.readableBytes() < 33) return;
-        byte[] bytes = new byte[byteBuf.readableBytes()];
+        if (byteBuf.readableBytes() < 8) return;
+        byteBuf.markReaderIndex();//标记
+        MsgType msgType = MsgType.values()[byteBuf.readInt()];
+        int length = byteBuf.readInt();
+        if (byteBuf.readableBytes()<length){
+            byteBuf.resetReaderIndex();
+            return;
+        }
+        byte[] bytes = new byte[length];
         byteBuf.readBytes(bytes);
-        TankJoinMsg tankJoinMsg = new TankJoinMsg();
-        tankJoinMsg.parse(bytes);
-        list.add(tankJoinMsg);
+        Msg msg = null;
+        switch (msgType){
+            case TankJoin:
+                msg = new TankJoinMsg();
+                msg.parse(bytes);
+                break;
+            default:
+                break;
+        }
+        list.add(msg);
     }
 }

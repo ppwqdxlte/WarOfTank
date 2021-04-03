@@ -20,8 +20,18 @@ class TankMsgEncoderTest {
         EmbeddedChannel embeddedChannel = new EmbeddedChannel(new TankJoinMsgEncoder());
         embeddedChannel.writeOutbound(tankMsg);
         ByteBuf byteBuf = (ByteBuf)embeddedChannel.readOutbound();
-        Assert.assertEquals(tankMsg.x,byteBuf.readInt());
-        Assert.assertEquals(tankMsg.y,byteBuf.readInt());
+        byteBuf.markReaderIndex();
+        byteBuf.readInt();
+        int len = byteBuf.readInt();
+        if (byteBuf.readableBytes()<len){
+            byteBuf.resetReaderIndex();
+            return;
+        }
+        byte[] bytes = new byte[len];
+        byteBuf.readBytes(bytes);
+        TankJoinMsg tankJoinMsg = new TankJoinMsg();
+        tankJoinMsg.parse(bytes);
+        Assert.assertTrue(tankJoinMsg.x==tankMsg.x);
     }
 
     /**

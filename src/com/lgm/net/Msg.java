@@ -6,5 +6,7 @@ package com.lgm.net;
  */
 public abstract class Msg {
     abstract byte[] toBytes();
+    abstract void parse(byte[] bytes);
     abstract void handle(Client client,Msg msg);
+    abstract MsgType getMsgType();
 }

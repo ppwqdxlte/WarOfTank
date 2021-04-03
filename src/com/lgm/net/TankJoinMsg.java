@@ -90,7 +90,7 @@ public class TankJoinMsg extends Msg{
     }
 
     @Override
-    public void handle(Client client,Msg myTankJoinMsg) {
+    public void handle(Client client,Msg msg) {
         //只处理别人的新坦克，已存在的坦克不处理
         if (client.getGameModel().getGameObjectWithUUID(this.uuid) == null) {
             System.out.println(this);
@@ -98,14 +98,20 @@ public class TankJoinMsg extends Msg{
             client.getGameModel().getGameObjects().add(newTank);
             client.getGameModel().getGoMap().put(this.uuid, newTank);
             //然后告诉别人，自己的坦克
-            client.getChannel().writeAndFlush(myTankJoinMsg);
+            client.getChannel().writeAndFlush(msg);
         }
+    }
+
+    @Override
+    MsgType getMsgType() {
+        return MsgType.TankJoin;
     }
 
     /**
      * @param bytes 包含TankJoinMsg信息的字节数组
      *              让tankJoinMsg对象自己解析并修改属性值
      */
+    @Override
     public void parse(byte[] bytes){
         DataInputStream dis = null;
         try {
