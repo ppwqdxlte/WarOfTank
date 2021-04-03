@@ -111,22 +111,21 @@ public class TankFrame extends Frame implements Serializable {
             //按ctrl键开火
             if (keyCode == KeyEvent.VK_CONTROL){
                 myTank.getFireStrategy().fire(myTank);
-                //TODO 开火
             }
             //坦克启动
             if (formerIsMoving == false && myTank.getIsMoving() == true){
                 TankStartMovingMsg tankStartMovingMsg = new TankStartMovingMsg(myTank.getUuid(),myTank.getX(),myTank.getY(),myTank.getDir());
                 tankFrame.gameModel.getClient().send(tankStartMovingMsg);new Thread(()->new Audio("audio/tank_move.wav").play()).start();
             }
-            //坦克变向
-            if (formerDir != myTank.getDir()){
-                TankDirChangedMsg tankDirChangedMsg = new TankDirChangedMsg(myTank.getUuid(),myTank.getX(),myTank.getY(),myTank.getDir());
-                tankFrame.gameModel.getClient().send(tankDirChangedMsg);new Thread(()->new Audio("audio/tank_move.wav").play()).start();
-            }
             //坦克停止
             if (formerIsMoving == true && myTank.getIsMoving() == false){
                 TankStopMovingMsg tankStopMovingMsg = new TankStopMovingMsg(myTank.getUuid(),myTank.getX(),myTank.getY(),myTank.getDir());
                 tankFrame.gameModel.getClient().send(tankStopMovingMsg);
+            }
+            //坦克变向
+            if (formerDir != myTank.getDir()){
+                TankDirChangedMsg tankDirChangedMsg = new TankDirChangedMsg(myTank.getUuid(),myTank.getX(),myTank.getY(),myTank.getDir());
+                tankFrame.gameModel.getClient().send(tankDirChangedMsg);new Thread(()->new Audio("audio/tank_move.wav").play()).start();
             }
             //存盘、加载
             if (keyCode == KeyEvent.VK_S) tankFrame.gameModel.save();

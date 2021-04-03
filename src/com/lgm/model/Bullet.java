@@ -1,11 +1,15 @@
 package com.lgm.model;
 
 import com.lgm.enumeration.Dir;
+import com.lgm.enumeration.Group;
 import com.lgm.facade.GameModel;
 import com.lgm.mgr.PropertiesMgr;
 import com.lgm.mgr.ResourceMgr;
+import com.lgm.net.BulletNewMsg;
+import com.lgm.util.Audio;
 
 import java.awt.*;
+import java.util.UUID;
 
 /**
  * @author:李罡毛
@@ -14,6 +18,7 @@ import java.awt.*;
 public class Bullet extends GameObject {
 
     private static final long serialVersionUID = 8918545667283636286L;
+    private UUID uuid = UUID.randomUUID();
 //    private int x;
 //    private int y;
     private Dir dir;
@@ -21,14 +26,17 @@ public class Bullet extends GameObject {
     private boolean isLive = true;//子弹撞车或者跃出窗口就移除，等待回收，否则子弹变多后占用内存导致内存溢出
     private int fireX,fireY;//子弹射出时候的坐标，通过坦克坐标、图片长宽、运行方向 获取
     static int WIDTH = ResourceMgr.bulletL.getWidth(),HEIGHT = ResourceMgr.bulletU.getHeight();//子弹的宽度，高度
-    private Tank tank;//所属坦克
+    private UUID tankId;
+    private GameModel gameModel;
     private Rectangle rectangle = new Rectangle(0,0,WIDTH,HEIGHT);//this子弹的矩形
 
-    public Bullet(int x, int y, Dir dir, Tank tank) {
+    public Bullet(int x, int y, Dir dir, UUID tankId,GameModel gameModel) {
         this.x = x;
         this.y = y;
         this.dir = dir;
-        this.tank = tank;
+        this.tankId = tankId;
+        this.gameModel = gameModel;
+        new Thread(()->new Audio("audio/tank_fire.wav").play()).start();
     }
 
     public void paint(Graphics g){
@@ -69,6 +77,11 @@ public class Bullet extends GameObject {
         return HEIGHT;
     }
 
+    @Override
+    public UUID getUuid() {
+        return uuid;
+    }
+
     private void move(){
         if (dir == Dir.LEFT){
             x -= SPEED;
@@ -79,8 +92,8 @@ public class Bullet extends GameObject {
         }else if (dir == Dir.DOWN){
             y += SPEED;
         }
-        if (x<0||y<0||x> this.getTank().getGameModel().getTankFrame().getWidth()
-                ||y> this.getTank().getGameModel().getTankFrame().getHeight()){
+        if (x<0||y<0||x> this.gameModel.getTankFrame().getWidth()
+                ||y> this.gameModel.getTankFrame().getHeight()){
             this.die();
         }
     }
@@ -91,8 +104,8 @@ public class Bullet extends GameObject {
     public static int getHEIGHT(){
         return HEIGHT;
     }
-    public Tank getTank(){
-        return tank;
+    public UUID getTankId(){
+        return tankId;
     }
     public Rectangle getRectangle() {
         return rectangle;
@@ -106,9 +119,17 @@ public class Bullet extends GameObject {
     public int getY() {
         return y;
     }
+    public GameModel getGameModel(){
+        return gameModel;
+    }
 
     public void die() {
         this.setLive(false);
-        this.getTank().getGameModel().getGameObjects().remove(this);
+        this.gameModel.getGameObjects().remove(this);
+        this.gameModel.getGoMap().remove(this.uuid);
+    }
+
+    public Dir getDir() {
+        return dir;
     }
 }

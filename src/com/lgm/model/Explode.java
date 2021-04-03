@@ -6,12 +6,14 @@ import com.lgm.util.Audio;
 
 import java.awt.*;
 import java.io.Serial;
+import java.util.UUID;
 
 /**
  * @author:李罡毛
  * @date:2021/2/5 13:18
  */
 public class Explode extends GameObject {
+    private UUID uuid = UUID.randomUUID();
     @Serial
     private static final long serialVersionUID = -5927261928218784540L;
     private int x;
@@ -44,5 +46,10 @@ public class Explode extends GameObject {
     @Override
     public int getHeight() {
         return 0;
+    }
+
+    @Override
+    public UUID getUuid() {
+        return uuid;
     }
 }

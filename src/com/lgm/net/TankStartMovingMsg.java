@@ -75,7 +75,7 @@ public class TankStartMovingMsg extends Msg{
     @Override
     void handle(Client client, Msg msg) {
         //只处理别人的坦克，不处理自己的坦克
-        if (this.id == msg.getUuid()) return;
+        if (this.id.toString().equals(msg.getUuid().toString())) return;
         System.out.println("启动！"+this.id);
         Tank tank = (Tank) client.getGameModel().getGameObjectWithUUID(this.id);
         tank.setX(this.getX());

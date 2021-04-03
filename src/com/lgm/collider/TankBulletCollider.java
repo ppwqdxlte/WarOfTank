@@ -4,6 +4,8 @@ import com.lgm.model.Bullet;
 import com.lgm.model.GameObject;
 import com.lgm.model.Tank;
 
+import java.util.UUID;
+
 /**
  * @author:李罡毛
  * @date:2021/2/18 19:46
@@ -14,7 +16,11 @@ public class TankBulletCollider implements Collider<Bullet, Tank> {
     public boolean collideBetween(GameObject o1, GameObject o2) {
         if (o1 instanceof Bullet && o2 instanceof Tank){
             //判断是否友军,是友军就不炸
-            if (((Bullet) o1).getTank().getGroup() == ((Tank) o2).getGroup()) return false;
+            Tank tank = null;
+            UUID tankId =((Bullet) o1).getTankId();
+            GameObject gameObject = ((Bullet) o1).getGameModel().getGameObjectWithUUID(tankId);
+            tank = (Tank) gameObject;
+            if (tank.getGroup() == ((Tank) o2).getGroup()) return false;
             //设置矩形位置
             setRectangleLocation((Bullet) o1,(Tank) o2);
             //不会误伤友军，只会炸掉敌方坦克

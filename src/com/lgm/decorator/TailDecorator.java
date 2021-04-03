@@ -3,12 +3,14 @@ package com.lgm.decorator;
 import com.lgm.model.GameObject;
 
 import java.awt.*;
+import java.util.UUID;
 
 /**
  * @author:李罡毛
  * @date:2021/2/20 17:04
  */
 public class TailDecorator extends Decorator {
+    private UUID uuid = UUID.randomUUID();
 
     public TailDecorator(GameObject gameObject) {
         super(gameObject);
@@ -36,5 +38,10 @@ public class TailDecorator extends Decorator {
     @Override
     public int getHeight() {
         return gameObject.getHeight();
+    }
+
+    @Override
+    public UUID getUuid() {
+        return uuid;
     }
 }

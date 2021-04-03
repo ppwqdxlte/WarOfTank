@@ -1,6 +1,7 @@
 package com.lgm.net;
 
 import com.lgm.enumeration.Dir;
+import com.lgm.model.Bullet;
 import com.lgm.model.Tank;
 
 import java.io.*;
@@ -8,14 +9,24 @@ import java.util.UUID;
 
 /**
  * @author:李罡毛
- * @date:2021/4/3 15:41
+ * @date:2021/4/3 20:10
  */
-public class TankDirChangedMsg extends Msg{
-    public int x,y;
-    public Dir dir;
-    public UUID id;
+public class BulletNewMsg extends Msg{
+    private UUID tankId;
+    private UUID id;
+    private int x,y;
+    private Dir dir;
+    public BulletNewMsg(){}
+    public BulletNewMsg(Bullet bullet){
+        super();
+        this.tankId = bullet.getTankId();
+        this.id = bullet.getUuid();
+        this.x = bullet.getX();
+        this.y = bullet.getY();
+        this.dir = bullet.getDir();
+    }
     @Override
-    byte[] toBytes() {
+    public byte[] toBytes() {
         ByteArrayOutputStream baos = null;
         DataOutputStream dos = null;
         byte[] bytes = null;
@@ -25,6 +36,8 @@ public class TankDirChangedMsg extends Msg{
             dos.writeInt(x);
             dos.writeInt(y);
             dos.writeInt(dir.ordinal());
+            dos.writeLong(tankId.getMostSignificantBits());
+            dos.writeLong(tankId.getLeastSignificantBits());
             dos.writeLong(id.getMostSignificantBits());
             dos.writeLong(id.getLeastSignificantBits());
             dos.flush();
@@ -51,14 +64,15 @@ public class TankDirChangedMsg extends Msg{
     }
 
     @Override
-    void parse(byte[] bytes) {
+    public void parse(byte[] bytes) {
         DataInputStream dis = null;
         try {
             dis = new DataInputStream(new ByteArrayInputStream(bytes));
             this.x = dis.readInt();
             this.y = dis.readInt();
             this.dir = Dir.values()[dis.readInt()];
-            this.id = new UUID(dis.readLong(), dis.readLong());
+            this.tankId = new UUID(dis.readLong(), dis.readLong());
+            this.id = new UUID(dis.readLong(),dis.readLong());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -73,19 +87,27 @@ public class TankDirChangedMsg extends Msg{
     }
 
     @Override
-    void handle(Client client, Msg msg) {
-        //只处理别人的坦克，不处理自己的坦克
-        if (this.id.toString().equals(msg.getUuid().toString())) return;
-        System.out.println("转弯！"+this.id);
-        Tank tank = (Tank) client.getGameModel().getGameObjectWithUUID(this.id);
-        tank.setX(this.getX());
-        tank.setY(this.getY());
-        tank.setDir(this.getDir());
+    public void handle(Client client, Msg msg) {
+        //只处理别人的新子弹，自己的子弹不处理，UUID不能用==比较相等！要转化成值比较！
+        if (msg.getUuid().toString().equals(this.getTankId().toString())) return;
+        System.out.println("biu！"+this.tankId);
+        Bullet newBullet = new Bullet(this.x,this.y,this.dir,this.tankId,client.getGameModel());
+        client.getGameModel().getGameObjects().add(newBullet);
+        client.getGameModel().getGoMap().put(this.id, newBullet);
     }
 
     @Override
-    MsgType getMsgType() {
-        return MsgType.TankDirChanged;
+    public MsgType getMsgType() {
+        return MsgType.BulletNew;
+    }
+
+    @Override
+    public UUID getUuid() {
+        return id;
+    }
+
+    public UUID getTankId(){
+        return tankId;
     }
 
     @Override
@@ -93,51 +115,12 @@ public class TankDirChangedMsg extends Msg{
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(this.getClass().getName())
                 .append("[")
+                .append("tankId=" + tankId + " | ")
                 .append("uuid=" + id + " | ")
                 .append("x=" + x + " | ")
                 .append("y=" + y + " | ")
                 .append("dir=" + dir + " | ")
                 .append("]");
         return stringBuilder.toString();
-    }
-
-    public TankDirChangedMsg() { }
-
-    public TankDirChangedMsg(UUID id, int x, int y, Dir dir) {
-        this.id = id;
-        this.x = x;
-        this.y = y;
-        this.dir = dir;
-    }
-
-    public TankDirChangedMsg(Tank tank) {
-        this.id = tank.getUuid();
-        this.x = tank.getX();
-        this.y = tank.getY();
-        this.dir = tank.getDir();
-    }
-    public int getX() {
-        return x;
-    }
-    public void setX(int x) {
-        this.x = x;
-    }
-    public int getY() {
-        return y;
-    }
-    public void setY(int y) {
-        this.y = y;
-    }
-    public Dir getDir() {
-        return dir;
-    }
-    public void setDir(Dir dir) {
-        this.dir = dir;
-    }
-    public UUID getUuid() {
-        return id;
-    }
-    public void setUuid(UUID uuid) {
-        this.id = uuid;
     }
 }

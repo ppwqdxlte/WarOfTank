@@ -96,7 +96,7 @@ public class GameModel implements Serializable{
     public void paint(Graphics g) {
         Color c = g.getColor();
         g.setColor(Color.MAGENTA);
-        g.drawString("我的坦克子弹的数量："+gameObjects.stream().filter((x)->x instanceof Bullet && ((Bullet)x).getTank() == (Tank)(gameObjects.get(0))).count(),10,50);
+        g.drawString("我的坦克子弹的数量："+gameObjects.stream().filter((x)->x instanceof Bullet && ((Bullet)x).getTankId() == ((Tank)(gameObjects.get(0))).getUuid()).count(),10,50);
         g.drawString("敌方坦克的数量："+gameObjects.stream().filter((x)->x instanceof Tank && ((Tank)x).getGroup()== Group.BAD).count(),10,70);
         g.drawString("爆炸对象数量："+gameObjects.stream().filter((x)->x instanceof Explode).count(),10,90);
         g.drawString("友军坦克数量（除了我自己）:"+(gameObjects.stream().filter(

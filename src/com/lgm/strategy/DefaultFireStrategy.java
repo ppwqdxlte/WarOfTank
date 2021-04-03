@@ -5,7 +5,9 @@ import com.lgm.decorator.TailDecorator;
 import com.lgm.enumeration.Group;
 import com.lgm.facade.GameModel;
 import com.lgm.model.Bullet;
+import com.lgm.model.GameObject;
 import com.lgm.model.Tank;
+import com.lgm.net.BulletNewMsg;
 import com.lgm.util.Audio;
 
 /**
@@ -19,12 +21,12 @@ public class DefaultFireStrategy implements FireStrategy {
         int bX = tank.getX() + tank.getWIDTH()/2 - Bullet.getWIDTH()/2;
         int bY = tank.getY() + tank.getHEIGHT()/2 - Bullet.getHEIGHT()/2;
 
-//        Bullet bullet = new Bullet(bX, bY, tank.getDir(), tank);
-        this.gameModel.getGameObjects().add(
-                new TailDecorator(new RectDecorator(new Bullet(bX,bY,tank.getDir(),tank))));
-
-
-        if(tank.getGroup() == Group.GOOD) new Thread(()->new Audio("audio/tank_fire.wav").play()).start();
+        GameObject goBullet = new TailDecorator(new RectDecorator(new Bullet(bX,bY,tank.getDir(),tank.getUuid(),tank.getGameModel())));
+        Bullet bullet = (Bullet) goBullet;
+        this.gameModel.getGameObjects().add(goBullet);
+        this.gameModel.getGoMap().put(bullet.getUuid(),bullet);
+        BulletNewMsg bulletNewMsg = new BulletNewMsg(bullet);
+        tank.getGameModel().getClient().send(bulletNewMsg);
     }
     @Override
     public void setGameModel(GameModel gameModel){

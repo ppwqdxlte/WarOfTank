@@ -1,6 +1,7 @@
 package com.lgm.model;
 import java.awt.*;
 import java.io.Serializable;
+import java.util.UUID;
 
 /**
  * @author:李罡毛
@@ -12,4 +13,6 @@ public abstract class GameObject implements Serializable {
     public abstract void paint(Graphics g);
     public abstract int getWidth();
     public abstract int getHeight();
+
+    public abstract UUID getUuid();
 }

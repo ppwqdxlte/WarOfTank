@@ -2,12 +2,15 @@ package com.lgm.model;
 
 import java.awt.*;
 import java.io.Serial;
+import java.util.UUID;
 
 /**
  * @author:李罡毛
  * @date:2021/2/19 19:12
  */
 public class Wall extends GameObject {
+
+    private UUID uuid = UUID.randomUUID();
     @Serial
     private static final long serialVersionUID = -7402335168777034330L;
 //    private int x,y;
@@ -42,6 +45,12 @@ public class Wall extends GameObject {
     public int getHeight() {
         return height;
     }
+
+    @Override
+    public UUID getUuid() {
+        return uuid;
+    }
+
     public Rectangle getRectangle() {
         return rectangle;
     }
