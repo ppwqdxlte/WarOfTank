@@ -5,5 +5,5 @@ package com.lgm.net;
  * @date:2021/4/2 17:57
  */
 public enum MsgType {
-    TankJoin, TankDirChanged, TankStop, TankStartMoving, BulletNew, TankDie
+    TankJoin, TankDirChanged, TankStopMoving, TankStartMoving, BulletNew, TankDie
 }

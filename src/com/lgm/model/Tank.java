@@ -8,6 +8,7 @@ import com.lgm.mgr.ResourceMgr;
 import com.lgm.net.TankJoinMsg;
 import com.lgm.strategy.DefaultFireStrategy;
 import com.lgm.strategy.FireStrategy;
+import com.lgm.util.Audio;
 
 import java.awt.*;
 import java.io.Serial;
@@ -150,6 +151,7 @@ public class Tank extends GameObject {
         }else if (dir == Dir.DOWN){
             y = y+SPEED>= this.gameModel.getTankFrame().getHeight()-HEIGHT-28?y:y+SPEED;
         }
+        //坦克行进声音
     }
 
     /**

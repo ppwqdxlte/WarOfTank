@@ -4,20 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="encoder加入MsgType,length,decoder里mark\resetReaderIndex之后解决了之前的BUG，原来是ByteBuf的问题，就是说clientChannel一下有好几个数据包时候，ByteBuf务必标记完全才能不丢失数据">
-      <change afterPath="$PROJECT_DIR$/src/com/lgm/net/TankStartMovingMsg.java" afterDir="false" />
+    <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/lgm/net/TankDirChangedMsg.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/lgm/net/TankStopMovingMsg.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lgm/facade/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/facade/GameModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lgm/model/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/model/Tank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/Msg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/Msg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/TankJoinMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/TankJoinMsg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/TankJoinMsgDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/TankMsgDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/TankJoinMsgEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/TankMsgEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/MsgType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/MsgType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/TankMsgDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/TankMsgDecoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lgm/view/TankFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/view/TankFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/lgm/net/TankMsgDecoderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/lgm/net/TankMsgDecoderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/com/lgm/net/TankMsgEncoderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/lgm/net/TankMsgEncoderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/facade/GameModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/facade/GameModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/model/Tank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame$MyKeyAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame$MyKeyAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/production/WarOfTank/com/lgm/view/TankFrame.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,6 +148,7 @@
       <recent name="test.com.lgm.net" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lgm.net" />
       <recent name="state.v1" />
       <recent name="com.lgm.ASM" />
       <recent name="com.lgm.aop" />
@@ -181,13 +182,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -307,7 +310,7 @@
       <workItem from="1617338773009" duration="2143000" />
       <workItem from="1617340940780" duration="1676000" />
       <workItem from="1617342815117" duration="8272000" />
-      <workItem from="1617417418410" duration="11458000" />
+      <workItem from="1617417418410" duration="16918000" />
     </task>
     <task id="LOCAL-00001" summary="IDEA build多模块项目动不动编译不出来！不是没class文件就是没资源文件，手动在编译输出目录添加了资源文件，在project structure重新引入module，修改一些小细节就行了">
       <created>1613458920384</created>
@@ -512,7 +515,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617426534709</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="同步坦克启动消息TankStartMovingMsg">
+      <created>1617445119999</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1617445119999</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -543,7 +553,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="模型刪除了GameModel屬性，進一步解耦合" />
     <MESSAGE value="Decorator裝飾者模式：被裝飾模型聚合在裝飾器中，裝飾器可以叠加聚合，要刪除子類模型的與父類同名屬性，因爲調用父類屬性引用會被子類同名屬性覆蓋而取不出！此坦克項目在defaultFairStrategy中裝飾了bullet模型" />
     <MESSAGE value="observer观察者模式demo" />
     <MESSAGE value="composite组合模式demo&#10;flyWeight享元模式demo" />
@@ -568,7 +577,8 @@
     <MESSAGE value="整理代码，BUG尚未解决，等完善Msg功能再说" />
     <MESSAGE value="抽象Msg类，clientRead0中让msg自己处理消息" />
     <MESSAGE value="encoder加入MsgType,length,decoder里mark\resetReaderIndex之后解决了之前的BUG，原来是ByteBuf的问题，就是说clientChannel一下有好几个数据包时候，ByteBuf务必标记完全才能不丢失数据" />
-    <option name="LAST_COMMIT_MESSAGE" value="encoder加入MsgType,length,decoder里mark\resetReaderIndex之后解决了之前的BUG，原来是ByteBuf的问题，就是说clientChannel一下有好几个数据包时候，ByteBuf务必标记完全才能不丢失数据" />
+    <MESSAGE value="同步坦克启动消息TankStartMovingMsg" />
+    <option name="LAST_COMMIT_MESSAGE" value="同步坦克启动消息TankStartMovingMsg" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />

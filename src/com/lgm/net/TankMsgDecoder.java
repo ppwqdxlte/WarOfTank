@@ -23,19 +23,9 @@ public class TankMsgDecoder extends ByteToMessageDecoder {
         }
         byte[] bytes = new byte[length];
         byteBuf.readBytes(bytes);
-        Msg msg = null;
-        switch (msgType){
-            case TankJoin:
-                msg = new TankJoinMsg();
-                msg.parse(bytes);
-                break;
-            case TankStartMoving:
-                msg = new TankStartMovingMsg();
-                msg.parse(bytes);
-                break;
-            default:
-                break;
-        }
+        //反射创建对象，更灵活，以后添加新的Msg实现类不用修改这里的代码
+        Msg msg = (Msg) Class.forName("com.lgm.net." + msgType.toString() + "Msg").getDeclaredConstructor().newInstance();
+        msg.parse(bytes);
         list.add(msg);
     }
 }

@@ -4,7 +4,9 @@ import com.lgm.enumeration.Dir;
 import com.lgm.facade.GameModel;
 import com.lgm.mgr.PropertiesMgr;
 import com.lgm.model.Tank;
+import com.lgm.net.TankDirChangedMsg;
 import com.lgm.net.TankStartMovingMsg;
+import com.lgm.net.TankStopMovingMsg;
 import com.lgm.util.Audio;
 
 import java.awt.*;
@@ -111,20 +113,20 @@ public class TankFrame extends Frame implements Serializable {
                 myTank.getFireStrategy().fire(myTank);
                 //TODO 开火
             }
-            //坦克行进声音
-            if (myTank.getIsMoving() == true) new Thread(()->new Audio("audio/tank_move.wav").play()).start();
             //坦克启动
             if (formerIsMoving == false && myTank.getIsMoving() == true){
                 TankStartMovingMsg tankStartMovingMsg = new TankStartMovingMsg(myTank.getUuid(),myTank.getX(),myTank.getY(),myTank.getDir());
-                tankFrame.gameModel.getClient().send(tankStartMovingMsg);
+                tankFrame.gameModel.getClient().send(tankStartMovingMsg);new Thread(()->new Audio("audio/tank_move.wav").play()).start();
             }
             //坦克变向
-            if (formerIsMoving == true && myTank.getIsMoving() == true && formerDir != myTank.getDir()){
-                //TODO 坦克变向
+            if (formerDir != myTank.getDir()){
+                TankDirChangedMsg tankDirChangedMsg = new TankDirChangedMsg(myTank.getUuid(),myTank.getX(),myTank.getY(),myTank.getDir());
+                tankFrame.gameModel.getClient().send(tankDirChangedMsg);new Thread(()->new Audio("audio/tank_move.wav").play()).start();
             }
             //坦克停止
             if (formerIsMoving == true && myTank.getIsMoving() == false){
-                //TODO 坦克停止
+                TankStopMovingMsg tankStopMovingMsg = new TankStopMovingMsg(myTank.getUuid(),myTank.getX(),myTank.getY(),myTank.getDir());
+                tankFrame.gameModel.getClient().send(tankStopMovingMsg);
             }
             //存盘、加载
             if (keyCode == KeyEvent.VK_S) tankFrame.gameModel.save();
