@@ -23,8 +23,9 @@ public class TankBulletCollider implements Collider<Bullet, Tank> {
             if (tank.getGroup() == ((Tank) o2).getGroup()) return false;
             //设置矩形位置
             setRectangleLocation((Bullet) o1,(Tank) o2);
-            //不会误伤友军，只会炸掉敌方坦克
-            if (((Bullet) o1).getRectangle().intersects(((Tank) o2).getRectangle())) {
+            //自己的子弹炸不死自己
+            if (!tank.getUuid().toString().equals(((Tank)o2).getUuid().toString())
+                    && ((Bullet) o1).getRectangle().intersects(((Tank) o2).getRectangle())) {
                 ((Bullet) o1).die();
                 ((Tank) o2).die();
                 return false;

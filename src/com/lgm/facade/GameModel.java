@@ -40,7 +40,6 @@ public class GameModel implements Serializable{
         mainTank.setIsMoving(false);
         gameObjects.add(mainTank);//gameObjects[0] == mainTank
         goMap.put(mainTank.getUuid(),mainTank);
-
         //添加墙体
         gameObjects.add(new Wall(100,120,200,50));
         gameObjects.add(new Wall(600,120,200,50));
