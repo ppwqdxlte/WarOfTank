@@ -27,8 +27,8 @@ public class Server {
                         @Override
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
                             socketChannel.pipeline()
-                                    .addLast(new TankJoinMsgEncoder())//codec的添加顺序不影响结果
-                                    .addLast(new TankJoinMsgDecoder())
+                                    .addLast(new TankMsgEncoder())//codec的添加顺序不影响结果
+                                    .addLast(new TankMsgDecoder())
                                     .addLast(new ServerChildHandler());
                         }
                     })
@@ -52,7 +52,7 @@ public class Server {
     }
 }
 
-class ServerChildHandler extends SimpleChannelInboundHandler<TankJoinMsg>{
+class ServerChildHandler extends SimpleChannelInboundHandler<Msg>{
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         Server.clients.add(ctx.channel());
@@ -60,8 +60,8 @@ class ServerChildHandler extends SimpleChannelInboundHandler<TankJoinMsg>{
     }
 
     @Override
-    public void channelRead0(ChannelHandlerContext ctx, TankJoinMsg msg) throws Exception {
-        System.out.println(ctx.channel().remoteAddress()+"---->>"+msg.uuid);
+    public void channelRead0(ChannelHandlerContext ctx, Msg msg) throws Exception {
+        System.out.println(ctx.channel().remoteAddress()+"---->>"+msg.getUuid());
         Server.clients.writeAndFlush(msg);
     }
 

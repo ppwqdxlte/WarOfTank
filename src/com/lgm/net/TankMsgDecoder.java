@@ -10,7 +10,7 @@ import java.util.List;
  * @author:李罡毛
  * @date:2021/3/30 22:11
  */
-public class TankJoinMsgDecoder extends ByteToMessageDecoder {
+public class TankMsgDecoder extends ByteToMessageDecoder {
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
         if (byteBuf.readableBytes() < 8) return;
@@ -27,6 +27,10 @@ public class TankJoinMsgDecoder extends ByteToMessageDecoder {
         switch (msgType){
             case TankJoin:
                 msg = new TankJoinMsg();
+                msg.parse(bytes);
+                break;
+            case TankStartMoving:
+                msg = new TankStartMovingMsg();
                 msg.parse(bytes);
                 break;
             default:

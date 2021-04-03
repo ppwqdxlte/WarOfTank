@@ -17,7 +17,7 @@ class TankMsgDecoderTest {
     @Test
     void decode() {
         TankJoinMsg tankMsg = new TankJoinMsg(300,200, Dir.UP,false, Group.BAD, UUID.randomUUID());
-        EmbeddedChannel embeddedChannel = new EmbeddedChannel(new TankJoinMsgEncoder(),new TankJoinMsgDecoder());
+        EmbeddedChannel embeddedChannel = new EmbeddedChannel(new TankMsgEncoder(),new TankMsgDecoder());
         embeddedChannel.writeInbound(tankMsg);
         TankJoinMsg readMsg = (TankJoinMsg) embeddedChannel.readInbound();
         Assert.assertEquals(readMsg.x,tankMsg.x);

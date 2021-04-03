@@ -17,7 +17,7 @@ class TankMsgEncoderTest {
     @Test
     void encode() {
         TankJoinMsg tankMsg = new TankJoinMsg(300,200, Dir.UP,false, Group.BAD, UUID.randomUUID());
-        EmbeddedChannel embeddedChannel = new EmbeddedChannel(new TankJoinMsgEncoder());
+        EmbeddedChannel embeddedChannel = new EmbeddedChannel(new TankMsgEncoder());
         embeddedChannel.writeOutbound(tankMsg);
         ByteBuf byteBuf = (ByteBuf)embeddedChannel.readOutbound();
         byteBuf.markReaderIndex();
@@ -49,7 +49,7 @@ class TankMsgEncoderTest {
     void client_Add_Encoder$Decoder(){
         TankJoinMsg tankMsg = new TankJoinMsg(300,200, Dir.UP,false, Group.BAD, UUID.randomUUID());
         EmbeddedChannel embeddedChannel = new EmbeddedChannel(
-                new TankJoinMsgDecoder(),new TankJoinMsgEncoder());
+                new TankMsgDecoder(),new TankMsgEncoder());
         embeddedChannel.writeOutbound(tankMsg);
         Object outboundMsg = null;
         Assert.assertTrue((outboundMsg = embeddedChannel.readOutbound()) instanceof ByteBuf);

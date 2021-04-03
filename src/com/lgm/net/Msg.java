@@ -1,5 +1,7 @@
 package com.lgm.net;
 
+import java.util.UUID;
+
 /**
  * @author:李罡毛
  * @date:2021/4/2 17:16
@@ -9,4 +11,5 @@ public abstract class Msg {
     abstract void parse(byte[] bytes);
     abstract void handle(Client client,Msg msg);
     abstract MsgType getMsgType();
+    abstract UUID getUuid();
 }

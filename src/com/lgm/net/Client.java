@@ -44,9 +44,8 @@ public class Client {
         }
     }
 
-    public void send(String msg){
-        ByteBuf byteBuf = Unpooled.copiedBuffer(msg.getBytes());
-        this.channel.writeAndFlush(byteBuf);
+    public void send(Msg msg){
+        this.channel.writeAndFlush(msg);
     }
 
     public void closeConnect(){
@@ -72,13 +71,13 @@ class ClientChannelInitializer extends ChannelInitializer<SocketChannel>{
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception {
         socketChannel.pipeline()
-                .addLast(new TankJoinMsgEncoder())
-                .addLast(new TankJoinMsgDecoder())
+                .addLast(new TankMsgEncoder())
+                .addLast(new TankMsgDecoder())
                 .addLast(new ClientChannelHandler(client));
     }
 }
 
-class ClientChannelHandler extends SimpleChannelInboundHandler<TankJoinMsg>{
+class ClientChannelHandler extends SimpleChannelInboundHandler<Msg>{
     private Client client;
     private TankJoinMsg myTankJoinMsg;
     public ClientChannelHandler(Client client){
@@ -95,7 +94,7 @@ class ClientChannelHandler extends SimpleChannelInboundHandler<TankJoinMsg>{
     }
 
     @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, TankJoinMsg msg) throws Exception {
+    protected void channelRead0(ChannelHandlerContext channelHandlerContext, Msg msg) throws Exception {
         msg.handle(this.client,this.myTankJoinMsg);
     }
 }

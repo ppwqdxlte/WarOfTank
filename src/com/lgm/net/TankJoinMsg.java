@@ -92,19 +92,23 @@ public class TankJoinMsg extends Msg{
     @Override
     public void handle(Client client,Msg msg) {
         //只处理别人的新坦克，已存在的坦克不处理
-        if (client.getGameModel().getGameObjectWithUUID(this.uuid) == null) {
-            System.out.println(this);
-            Tank newTank = new Tank(this, client.getGameModel());
-            client.getGameModel().getGameObjects().add(newTank);
-            client.getGameModel().getGoMap().put(this.uuid, newTank);
-            //然后告诉别人，自己的坦克
-            client.getChannel().writeAndFlush(msg);
-        }
+        if (client.getGameModel().getGameObjectWithUUID(this.uuid) != null) return;
+        System.out.println("欢迎！"+this);
+        Tank newTank = new Tank(this, client.getGameModel());
+        client.getGameModel().getGameObjects().add(newTank);
+        client.getGameModel().getGoMap().put(this.uuid, newTank);
+        //然后告诉别人，自己的坦克
+        client.getChannel().writeAndFlush(msg);
     }
 
     @Override
     MsgType getMsgType() {
         return MsgType.TankJoin;
+    }
+
+    @Override
+    public UUID getUuid() {
+        return this.uuid;
     }
 
     /**

@@ -88,7 +88,7 @@ public class Tank extends GameObject {
 
         this.move();
 
-        this.tankRandomAction();
+//        this.tankRandomAction();  没有NPC坦克就取消随机行为
         switch (dir){
             case LEFT:
                 g.drawImage(this.group== Group.GOOD? ResourceMgr.tankL: ResourceMgr.badTankL,x,y,null);

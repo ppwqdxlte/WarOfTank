@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/lgm/net/MsgType.java" afterDir="false" />
+    <list default="true" id="c85df816-6429-4c66-8405-fcf30d60b3b9" name="Default Changelist" comment="encoder加入MsgType,length,decoder里mark\resetReaderIndex之后解决了之前的BUG，原来是ByteBuf的问题，就是说clientChannel一下有好几个数据包时候，ByteBuf务必标记完全才能不丢失数据">
+      <change afterPath="$PROJECT_DIR$/src/com/lgm/net/TankStartMovingMsg.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/facade/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/facade/GameModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/model/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/model/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lgm/net/Msg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/Msg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lgm/net/TankJoinMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/TankJoinMsg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/TankJoinMsgDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/TankJoinMsgDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/TankJoinMsgEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/TankJoinMsgEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/TankJoinMsgDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/TankMsgDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/net/TankJoinMsgEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/net/TankMsgEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lgm/view/TankFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lgm/view/TankFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/lgm/net/TankMsgDecoderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/lgm/net/TankMsgDecoderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/lgm/net/TankMsgEncoderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/lgm/net/TankMsgEncoderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -301,7 +307,7 @@
       <workItem from="1617338773009" duration="2143000" />
       <workItem from="1617340940780" duration="1676000" />
       <workItem from="1617342815117" duration="8272000" />
-      <workItem from="1617417418410" duration="2590000" />
+      <workItem from="1617417418410" duration="11458000" />
     </task>
     <task id="LOCAL-00001" summary="IDEA build多模块项目动不动编译不出来！不是没class文件就是没资源文件，手动在编译输出目录添加了资源文件，在project structure重新引入module，修改一些小细节就行了">
       <created>1613458920384</created>
@@ -499,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617357280169</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="encoder加入MsgType,length,decoder里mark\resetReaderIndex之后解决了之前的BUG，原来是ByteBuf的问题，就是说clientChannel一下有好几个数据包时候，ByteBuf务必标记完全才能不丢失数据">
+      <created>1617426534709</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1617426534709</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -530,7 +543,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="【解决BUG】只因在子弹墙体碰撞器中忘记更新location了！此外GameModel变成单粒模式，paint方法中取消了判断isLive，直接在游戏模型中添加die方法，触发死亡事件就马上移除模型即可，节约了计算资源和时间" />
     <MESSAGE value="模型刪除了GameModel屬性，進一步解耦合" />
     <MESSAGE value="Decorator裝飾者模式：被裝飾模型聚合在裝飾器中，裝飾器可以叠加聚合，要刪除子類模型的與父類同名屬性，因爲調用父類屬性引用會被子類同名屬性覆蓋而取不出！此坦克項目在defaultFairStrategy中裝飾了bullet模型" />
     <MESSAGE value="observer观察者模式demo" />
@@ -555,7 +567,8 @@
     <MESSAGE value="模拟多client，重构代码取消tf和gm的单粒模式，c添加新坦克到gm中【有个BUG】：开2个c坦克数量正常，开3个以上出现个别c对不上数的问题，怀疑client.channel处理不好并发read" />
     <MESSAGE value="整理代码，BUG尚未解决，等完善Msg功能再说" />
     <MESSAGE value="抽象Msg类，clientRead0中让msg自己处理消息" />
-    <option name="LAST_COMMIT_MESSAGE" value="抽象Msg类，clientRead0中让msg自己处理消息" />
+    <MESSAGE value="encoder加入MsgType,length,decoder里mark\resetReaderIndex之后解决了之前的BUG，原来是ByteBuf的问题，就是说clientChannel一下有好几个数据包时候，ByteBuf务必标记完全才能不丢失数据" />
+    <option name="LAST_COMMIT_MESSAGE" value="encoder加入MsgType,length,decoder里mark\resetReaderIndex之后解决了之前的BUG，原来是ByteBuf的问题，就是说clientChannel一下有好几个数据包时候，ByteBuf务必标记完全才能不丢失数据" />
   </component>
   <component name="XPathView.XPathProjectComponent">
     <history />

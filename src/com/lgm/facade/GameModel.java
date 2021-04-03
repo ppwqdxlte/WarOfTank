@@ -89,6 +89,9 @@ public class GameModel implements Serializable{
     public GameObject getGameObjectWithUUID(UUID uuid) {
         return goMap.get(uuid);
     }
+    public Client getClient(){
+        return client;
+    }
 
     public void paint(Graphics g) {
         Color c = g.getColor();
